@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <head>
+    <link rel="stylesheet" href="../css/rated.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Forthglade</title>
@@ -32,19 +33,29 @@
                 <span style="margin-left: 0.5rem;">|</span>
             </div>
             <div class="header__main-header--help">
-                <p>help</p>
+                <p>help
+                    <ul class = "list-help">
+                        <li><a href="">find a stockit</a></li>
+                        <li><a href="">get in touch</a></li>
+                        <li><a href="">subcribe and save</a></li>
+                        <li><a href="">delivery and return</a></li>
+                        <li><a href="">join the team</a></li>
+                    </ul>
+                </p>
                 <div class="sort-down-icon">
                     <i class="fas fa-sort-down"></i>
                 </div>
             </div>
-            <div class="header__main-header--search">
-                <form action="" method="post">
-                    <input type="text" name = "product_name" placeholder="product search">
-                    <button class = "search--button" type="submit"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-            <div class="header__main-header__cart">
-                <p class = "cart--content"><i class="fas fa-shopping-basket"></i> your basket is empty!</p>
+            <div class="header__main-header__search-and-cart">
+                <div class="header__main-header--search">
+                    <form action="" method="post">
+                        <input type="text" name = "product_name" placeholder="product search">
+                        <button class = "search--button" type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="header__main-header__cart">
+                    <p class = "cart--content"><i class="fas fa-shopping-basket"></i> your basket is empty!</p>
+                </div>
             </div>
         </div>
         <div class="header--logo">
@@ -115,6 +126,26 @@
                 </div>
             </li>
         </ul>
+    </div>
+    <div class="rated-container">
+        <div class="rated">
+            <div class="rated__delivery">
+                <img width="30rem" height="30rem" src="../image/delivery-van.png" alt="deliver">
+                <p class = "rated__delivery--title">free delivery for orders over $30</p>
+            </div>
+            <div class="rated__delivery-available">
+                <img width="30rem" height="30rem" src="../image/back-in-time.png" alt="deliver available">
+                <p class = "rated__delivery-available--title">dpd next day delivery available</p>
+            </div> 
+            <div class="rate__box">
+                <img width="30rem" height="30rem" src="../image/box.png" alt="box">
+                <p class = "rated__box--title">80% of all orders sent in 24 hours</p>
+            </div>
+            <div class="rated__star">
+                <img width="30rem" height="30rem" src="../image/5-stars.png" alt="box">
+                <p class = "rated__star--title">plantinum trust service</p>
+            </div>
+        </div>
     </div>
 </body>
 

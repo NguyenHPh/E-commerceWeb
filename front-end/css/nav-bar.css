@@ -6,7 +6,7 @@
 .nav-bar ul li {
   float: left;
   display: flex;
-  padding: 3rem;
+  padding: 1.7rem 3rem 1.7rem 3rem;
   font-size: 20px;
 }
 
@@ -28,10 +28,12 @@
 .nav-bar .sub-menu2,
 .nav-bar .sub-menu3 {
   position: absolute;
-  top: 33%;
+  top: 32%;
   box-shadow: 0 1px 1px 1px rgba(95, 82, 89, 0.2),
     0 1px 1px 1px rgba(95, 82, 89, 0.1);
   border-top: 5px solid rgb(44, 115, 40);
+  z-index: 10;
+  background-color: white; /* nếu không đặt background sẽ bị mặc định là transparent*/
 }
 
 .nav-bar ul li .fa-sort-down {
@@ -85,7 +87,7 @@
 
 @keyframes nav-bar-down {
   to {
-    top: 36%;
+    top: 35%;
   }
 }
 

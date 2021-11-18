@@ -1,0 +1,41 @@
+.rated-container {
+  height: 3rem;
+  background-color: #ece9e0;
+}
+
+.rated {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  left: 17%;
+}
+
+.rated__delivery,
+.rated__delivery-available,
+.rate__box,
+.rated__star {
+  display: flex;
+  flex-direction: row;
+}
+
+.rated__delivery--title,
+.rated__delivery-available--title,
+.rated__box--title,
+.rated__star--title {
+  margin: 0.9rem 0 0 0.7rem;
+  font-size: 12px;
+}
+
+.rated__delivery img,
+.rated__delivery-available img,
+.rate__box img,
+.rated__star img {
+  margin: 0.4rem 0 0 0;
+}
+
+.rated__delivery-available img,
+.rate__box img,
+.rated__star img {
+  margin-left: 2rem;
+  margin-top: 0.6rem;
+}

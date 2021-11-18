@@ -56,8 +56,41 @@
   cursor: pointer;
 }
 
+.list-help {
+  position: absolute;
+  background-color: white;
+  top: 12%;
+  left: 21.3%;
+  box-shadow: 0 1px 1px 1px rgba(95, 82, 89, 0.2),
+    0 1px 1px 1px rgba(95, 82, 89, 0.1);
+  visibility: hidden;
+}
+
+.list-help li {
+  font-size: 18px;
+  list-style-type: none;
+  padding: 0.5rem 1.5rem 1rem 1.5rem;
+}
+
+@keyframes help-list-down {
+  to {
+    margin-top: 1rem;
+  }
+}
+
+.list-help li a {
+  text-decoration: none;
+}
+
 .header__main-header--help:hover {
   background-color: whitesmoke;
+}
+.header__main-header--help:hover .list-help {
+  visibility: visible;
+}
+
+.header__main-header--help:hover .list-help li:first-child {
+  animation: help-list-down 0.2s forwards;
 }
 .sort-down-icon {
   margin-left: 0.2rem;
@@ -83,10 +116,17 @@
   background-color: whitesmoke;
 }
 
-.header__main-header--search {
+.header__main-header--search form {
   display: flex;
-  flex: row;
-  margin: 1% 0 0 35%;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+
+.header__main-header__search-and-cart {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  left: 30%;
 }
 
 .header__main-header--search input {
@@ -118,7 +158,8 @@
   height: 1.3rem;
   background-color: #dad394;
   padding: 0.7rem 0.5rem 0.5rem 1rem;
-  margin: 1% 0 0 1%;
+  margin-top: 1rem;
+  margin-left: 1rem;
   cursor: pointer;
 }
 
