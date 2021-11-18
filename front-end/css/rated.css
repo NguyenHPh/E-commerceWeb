@@ -1,5 +1,5 @@
 .rated-container {
-  height: 3rem;
+  height: 3.2rem;
   background-color: #ece9e0;
 }
 
@@ -32,6 +32,9 @@
 .rate__box img,
 .rated__star img {
   margin: 0.4rem 0 0 0;
+  width: 1.6rem;
+  height: 1.4rem;
+  height: 2rem;
 }
 
 .rated__delivery-available img,

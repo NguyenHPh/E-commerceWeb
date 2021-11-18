@@ -135,3 +135,15 @@
 .footer__info__stockist button:hover {
   background-color: #d6cc79;
 }
+
+.footer__social img {
+  width: 3rem;
+}
+
+.footer__image--dog img {
+  width: 18rem;
+}
+
+.footer__image--flag {
+  width: 5rem;
+}
