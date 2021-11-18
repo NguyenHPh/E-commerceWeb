@@ -1,0 +1,28 @@
+.footer {
+  height: 22rem;
+}
+
+.footer--title {
+  text-align: center;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.form-email {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form-email input {
+  width: 11rem;
+  height: 1.6rem;
+  padding: 0.5rem;
+}
+.form-email button {
+  height: 2.8rem;
+  padding: 0.5rem;
+  background-color: #b6ca29;
+  border: none;
+  cursor: pointer;
+}
