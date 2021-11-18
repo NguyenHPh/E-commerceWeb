@@ -50,10 +50,14 @@
   margin-left: 1rem;
   display: flex;
   flex-direction: row;
-  padding: 0.9% 0.7rem 0.9% 0;
+  padding: 0.9% 0.5rem 0.9% 0.4rem;
   align-items: center;
+  cursor: pointer;
 }
 
+.header__main-header--help:hover {
+  background-color: whitesmoke;
+}
 .fa-sort-down {
   margin-left: 0.2rem;
 }
@@ -115,4 +119,17 @@
 
 .header__main-header__cart:hover {
   background-color: #ccc26b;
+}
+
+.header--logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+.header--divider {
+  width: 90%;
+  height: 0.05rem;
+  background-color: rgba(21, 19, 19, 0.2);
+  margin: 1% 0 0 5%;
 }
