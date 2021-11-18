@@ -73,3 +73,46 @@
 .header__main-header--login:hover {
   background-color: whitesmoke;
 }
+
+.header__main-header--search {
+  display: flex;
+  flex: row;
+  margin: 1% 0 0 35%;
+}
+
+.header__main-header--search input {
+  width: 12.5rem;
+  height: 2.5rem;
+  border: none;
+  outline: none;
+  padding: 0 0.5rem;
+}
+
+.search--button {
+  background-color: white;
+  height: 2.5rem;
+  margin-left: -5px;
+  width: 3rem;
+  border: none;
+  cursor: pointer;
+}
+
+.fa-search {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.header__main-header__cart {
+  font-size: 14.4px;
+  font-weight: 100;
+  width: 12rem;
+  height: 1.3rem;
+  background-color: #dad394;
+  padding: 0.7rem 0.5rem 0.5rem 1rem;
+  margin: 1% 0 0 1%;
+  cursor: pointer;
+}
+
+.header__main-header__cart:hover {
+  background-color: #ccc26b;
+}
