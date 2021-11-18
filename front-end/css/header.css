@@ -32,13 +32,13 @@
   display: flex;
   flex-direction: row;
   color: black;
-  font-size: 14.4px;
+  font-size: 1rem;
 }
 
 .header__main-header--phone {
   display: flex;
   flex-direction: row;
-  padding: 0.9% 0.7rem 0.9% 0.7rem;
+  padding: 0.4rem 0.7rem 0.4rem 0.7rem;
   align-items: center;
   margin-left: 7%;
 }
@@ -68,7 +68,7 @@
 }
 
 .list-help li {
-  font-size: 18px;
+  font-size: 1.2rem;
   list-style-type: none;
   padding: 0.5rem 1.5rem 1rem 1.5rem;
 }
@@ -148,12 +148,12 @@
 }
 
 .fa-search {
-  font-size: 16px;
+  font-size: 1.1rem;
   font-weight: 300;
 }
 
 .header__main-header__cart {
-  font-size: 14.4px;
+  font-size: 0.8rem;
   font-weight: 100;
   width: 12rem;
   height: 1.3rem;

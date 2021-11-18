@@ -1,0 +1,83 @@
+.main-content--title {
+  margin-top: 9rem;
+  text-align: center;
+  color: black;
+  font-size: 2.7rem;
+  font-weight: 300;
+}
+
+.main-content__title-image {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.main-content__title--title {
+  font-size: 1.4rem;
+  text-align: center;
+  color: white;
+  font-weight: 200;
+  font-style: italic;
+  font-family: "Libre Baskerville", serif;
+  margin-top: 0.4rem;
+}
+
+.main-content__title-image--background {
+  background-image: url("https://cdn.shopify.com/s/files/1/0402/7685/2896/t/2/assets/text-smudge_green_650x.png?v=12239154037719982786");
+  height: 4rem;
+  width: 30%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.main-content__sale {
+  display: flex;
+  flex-direction: row;
+  margin-top: 6rem;
+  justify-content: space-around;
+}
+
+.sale__content--title {
+  font-size: 3.2rem;
+  font-weight: 100px;
+  color: #7a883d;
+  margin-left: -10rem;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.sale__content--content {
+  font-size: 1.6rem;
+  width: 40rem;
+  text-align: center;
+  margin-left: -6rem;
+  margin-top: 1.5rem;
+  margin-right: 0;
+}
+
+.main-content__sale--image img {
+  position: relative;
+  left: 20%;
+}
+
+.main-content__introduce {
+  height: 28rem;
+  background-color: #889e4c;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.introduce__content-wrapper--content {
+  font-size: 1.2rem;
+  color: white;
+  width: 40rem;
+  margin-top: 8rem;
+  line-height: 2rem;
+  margin-left: 2rem;
+}
+
+.introduce--image img {
+  margin-top: 3rem;
+  margin-left: -2rem;
+}

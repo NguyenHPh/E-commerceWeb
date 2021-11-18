@@ -20,7 +20,7 @@
 
 .nav-bar ul li ul li {
   float: none;
-  font-size: 15px;
+  font-size: 1rem;
   padding: 0.7rem 0 0.7rem 0;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .nav-bar ul li .fa-sort-down {
-  font-size: 15px;
+  font-size: 1rem;
 }
 
 .nav-bar .sub-menu3 {
@@ -98,7 +98,7 @@
 
 .sub-menu-title {
   margin-bottom: 0.5rem;
-  font-size: 16px;
+  font-size: 1.1rem;
   color: #387732;
 }
 
