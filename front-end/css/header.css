@@ -59,8 +59,8 @@
 .list-help {
   position: absolute;
   background-color: white;
-  top: 12%;
-  left: 21.3%;
+  top: 5rem;
+  left: 20.8rem;
   box-shadow: 0 1px 1px 1px rgba(95, 82, 89, 0.2),
     0 1px 1px 1px rgba(95, 82, 89, 0.1);
   visibility: hidden;
@@ -183,4 +183,10 @@
 
 .header--logo img {
   width: 12rem;
+}
+
+@media screen and (max-width: 1024px) {
+  * {
+    font-size: 12px;
+  }
 }

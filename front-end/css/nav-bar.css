@@ -28,7 +28,7 @@
 .nav-bar .sub-menu2,
 .nav-bar .sub-menu3 {
   position: absolute;
-  top: 32%;
+  top: 12rem;
   box-shadow: 0 1px 1px 1px rgba(95, 82, 89, 0.2),
     0 1px 1px 1px rgba(95, 82, 89, 0.1);
   border-top: 5px solid rgb(44, 115, 40);
@@ -87,7 +87,7 @@
 
 @keyframes nav-bar-down {
   to {
-    top: 35%;
+    top: 14rem;
   }
 }
 

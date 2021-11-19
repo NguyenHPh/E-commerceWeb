@@ -76,6 +76,7 @@
   display: flex;
   flex-direction: row;
   margin-top: 4rem;
+  padding-bottom: 3rem;
 }
 
 .footer__info__account,
@@ -111,12 +112,9 @@
   margin-left: 12rem;
 }
 
-.footer__info__stockist {
-}
-
 .footer__info__stockist--content {
   width: 60%;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   line-height: 1.5rem;
 }
 
@@ -146,4 +144,8 @@
 
 .footer__image--flag {
   width: 5rem;
+}
+
+.footer__image--flag img {
+  width: 7rem;
 }
