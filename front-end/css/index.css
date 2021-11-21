@@ -11,7 +11,7 @@
   height: 27rem;
   position: relative;
   left: 55%;
-  top: 14%;
+  top: 3.5rem;
 }
 
 .banner__box img {
@@ -313,7 +313,6 @@
   background-size: contain;
   background-repeat: no-repeat;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 4rem;
@@ -327,7 +326,6 @@
   background-repeat: no-repeat;
   margin-left: 1.5rem;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 4rem;
@@ -341,6 +339,7 @@
   background-color: rgba(255, 255, 255, 0.8);
   flex-direction: column;
   padding: 2rem;
+  margin-top: 3em;
 }
 
 .project--title,
@@ -386,4 +385,104 @@
 .project--button-learn button:hover,
 .month--button-learn button:hover {
   background-color: #eae190;
+}
+
+@media screen and (max-width: 1280px) {
+  * {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .product__product1 img,
+  .product__product2 img,
+  .product__product3 img {
+    width: 20rem;
+  }
+
+  .product__product1,
+  .product__product2,
+  .product__product3 {
+  }
+
+  .product__product1::before,
+  .product__product2::before,
+  .product__product3::before {
+    top: 27%;
+    height: 5rem;
+    width: 100%;
+  }
+
+  .product1__button-learn,
+  .product2__button-learn,
+  .product3__button-learn {
+    width: 15rem;
+    height: 2.3rem;
+    margin-left: 1.8rem;
+  }
+
+  .product1__button-buy,
+  .product2__button-buy,
+  .product3__button-buy {
+    width: 15rem;
+    height: 2.3rem;
+    margin-left: 1.8rem;
+    margin-top: 0.8rem;
+  }
+
+  .product1--content,
+  .product2--content,
+  .product3--content {
+    margin-left: 1.7rem;
+    text-align: center;
+  }
+
+  .service-rate--img2 {
+    display: none;
+  }
+
+  .project-and-month__project,
+  .project-and-month__month {
+    width: 22rem;
+    height: 20rem;
+  }
+
+  .project--wrapper,
+  .month--wrapper {
+    margin-top: 2rem;
+    width: 26rem;
+    height: 12rem;
+    padding: 0.5rem;
+  }
+
+  .project--content,
+  .month--content {
+    font-size: 1rem;
+  }
+
+  .project--title,
+  .month--title {
+    font-size: 2rem;
+  }
+
+  .project--button-learn button,
+  .month--button-learn button {
+    border: none;
+    background-color: #cdc36f;
+    color: black;
+    width: 8rem;
+    height: 3.5rem;
+  }
+
+  .project--button-learn button a,
+  .month--button-learn button a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  .main-content__project-and-month {
+    height: 28rem;
+  }
 }

@@ -193,6 +193,7 @@
 
 .header__main-header__cart p {
   margin-left: 0.5rem;
+  font-size: 0.8rem;
 }
 
 .header__main-header__cart .fa-shopping-basket {
@@ -220,71 +221,106 @@
 .header--logo img {
   width: 12rem;
 }
-/* 
-@media screen and (max-width: 1026px) {
-  * {
-    font-size: 12px;
+
+.cart--title,
+.search--title {
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  .header__main-header--bar {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+  }
+
+  .header__main-header--bar .fa-bars {
+    margin-left: 0.5rem;
+    font-weight: 200;
+  }
+
+  .header__main-header--phone {
+    display: none;
+  }
+
+  .header__main-header--login {
+    display: none;
+  }
+
+  .header__main-header--help {
+    display: none;
+  }
+
+  .header__main-header--divider {
+    display: none;
   }
 
   .header__main-header--search form input {
     display: none;
   }
-
   .header__main-header--search form button {
     background-color: transparent;
-    margin-left: 20rem;
   }
 
   .header__main-header--search form button .fa-search {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
+  }
+
+  .header__main-header--search .fa-search {
+    font-size: 1.8rem;
+    color: black;
+    font-weight: 200;
+  }
+  .search--title,
+  .cart--title {
+    margin-left: -0.2rem;
+    margin-top: -0.2rem;
+    display: block;
+  }
+
+  .cart--content {
+    display: none;
   }
 
   .header__main-header__cart {
     background-color: transparent;
-    cursor: default;
-    width: 2rem;
+    flex-direction: column;
+    font-size: 1.8rem;
+  }
+
+  .header__main-header__cart .fa-shopping-basket {
+    font-size: 1.8rem;
+    margin-top: -0.6rem;
+    color: black;
+    font-weight: 200;
+  }
+
+  .header__main-header__cart p {
+    font-size: 1.1rem;
+    color: black;
+    margin-top: 0.4rem;
+    margin-left: -0.5rem;
   }
 
   .header__main-header__cart:hover {
     background-color: transparent;
   }
-
-  .header__main-header__cart p {
-    visibility: hidden;
+  .search--title {
+    color: black;
   }
 
-  .header__main-header__cart .fa-shopping-basket {
-    font-size: 1.4rem;
-    margin-top: -0.2rem;
-    cursor: pointer;
+  .header__main-header__search-and-cart {
+  }
+  .header__main-header__cart {
+    width: 2rem;
   }
 
   .header__main-header {
-    background-color: white;
+    background-color: transparent;
+    max-width: 100%;
   }
 
   .header--logo img {
     position: absolute;
-    top: 4%;
+    top: 5%;
   }
-
-  .cart--content::after {
-    content: "basket";
-    visibility: visible;
-    display: block;
-    position: absolute;
-    top: 90%;
-    left: 2%;
-  }
-
-  .search--button::after {
-    content: "search";
-    position: absolute;
-    top: 90%;
-    left: 86%;
-  }
-  .header__main-header--bar {
-    display: block;
-    top: 27%;
-  }
-} */
+}
