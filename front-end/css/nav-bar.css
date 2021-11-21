@@ -111,3 +111,23 @@
   visibility: visible;
   animation: nav-bar-down 350ms forwards;
 }
+
+@media screen and (max-width: 1024px) {
+  .nav-bar .sub-menu1,
+  .nav-bar .sub-menu2,
+  .nav-bar .sub-menu3 {
+    position: absolute;
+    top: 10rem;
+    box-shadow: 0 1px 1px 1px rgba(95, 82, 89, 0.2),
+      0 1px 1px 1px rgba(95, 82, 89, 0.1);
+    border-top: 5px solid rgb(44, 115, 40);
+    z-index: 10;
+    background-color: white; /* nếu không đặt background sẽ bị mặc định là transparent*/
+  }
+
+  @keyframes nav-bar-down {
+    to {
+      top: 11.5rem;
+    }
+  }
+}
