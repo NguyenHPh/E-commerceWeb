@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'test_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'e-commerce',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+                'host': 'mongodb+srv://vungga274:vungga12@cluster0.mnau1.mongodb.net/test'
+        }
     }
 }
 

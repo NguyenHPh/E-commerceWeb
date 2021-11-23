@@ -556,4 +556,13 @@
   .box__content--button-learn {
     margin-left: -3rem;
   }
+
+  .search--button-disable {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+  }
 }
