@@ -387,6 +387,9 @@
   background-color: #eae190;
 }
 
+.cart--link-to-cart {
+}
+
 @media screen and (max-width: 1280px) {
   * {
     font-size: 13px;
