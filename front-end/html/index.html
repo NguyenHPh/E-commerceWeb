@@ -10,9 +10,18 @@
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/index.css">
     <meta name = "viewport" content="width=device-width,initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
+    <div class="blur-glass">
+            
+    </div>
+    <div class="small-nav-bar">
+        <div class="small-nav-bar__title">
+            <span class = "title--icon"><i class="fas fa-chevron-left"></i></span> <div class="small-nav-bar__title--content"><p>Forth glade</p></div>
+        </div>
+    </div>
     <div class="header">
         <div class="header__top">
             <div class="header__top--top1">
@@ -314,6 +323,21 @@
             <button><a href="">get in touch</a></button>
         </div>
     </div>
+    <script>
+        $(".header__main-header--bar").click(function(){
+            $(".small-nav-bar").removeClass('transform-disappear');
+            $(".small-nav-bar").addClass("transform-appear");
+            $(".blur-glass").css("display", "block");
+        });
+
+        $(".title--icon").click(function(){
+            $(".blur-glass").css("display", "none");
+            $(".small-nav-bar").addClass("transform-disappear").one('animationend',   
+                function(e) {
+                    $(".small-nav-bar").removeClass('transform-appear');
+                });
+        });
+    </script>
 </body>
 
 </html>
