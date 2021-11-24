@@ -6,6 +6,19 @@
 	width: calc(100% - 170px);
 }
 
+
+@media (min-width: 400px){
+	.container-base{
+		width: calc(100% - 60px);
+	}
+}
+
+@media (max-width: 400px){
+	.container-base{
+		width: calc(100% - 30px);
+	}
+}
+
 #terms > h1{
 	color: #000;
 	font-size: 32px;
