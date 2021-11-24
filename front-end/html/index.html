@@ -21,6 +21,76 @@
         <div class="small-nav-bar__title">
             <span class = "title--icon"><i class="fas fa-chevron-left"></i></span> <div class="small-nav-bar__title--content"><p>Forth glade</p></div>
         </div>
+        <div class="small-nav-bar__menu">
+            <ul class = "main-ul-1">
+                <li><div class="ul-header-1"><span>wet food</span><i class="fas fa-chevron-right"></i></div>
+                    <ul class = "first-ul">
+                        <li><span>Lifstage</span><i class="fas fa-chevron-right"></i>
+                            <ul>
+                                <li><a href="">puppy</a></li>
+                                <li><a href="">adult</a></li>
+                                <li><a href="">senior</a></li>
+                            </ul>
+                         </li>
+                        <li><span>dietary benefit</span><i class="fas fa-chevron-right"></i>
+                            <ul>
+                                <li><a href="">grain free</a></li>
+                                <li><a href="">wheat free</a></li>
+                            </ul>
+                        </li>
+                        <li><span>ingredients</span><i class="fas fa-chevron-right"></i>
+                            <ul>
+                                <li><a href="">chickend</a></li>
+                                <li><a href="">sardines</a></li>
+                                <li><a href="">turkey</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="">dry food</a></li>
+                <li><a href="">dog treats</a></li>
+                <li><span>our range</span><i class="fas fa-chevron-right"></i>
+                    <ul>
+                        <li><a href="">limited edition recipes</a></li>
+                        <li><a href="">grain free complete meals</a></li>
+                        <li><a href="">brown rice complete meals</a></li>
+                    </ul>
+                </li>
+                <li><span>discover forthglade</span><i class="fas fa-chevron-right"></i>
+                    <ul>
+                        <li><span>About forthglade</span><i class="fas fa-chevron-right"></i>
+                            <ul>
+                                <li><a href="">limited edition recipes</a></li>
+                                <li><a href="">grain free complete meals</a></li>
+                                <li><a href="">brown rice complete meals</a></li>
+                            </ul>
+                        </li>
+                        <li><span>Latest news</span><i class="fas fa-chevron-right"></i>
+                            <ul>
+                                <li><a href="">limited edition recipes</a></li>
+                                <li><a href="">limited edition recipes</a></li>
+                                <li><a href="">limited edition recipes</a></li>
+                            </ul>
+                        </li>
+                        <li><span>Join the team</span><i class="fas fa-chevron-right"></i>
+                            <ul>
+                                <li><a href="">limited edition recipes</a></li>
+                                <li><a href="">limited edition recipes</a></li>
+                                <li><a href="">limited edition recipes</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="">log in</a></li>
+                <li><span>help</span>
+                    <ul>
+                        <li><a href="">Join the team</a></li>
+                        <li><a href="">Delivery and returns</a></li>
+                        <li><a href="">feeding advice</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="header">
         <div class="header__top">
@@ -325,18 +395,23 @@
     </div>
     <script>
         $(".header__main-header--bar").click(function(){
+            $("body").css("overflow","hidden");
             $(".small-nav-bar").removeClass('transform-disappear');
             $(".small-nav-bar").addClass("transform-appear");
             $(".blur-glass").css("display", "block");
         });
 
         $(".title--icon").click(function(){
+            $("body").css("overflow","scroll");
             $(".blur-glass").css("display", "none");
             $(".small-nav-bar").addClass("transform-disappear").one('animationend',   
                 function(e) {
                     $(".small-nav-bar").removeClass('transform-appear');
                 });
         });
+        $(".ul-header-1").click(function(){
+            $(".small-nav-bar ul li:first-child .first-ul").slideToggle();
+        })
     </script>
 </body>
 

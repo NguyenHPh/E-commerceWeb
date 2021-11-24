@@ -346,10 +346,11 @@
 .small-nav-bar {
   position: absolute;
   width: 70%;
-  height: 100%;
-  background-color: white;
+  height: calc(100% + 4rem);
+  background-color: #ece9e0;
   z-index: 11;
   transform: translate(-100%);
+  overflow: scroll;
 }
 
 .small-nav-bar__title {
@@ -403,4 +404,54 @@
   animation-name: disappear;
   animation-duration: 0.2s;
   animation-fill-mode: forwards;
+}
+
+.small-nav-bar__menu ul li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.small-nav-bar__menu ul li span {
+  font-size: 1.2rem;
+}
+
+.small-nav-bar__menu ul li {
+  padding: 1.2rem;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.small-nav-bar__menu ul li a:hover {
+  text-decoration: underline;
+}
+
+.small-nav-bar__menu ul li .fa-chevron-right {
+  float: right;
+}
+
+.small-nav-bar ul li {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.small-nav-bar__menu > ul {
+  margin-top: 2rem;
+  margin-left: 1.5rem;
+}
+
+.small-nav-bar ul li ul {
+  display: none;
+}
+.small-nav-bar ul li {
+  border-bottom: 1px solid rgba(95, 82, 89, 0.2);
+  width: 90%;
+}
+
+.small-nav-bar ul li ul li:last-child {
+  border: none;
+  padding-bottom: 0;
+}
+
+.small-nav-bar ul li ul li ul {
+  display: none;
 }
