@@ -1,0 +1,37 @@
+#terms{
+	background-color: #efefef;
+}
+
+.container-base{
+	width: calc(100% - 170px);
+}
+
+#terms > h1{
+	color: #000;
+	font-size: 32px;
+} 
+
+
+#terms .front-show{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+}
+
+#terms .content{
+	background-color: #fff;
+	display: none;
+}
+
+#terms .front-show > *{
+	display: block;
+}
+
+#terms .content .group > p{
+	line-height: 1.75rem;
+}
+
+#terms .content .group > .fa-arrow-right{
+	margin-top: 5px;
+} 
