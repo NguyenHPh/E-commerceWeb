@@ -455,3 +455,33 @@
 .small-nav-bar ul li ul li ul {
   display: none;
 }
+
+.ul-header-4 .fa-question-circle {
+  font-size: 1.4rem;
+  color: #2c7328;
+}
+
+.ul-header-4 span {
+  margin-left: 0.5rem;
+}
+
+.ul-header-5 .fa-user-circle {
+  font-size: 1.4rem;
+  color: #2c7328;
+}
+
+.ul-header-5 a {
+  margin-left: 0.5rem;
+}
+
+.ul-header-5 .fa-user-circle {
+  font-size: 1.4rem;
+}
+
+.ul-header-4 {
+  cursor: pointer;
+}
+
+.ul-header-4 .fa-chevron-right {
+  float: right;
+}
