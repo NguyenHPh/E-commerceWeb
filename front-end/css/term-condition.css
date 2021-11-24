@@ -32,6 +32,10 @@
 	background-color: #fff;
 }
 
+#terms .front-show:hover >span{
+	color: #2c7328;
+}
+
 #terms .content{
 	background-color: #fff;
 	display: none;
