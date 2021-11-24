@@ -47,3 +47,7 @@ $(".main-ul-1-3 ul-header-3-3").click(function(){
 $(".ul-header-4").click(function(){
     $(".ul-header-4-1").slideToggle();
 })
+
+$(".search--button-disable").click(function(){
+    $(".small-search").slideToggle(0);
+});

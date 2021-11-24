@@ -485,3 +485,35 @@
 .ul-header-4 .fa-chevron-right {
   float: right;
 }
+
+.small-search {
+  margin-top: 1rem;
+  display: none;
+}
+
+.small-search form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.small-search input {
+  width: 90%;
+  height: 2.5rem;
+  border: 1px solid #2c7328;
+  padding-left: 1rem;
+  outline: none;
+}
+
+.small-search button {
+  width: 3rem;
+  background-color: #2c7328;
+  height: 2.7rem;
+  cursor: pointer;
+}
+
+.small-search .fa-search {
+  color: white;
+  font-size: 1.2rem;
+  border: 1px solid #2c7328;
+}
