@@ -204,6 +204,10 @@
   font-size: 1.1rem;
 }
 
+.small-footer ul li:nth-child(2) ul li a {
+  font-size: 1.1rem;
+}
+
 @media screen and (max-width: 1024px) {
   .small-footer {
     display: block;
