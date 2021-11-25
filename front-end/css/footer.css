@@ -149,3 +149,67 @@
 .footer__image--flag img {
   width: 7rem;
 }
+
+.small-footer li a {
+  font-size: 1.1rem;
+}
+
+.small-footer span,
+.small-footer li:last-child a {
+  font-size: 1.5rem;
+}
+
+.small-footer div,
+.small-footer a {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.small-footer a:hover {
+  text-decoration: underline;
+}
+
+.small-footer .fa-sort-down {
+  font-size: 1.4rem;
+}
+
+.small-footer div {
+  width: 95%;
+}
+
+.small-footer ul li:not(.small-footer ul li ul li) {
+  border-bottom: 1px solid rgba(95, 82, 89, 0.3);
+}
+
+.small-footer {
+  padding-left: 1.5rem;
+  display: none;
+}
+
+.small-footer ul li {
+  list-style-type: none;
+}
+.small-footer ul li ul {
+  display: none;
+}
+
+.small-footer ul li:first-child a {
+  font-size: 1.1rem;
+}
+
+.small-footer ul li:nth-child(3) ul li a {
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .small-footer {
+    display: block;
+    margin-top: 4rem;
+  }
+  .footer__info {
+    display: none;
+  }
+}

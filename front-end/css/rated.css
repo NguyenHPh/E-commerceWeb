@@ -50,3 +50,16 @@
     display: none;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .rate__box {
+    display: none;
+  }
+  .rated__star {
+    display: none;
+  }
+  .rated {
+    display: flex;
+    justify-content: center;
+  }
+}

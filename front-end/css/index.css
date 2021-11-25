@@ -1,5 +1,9 @@
+body {
+  overflow-x: hidden;
+}
+
 .main-content__banner {
-  height: 34rem;
+  height: 35rem;
   background-image: url("https://cdn.shopify.com/s/files/1/0402/7685/2896/files/711_Christmas_recipe_-_homepage_desktop_2000x600_crop_center.jpg?v=1635860252");
   background-size: contain;
   background-repeat: no-repeat;
@@ -318,6 +322,13 @@
   padding: 4rem;
 }
 
+.tag--natural span,
+.tag--devon span,
+.tag--junk span,
+.tag--est span {
+  font-size: 28px;
+}
+
 .project-and-month__month {
   background-image: url("https://cdn.shopify.com/s/files/1/0402/7685/2896/files/DOTM-Oct21-644x525px_800x800@2x.jpg?v=1633083306");
   width: 32rem;
@@ -441,6 +452,9 @@
     display: none;
   }
 
+  .main-content__service-rate {
+    display: none;
+  }
   .project-and-month__project,
   .project-and-month__month {
     width: 22rem;
@@ -564,5 +578,115 @@
     right: 0;
     bottom: 0;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .banner__box {
+    width: 28rem;
+    height: 20rem;
+    left: 15%;
+    top: 1rem;
+  }
+
+  .box__content--small-title,
+  .box__content--pagraraph,
+  .box__content--button-learn a,
+  .box__content--button-buy a {
+    font-size: 0.8rem;
+  }
+  .box__content--title {
+    font-size: 1.8rem;
+  }
+  .banner__box img {
+    width: 28rem;
+    height: 20rem;
+  }
+
+  .main-content__tag {
+    margin-top: 2rem;
+  }
+
+  .tag--natural,
+  .tag--devon,
+  .tag--junk,
+  .tag--est {
+    font-size: 0.9rem;
+    padding-right: 1rem;
+    margin-left: 0px;
+  }
+
+  .tag--natural span,
+  .tag--devon span,
+  .tag--junk span,
+  .tag--est span {
+    font-size: 0.9rem;
+  }
+
+  .main-content__banner {
+    height: 30rem;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+  }
+
+  .main-content__product {
+    overflow-y: hidden;
+    justify-content: center;
+  }
+  .product__product1,
+  .product__product3 {
+    display: none;
+  }
+  .main-content__service-rate {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .service-rate--img1 img {
+    width: 24rem;
+    height: 12rem;
+  }
+
+  .product2 {
+    margin-left: 4rem;
+  }
+
+  .product__product2 img {
+    width: 100%;
+  }
+
+  .product__product2::before {
+    display: none;
+  }
+
+  .product__product2 button {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .main-content__project-and-month {
+    display: block;
+  }
+  .footer {
+    margin-top: 25rem;
+  }
+  .project-and-month__month {
+    margin: 0;
+  }
+  .project-and-month__project {
+    margin: 0;
+    position: relative;
+    left: 6%;
+  }
+
+  .main-content__service-rate {
+    display: none;
+  }
+  .project-and-month__month {
+    margin: 0;
+    position: relative;
+    left: 6%;
   }
 }
