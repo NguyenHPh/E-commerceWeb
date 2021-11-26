@@ -132,6 +132,11 @@
   font-size: 0.8rem;
 }
 
+input {
+  padding-left: 0.5rem;
+  outline: none;
+}
+
 @media screen and (max-width: 1024px) {
   .form--username,
   .form--password,

@@ -93,6 +93,11 @@
   color: white;
 }
 
+input {
+  padding-left: 1rem;
+  outline: none;
+}
+
 @media screen and (max-width: 1024px) {
   .form--username,
   .form--password {
