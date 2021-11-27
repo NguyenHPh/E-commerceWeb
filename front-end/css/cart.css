@@ -307,8 +307,8 @@
   }
 
   .check-out-wrapper {
-    width: 50%;
-    padding-left: 7rem;
+    width: 70%;
+    padding-left: 12rem;
   }
 }
 
@@ -342,5 +342,9 @@
 
   .delete--x {
     display: none;
+  }
+  .check-out-wrapper {
+    width: 50%;
+    padding-left: 6rem;
   }
 }
