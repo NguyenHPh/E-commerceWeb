@@ -411,11 +411,6 @@ body {
     width: 20rem;
   }
 
-  .product__product1,
-  .product__product2,
-  .product__product3 {
-  }
-
   .product__product1::before,
   .product__product2::before,
   .product__product3::before {
