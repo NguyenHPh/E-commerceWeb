@@ -678,14 +678,14 @@ body {
   .project-and-month__month {
     width: 55%;
     height: 50%;
-    margin-left: 4rem;
+    margin-left: 5rem;
     background-size: cover;
 
     margin-top: 2rem;
   }
   .project-and-month__project {
     width: 55%;
-    margin-left: 4rem;
+    margin-left: 5rem;
     background-size: cover;
   }
 
