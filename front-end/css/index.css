@@ -314,7 +314,7 @@ body {
   background-image: url("https://cdn.shopify.com/s/files/1/0402/7685/2896/files/MicrosoftTeams-image_15_800x800@2x.jpg?v=1633076016");
   width: 35%;
   height: 65%;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
@@ -333,7 +333,7 @@ body {
   background-image: url("https://cdn.shopify.com/s/files/1/0402/7685/2896/files/DOTM-Oct21-644x525px_800x800@2x.jpg?v=1633083306");
   width: 35%;
   height: 65%;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   margin-left: 1.5rem;
   display: flex;
@@ -457,6 +457,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: cover;
   }
 
   .project--wrapper,
