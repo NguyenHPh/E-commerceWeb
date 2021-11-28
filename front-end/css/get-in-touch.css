@@ -1,0 +1,146 @@
+@media only screen and (min-width: 700px){
+	.container-base{
+		width: calc(100% - 170px);
+	}
+}
+
+
+
+#get-in-touch .general-info h1{
+	font-size: 40px;
+	color: #363636;
+	background-image: url("../image/get-in-touch-heading-bg.png");
+	background-size: 100% 100%;
+    padding: 20px 80px 20px 55px;
+}
+#get-in-touch .general-info > .note{
+	color: #363636;
+}
+
+#get-in-touch .form-sending label{
+	font-size: 14px;
+	color: #000;
+	font-weight: bold;
+}
+
+#get-in-touch .form-sending input{
+	height: 2rem;
+	color: #555!important;
+	border: #ccc 1px solid;
+	font-size: 14px!important;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    padding: 6px 12px;
+} 
+
+#get-in-touch .form-sending textarea{
+	color: #555!important;
+	border: #ccc 1px solid;
+	font-size: 14px!important;
+	box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    padding: 6px 12px;
+}
+
+#get-in-touch .form-sending input:focus {
+	outline: none;
+	border-color: #7fa729!important;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(127 167 41 / 60%);
+}
+
+#get-in-touch .form-sending textarea:focus {
+	outline: none;
+	border-color: #7fa729!important;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(127 167 41 / 60%);
+}
+
+
+#get-in-touch .form-sending button{
+	font-size: 18px;
+	color: #fff;
+	background-color: rgb(44, 115, 40);
+	border: none;
+	display: inline-block;
+	padding: 10px 30px;
+}
+
+#get-in-touch .form-sending button:hover{
+	background-color: #424242 !important;
+}
+
+#get-in-touch .more-info{
+	background-color: rgb(245, 244, 239);
+}
+
+#get-in-touch .more-info .item{
+	background-color: #fff;
+}
+
+#get-in-touch .more-info .item h3{
+	color: #000; 
+	font-size: 32px;
+}
+
+#get-in-touch .more-info .item a{
+	color: #000; 
+	font-size: 14px;
+	background-color: rgb(218, 211, 149);
+	display: inline-block;
+	padding: 10px 20px;
+}
+
+#get-in-touch .more-info .item a:hover{
+	text-decoration: none;
+	border-color: rgba(69, 78, 149, 1) !important;
+    opacity: 1 !important;
+    background-color: rgba(205, 195, 111, 1) !important;
+}
+
+
+
+
+
+
+.contact-learn-more{
+	background-image: url("../image/contact-bg-dog.jfif");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 80% center;
+}
+
+.contact-learn-more >div{
+	background-color: rgba(255,255,255, 0.8);
+}
+
+.contact-learn-more h2{
+	font-size: 50px;
+	color: #333;
+}
+
+.contact-learn-more h4{
+	font-size: 30px;
+	line-height: 3rem;
+	font-style: italic;
+	color: rgba(44, 115, 40, 1);
+	font-weight: normal;
+}
+
+.contact-learn-more >div >div{
+	width: 200px;
+	background-color: rgba(218, 211, 149, 1);
+	border-color: rgba(130, 191, 72, 1);
+}
+
+.contact-learn-more >div >div > a{
+	font-size: 20px;
+	font-style: italic;
+	color: #000;
+}
+
+.contact-learn-more >div >div:hover > a{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.contact-learn-more >div >div:hover {
+	background-color: rgba(205, 195, 111, 1);
+}

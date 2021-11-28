@@ -1,0 +1,132 @@
+@media only screen and (min-width: 700px){
+	.container-base{
+		width: calc(100% - 10px);
+	}
+
+	.further-info .label .label-selection{
+		display: inline-block;
+		font-size: 20px;
+		text-align: center;
+		padding: 5 10px;
+	}
+	.selected-part{
+		border-top: 4px solid #2c7328;
+	}
+}
+
+
+@media only screen and (max-width: 700px){
+	.container-base{
+		width: calc(100% + 20px);
+	}
+
+	.further-info .label{
+		display: block;
+	}
+
+	.further-info .label .label-selection{
+		display: block;
+		font-size: 16px;
+		text-align: center;
+	}
+
+	.selected-part{
+		background-color: #E3F1E3;
+	}
+}
+
+.further-info .label .border-right{
+	border-right: 2px solid #333;
+}
+
+.further-info > .content{
+	background-color: rgb(245, 244, 239);
+}
+
+.hide{
+	display: none;
+}
+
+
+
+#advices .info-plan-meal{
+	margin:  20px 30px;
+}
+
+#advices .front-show{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+}
+
+#advices .front-show:hover >span{
+	color: #2c7328;
+}
+
+#advices .content-inner{
+	background-color: #fff;
+	display: none;
+}
+
+#advices .front-show > *{
+	display: block;
+}
+
+#advices .content-inner .group > p{
+	line-height: 1.75rem;
+}
+
+#advices .content-inner .group > .fa-arrow-right{
+	margin-top: 5px;
+}
+
+#advices .content-inner .group img{
+	display
+}
+
+
+.about-learn-more{
+	background-image: url("../image/about-background-table-food.jfif");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: left center;
+}
+
+.about-learn-more >div{
+	background-color: rgba(255,255,255, 0.8);
+}
+
+.about-learn-more h2{
+	font-size: 50px;
+	color: #333;
+}
+
+.about-learn-more h4{
+	font-size: 30px;
+	line-height: 2rem;
+	font-style: italic;
+	color: rgba(44, 115, 40, 1);
+	font-weight: normal;
+}
+
+.about-learn-more >div >div{
+	width: 200px;
+	background-color: rgba(218, 211, 149, 1);
+	border-color: rgba(130, 191, 72, 1);
+}
+
+.about-learn-more >div >div > a{
+	font-size: 20px;
+	font-style: italic;
+	color: #000;
+}
+
+.about-learn-more >div >div:hover > a{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.about-learn-more >div >div:hover {
+	background-color: rgba(205, 195, 111, 1);
+}
