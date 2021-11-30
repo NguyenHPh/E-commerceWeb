@@ -705,4 +705,8 @@ body {
   .month--title {
     font-size: 1.6rem;
   }
+
+  .footer {
+    margin-top: 10rem;
+  }
 }
