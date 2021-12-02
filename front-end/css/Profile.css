@@ -1,0 +1,148 @@
+.profile--wrapper {
+  padding: 0 6rem;
+}
+
+.profile__my-account {
+  margin-top: 4rem;
+}
+
+.button--log-out a,
+.button--change-password a,
+.button--subcription a,
+.billing-detail__main--button a,
+.order-history__main--button a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+  background-color: #2c7328;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+}
+
+.profile__my-account {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.my-account__button {
+  display: flex;
+  flex-direction: row;
+}
+
+.button--change-password,
+.button--log-out {
+  margin-left: 1rem;
+}
+
+.button--log-out a:hover,
+.button--change-password a:hover,
+.button--subcription a:hover,
+.billing-detail__main--button a:hover,
+.order-history__main--button a:hover {
+  background-color: #53b44e;
+}
+
+.my-account__button {
+  margin-top: 1rem;
+}
+
+.profile__billing-detail {
+  margin-top: 3rem;
+}
+
+.billing-detail--title p,
+.order-history--title p,
+.refer-a-friend--title p {
+  font-size: 22px;
+}
+
+.billing-detail__main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 1rem;
+  margin-top: 3rem;
+}
+
+.billing-detail__main--content p {
+  font-size: 0.9rem;
+  color: black;
+  font-weight: bold;
+}
+
+.profile__order-history,
+.profile__refer-a-friend {
+  margin-top: 3rem;
+}
+
+.order-history__main {
+  margin-top: 2rem;
+}
+
+.order-history__main--button {
+  margin-top: 2rem;
+}
+
+.refer-a-friend__banner {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.refer-a-friend__banner-left {
+  width: 22rem;
+  height: 38rem;
+  background-color: #7ba021;
+  flex-shrink: 0;
+  padding: 0 4rem;
+}
+
+.refer-a-friend__banner-right {
+  width: 26rem;
+  height: 38rem;
+  flex-shrink: 0;
+  background: url("../image/product-img-03.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-left--title p {
+  color: white;
+  font-size: 32px;
+  text-align: center;
+  margin-top: 10rem;
+}
+
+.banner-left--small-tag {
+  font-size: 0.7rem;
+  margin-top: 3rem;
+}
+
+.banner-left--small-tag-2 {
+  font-size: 0.7rem;
+  margin-top: 2rem;
+}
+
+.banner-left--small-tag p,
+.banner-left--small-tag-2 p {
+  text-align: center;
+  color: beige;
+}
+
+.banner-left--button {
+  margin-top: 3rem;
+}
+
+.banner-left--button a {
+  width: 100%;
+  padding: 1rem 7rem;
+  background-color: #2c7328;
+  text-decoration: none;
+  color: white;
+  margin-left: 1rem;
+}
+
+.banner-left--button a:hover {
+  background-color: #0c4609;
+}
