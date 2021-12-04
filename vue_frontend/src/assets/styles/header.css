@@ -231,6 +231,14 @@
   display: none;
 }
 @media screen and (max-width: 1024px) {
+  .search--button-disable {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+  }
   .header__main-header--bar {
     display: flex;
     flex-direction: column;
