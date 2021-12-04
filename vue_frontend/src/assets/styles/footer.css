@@ -1,0 +1,219 @@
+.footer {
+  height: 22rem;
+}
+
+.footer--title {
+  text-align: center;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.form-email {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form-email input {
+  width: 17rem;
+  height: 1.6rem;
+  padding: 0.5rem;
+}
+.form-email button {
+  width: 5.5rem;
+  height: 2.8rem;
+  padding: 0.5rem;
+  background-color: #2c7328;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.form-email button:hover {
+  background-color: #889e4c;
+}
+
+.footer__social {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.footer__social--facebook,
+.footer__social--instagram,
+.footer__social--twiter {
+  margin-left: 1.5rem;
+  margin-top: 2rem;
+}
+
+.footer__decor {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__image {
+  display: flex;
+  justify-content: center;
+  width: 85%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 11rem;
+  background-image: url("https://cdn.shopify.com/s/files/1/0402/7685/2896/t/2/assets/forthglade_footer_grass_800x.progressive.jpg?v=9209415058790099554");
+}
+
+.footer__image--dog {
+  margin-top: 3rem;
+}
+
+.footer__image--flag {
+  position: relative;
+  left: 25%;
+  top: -12%;
+}
+
+.footer__info {
+  display: flex;
+  flex-direction: row;
+  margin-top: 4rem;
+  padding-bottom: 3rem;
+}
+
+.footer__info__account,
+.footer__info__help,
+.footer__info__legal,
+.footer__info__stockist {
+  flex-grow: 1;
+}
+
+.footer__info__account--title,
+.footer__info__help--title,
+.footer__info__legal--title,
+.footer__info__stockist--title {
+  font-size: 1.2rem;
+  color: #2c7328;
+  margin-bottom: 1.2rem;
+}
+
+.footer__info ul li {
+  list-style-type: none;
+  padding-bottom: 0.6rem;
+}
+
+.footer__info ul li a {
+  color: black;
+  text-decoration: none;
+}
+.footer__info ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer__info__account {
+  margin-left: 12rem;
+}
+
+.footer__info__stockist--content {
+  width: 60%;
+  margin-bottom: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.footer__info__stockist button {
+  width: 7rem;
+  height: 2rem;
+  background-color: #dad394;
+  border: none;
+}
+
+.footer__info__stockist a {
+  text-decoration: none;
+  color: black;
+}
+
+.footer__info__stockist button:hover {
+  background-color: #d6cc79;
+}
+
+.footer__social img {
+  width: 3rem;
+}
+
+.footer__image--dog img {
+  width: 18rem;
+}
+
+.footer__image--flag {
+  width: 5rem;
+}
+
+.footer__image--flag img {
+  width: 7rem;
+}
+
+.small-footer li a {
+  font-size: 1.1rem;
+}
+
+.small-footer span,
+.small-footer li:last-child a {
+  font-size: 1.5rem;
+}
+
+.small-footer div,
+.small-footer a {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.small-footer a:hover {
+  text-decoration: underline;
+}
+
+.small-footer .fa-sort-down {
+  font-size: 1.4rem;
+}
+
+.small-footer div {
+  width: 95%;
+}
+
+.small-footer ul li:not(.small-footer ul li ul li) {
+  border-bottom: 1px solid rgba(95, 82, 89, 0.3);
+}
+
+.small-footer {
+  padding-left: 1.5rem;
+  display: none;
+}
+
+.small-footer ul li {
+  list-style-type: none;
+}
+.small-footer ul li ul {
+  display: none;
+}
+
+.small-footer ul li:first-child a {
+  font-size: 1.1rem;
+}
+
+.small-footer ul li:nth-child(3) ul li a {
+  font-size: 1.1rem;
+}
+
+.small-footer ul li:nth-child(2) ul li a {
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .small-footer {
+    display: block;
+    margin-top: 4rem;
+  }
+  .footer__info {
+    display: none;
+  }
+}

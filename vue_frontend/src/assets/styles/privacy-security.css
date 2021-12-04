@@ -1,0 +1,54 @@
+#privacy{
+	background-color: #efefef;
+}
+
+.container-base{
+	width: calc(100% - 170px);
+}
+
+
+@media (min-width: 400px){
+	.container-base{
+		width: calc(100% - 60px);
+	}
+}
+
+@media (max-width: 400px){
+	.container-base{
+		width: calc(100% - 30px);
+	}
+}
+
+#privacy > h1{
+	color: #000;
+	font-size: 32px;
+} 
+
+
+#privacy .front-show{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+}
+
+#privacy .front-show:hover >span{
+	color: #2c7328;
+}
+
+#privacy .content{
+	background-color: #fff;
+	display: none;
+}
+
+#privacy .front-show > *{
+	display: block;
+}
+
+#privacy .content .group > p{
+	line-height: 1.75rem;
+}
+
+#privacy .content .group > .fa-arrow-right{
+	margin-top: 5px;
+} 

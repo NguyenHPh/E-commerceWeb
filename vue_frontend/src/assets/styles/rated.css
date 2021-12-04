@@ -1,0 +1,65 @@
+.rated-container {
+  height: 3.2rem;
+  background-color: #ece9e0;
+}
+
+.rated {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  left: 17%;
+  width: 70%;
+}
+
+.rated__delivery,
+.rated__delivery-available,
+.rate__box,
+.rated__star {
+  display: flex;
+  flex-direction: row;
+}
+
+.rated__delivery--title,
+.rated__delivery-available--title,
+.rated__box--title,
+.rated__star--title {
+  margin: 0.9rem 0 0 0.7rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.rated__delivery img,
+.rated__delivery-available img,
+.rate__box img,
+.rated__star img {
+  margin: 0.4rem 0 0 0;
+  width: 1.6rem;
+  height: 1rem;
+  height: 2rem;
+}
+
+.rated__delivery-available img,
+.rate__box img,
+.rated__star img {
+  margin-left: 2rem;
+  margin-top: 0.6rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .rated__delivery-available {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .rate__box {
+    display: none;
+  }
+  .rated__star {
+    display: none;
+  }
+  .rated {
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,712 @@
+body {
+  overflow-x: hidden;
+}
+
+.main-content__banner {
+  height: 35rem;
+  background-image: url("https://cdn.shopify.com/s/files/1/0402/7685/2896/files/711_Christmas_recipe_-_homepage_desktop_2000x600_crop_center.jpg?v=1635860252");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.banner__box {
+  width: 35rem;
+  height: 26rem;
+  position: relative;
+  left: 55%;
+  top: 3.5rem;
+}
+
+.banner__box img {
+  width: 36rem;
+  height: 26rem;
+}
+
+.banner__box__content {
+  position: absolute;
+  top: 6%;
+  left: 27%;
+}
+
+.box__content--title {
+  font-size: 3rem;
+  width: 15rem;
+  color: #2c7328;
+  text-align: center;
+}
+
+.box__content--small-title {
+  font-size: 1.4rem;
+  margin-left: -1.2rem;
+  color: black;
+  font-style: italic;
+  margin-top: 0.5rem;
+  font-weight: 100;
+}
+
+.box__content--pagraraph {
+  text-align: center;
+  width: 30rem;
+  margin: 2rem 0 0 -6rem;
+  color: black;
+  line-height: 1.7rem;
+}
+
+.box__content--button-learn,
+.box__content--button-buy {
+  margin-top: 1.2rem;
+  width: 13.5rem;
+  height: 3.8rem;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.box__content--button-learn {
+  margin-left: -5rem;
+  background-color: #cdc36c;
+}
+
+.box__content--button-buy {
+  background-color: #2c7328;
+  margin-left: 0.5rem;
+}
+
+.box__content--button-learn a {
+  color: black;
+  text-decoration: none;
+}
+
+.box__content--button-buy a {
+  color: white;
+  text-decoration: none;
+}
+
+.banner__box__content .fa-arrow-right {
+  color: white;
+}
+
+.box__content--button-learn:hover {
+  background-color: #eae190;
+}
+
+.box__content--button-buy:hover {
+  background-color: #52a84d;
+}
+
+.tag--natural,
+.tag--devon,
+.tag--junk,
+.tag--est {
+  font-size: 1.4rem;
+  padding-right: 7rem;
+  font-style: italic;
+}
+
+.main-content__tag {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.tag--natural {
+  margin-left: 3rem;
+}
+
+.main-content__product {
+  height: 40rem;
+  padding: 3rem;
+  padding-left: 7rem;
+  padding-right: 7rem;
+}
+
+.product__product1,
+.product__product2,
+.product__product3 {
+  position: relative;
+}
+
+.product__product1 img,
+.product__product2 img,
+.product__product3 img {
+  width: 26rem;
+}
+
+.product__product1,
+.product__product2 {
+  padding-right: 1.5rem;
+}
+
+.product__product1::before,
+.product__product2::before,
+.product__product3::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  pointer-events: 0;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1) 90%
+  );
+  top: 39%;
+  height: 5rem;
+  width: 100%;
+}
+
+.product1--category,
+.product2--category,
+.product3--category {
+  margin-top: 1.6rem;
+  text-align: center;
+  color: #208483;
+  font-size: 1.2rem;
+}
+
+.main-content__product {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.product2--title,
+.product1--title,
+.product3--title {
+  text-align: center;
+  margin-top: 0.7rem;
+  font-size: 2.6rem;
+  color: black;
+}
+
+.product3--content,
+.product1--content,
+.product2--content {
+  margin-top: 0.7rem;
+  text-align: center;
+  width: 80%;
+  height: 15%;
+  margin-left: 3rem;
+  line-height: 1.5rem;
+  color: black;
+}
+
+.product1__button-learn,
+.product2__button-learn,
+.product3__button-learn {
+  margin-top: 1rem;
+  width: 9rem;
+  height: 2.3rem;
+  margin-left: 4rem;
+  background-color: #cdc36f;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+.product1__button-buy,
+.product2__button-buy,
+.product3__button-buy {
+  width: 9rem;
+  height: 2.3rem;
+  margin-left: 0.5rem;
+  background-color: #2c7328;
+  border: none;
+
+  cursor: pointer;
+}
+
+.product1__button-buy a,
+.product2__button-buy a,
+.product3__button-buy a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.product1__button-learn a,
+.product2__button-learn a,
+.product3__button-learn a {
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.main-content__product .fa-arrow-right {
+  color: white;
+  margin-left: 0.3rem;
+}
+
+.product1__button-buy:hover,
+.product2__button-buy:hover,
+.product3__button-buy:hover {
+  background-color: #52a84d;
+}
+
+.product1__button-learn:hover,
+.product2__button-learn:hover,
+.product3__button-learn:hover {
+  background-color: #eae190;
+}
+
+.main-content__service-rate {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.service-rate--img1,
+.service-rate__content {
+  flex: 3;
+  flex-shrink: 0;
+}
+
+.service-rate--img2 {
+  flex: 2;
+  flex-shrink: 0;
+}
+
+.service-rate--img1 img {
+  width: 24rem;
+  height: 12rem;
+  position: relative;
+  left: 20%;
+}
+
+.service-rate--img2 img {
+  width: 20rem;
+  height: 5rem;
+  position: relative;
+  top: 22%;
+}
+
+.service-rate__content--title {
+  font-size: 2.1rem;
+  color: #2c7328;
+  margin-top: 2rem;
+  margin-left: 2.5rem;
+}
+
+.service-rate__content--pagraraph {
+  width: 90%;
+  text-align: center;
+  margin-top: 1.7rem;
+
+  line-height: 1.5rem;
+  color: black;
+}
+
+.cart--content {
+  width: 15rem;
+}
+
+.main-content__project-and-month {
+  height: 38rem;
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.project-and-month__project {
+  background-image: url("https://cdn.shopify.com/s/files/1/0402/7685/2896/files/MicrosoftTeams-image_15_800x800@2x.jpg?v=1633076016");
+  width: 35%;
+  height: 65%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 4rem;
+}
+
+.tag--natural span,
+.tag--devon span,
+.tag--junk span,
+.tag--est span {
+  font-size: 28px;
+}
+
+.project-and-month__month {
+  background-image: url("https://cdn.shopify.com/s/files/1/0402/7685/2896/files/DOTM-Oct21-644x525px_800x800@2x.jpg?v=1633083306");
+  width: 35%;
+  height: 65%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-left: 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 4rem;
+}
+
+.project--wrapper,
+.month--wrapper {
+  display: flex;
+  width: 95%;
+  height: 14rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  flex-direction: column;
+  padding: 2rem;
+  margin-top: 3em;
+}
+
+.project--title,
+.month--title {
+  font-size: 200%;
+  text-align: center;
+  color: black;
+}
+
+.project--content,
+.month--content {
+  font-size: 120%;
+  color: #2c7328;
+  text-align: center;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.project--button-learn button,
+.month--button-learn button {
+  border: none;
+  background-color: #cdc36f;
+  color: black;
+  width: 9.5rem;
+  height: 3.8rem;
+}
+
+.project--button-learn button a,
+.month--button-learn button a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.project--button-learn,
+.month--button-learn {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.project--button-learn button:hover,
+.month--button-learn button:hover {
+  background-color: #eae190;
+}
+
+@media screen and (max-width: 1280px) {
+  * {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .product__product1 img,
+  .product__product2 img,
+  .product__product3 img {
+    width: 20rem;
+  }
+
+  .product__product1::before,
+  .product__product2::before,
+  .product__product3::before {
+    top: 27%;
+    height: 5rem;
+    width: 100%;
+  }
+
+  .product1__button-learn,
+  .product2__button-learn,
+  .product3__button-learn {
+    width: 15rem;
+    height: 2.3rem;
+    margin-left: 1.8rem;
+  }
+
+  .product1__button-buy,
+  .product2__button-buy,
+  .product3__button-buy {
+    width: 15rem;
+    height: 2.3rem;
+    margin-left: 1.8rem;
+    margin-top: 0.8rem;
+  }
+
+  .product1--content,
+  .product2--content,
+  .product3--content {
+    margin-left: 1.7rem;
+    text-align: center;
+  }
+
+  .service-rate--img2 {
+    display: none;
+  }
+
+  .main-content__service-rate {
+    display: none;
+  }
+  .project-and-month__project,
+  .project-and-month__month {
+    width: 30%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+  }
+
+  .project--wrapper,
+  .month--wrapper {
+    width: 95%;
+    min-width: 18rem;
+    height: 10rem;
+    padding: 0.5rem;
+    margin-top: 0rem;
+  }
+
+  .project--content,
+  .month--content {
+    font-size: 90%;
+  }
+
+  .project--title,
+  .month--title {
+    font-size: 160%;
+  }
+
+  .project--button-learn button,
+  .month--button-learn button {
+    border: none;
+    background-color: #cdc36f;
+    color: black;
+    width: 8rem;
+    height: 3.5rem;
+  }
+
+  .project--button-learn button a,
+  .month--button-learn button a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  .main-content__project-and-month {
+    width: 100%;
+    height: 28rem;
+    padding: 0;
+  }
+
+  .banner__box {
+    width: 35rem;
+    height: 26rem;
+    position: relative;
+    left: 55%;
+    top: 3.5rem;
+  }
+
+  .banner__box img {
+    width: 33rem;
+    height: 22rem;
+  }
+
+  .box__content--title {
+    font-size: 2rem;
+  }
+
+  .box__content--small-title {
+    font-size: 1rem;
+    margin-left: 1.3rem;
+    color: black;
+  }
+
+  .box__content--pagraraph {
+    text-align: center;
+    width: 26rem;
+    margin: 1rem 0 0 -6rem;
+    font-size: 1rem;
+  }
+
+  .box__content--button-learn,
+  .box__content--button-buy {
+    margin-top: 1.2rem;
+    width: 10rem;
+    height: 3rem;
+    font-size: 1rem;
+    margin-left: 2rem;
+  }
+
+  .box__content--button-learn button {
+    margin-left: 2rem;
+  }
+
+  .box__content--button-learn {
+    margin-left: 5rem;
+  }
+
+  .box__content--button-learn {
+    margin-left: -5rem;
+    background-color: #cdc36c;
+  }
+
+  .box__content--button-buy {
+    background-color: #2c7328;
+    margin-left: 0.5rem;
+  }
+
+  .box__content--button-learn a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .box__content--button-buy a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .box__content--button-learn {
+    margin-left: -3rem;
+  }
+
+  .search--button-disable {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .banner__box {
+    width: 28rem;
+    height: 20rem;
+    left: 15%;
+    top: 1rem;
+  }
+
+  .box__content--small-title,
+  .box__content--pagraraph,
+  .box__content--button-learn a,
+  .box__content--button-buy a {
+    font-size: 0.8rem;
+  }
+  .box__content--title {
+    font-size: 1.8rem;
+  }
+  .banner__box img {
+    width: 28rem;
+    height: 20rem;
+  }
+
+  .main-content__tag {
+    margin-top: 2rem;
+  }
+
+  .tag--natural,
+  .tag--devon,
+  .tag--junk,
+  .tag--est {
+    font-size: 0.9rem;
+    padding-right: 1rem;
+    margin-left: 0px;
+  }
+
+  .tag--natural span,
+  .tag--devon span,
+  .tag--junk span,
+  .tag--est span {
+    font-size: 0.9rem;
+  }
+
+  .main-content__banner {
+    height: 30rem;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+  }
+
+  .main-content__product {
+    overflow-y: hidden;
+    justify-content: center;
+  }
+  .product__product1,
+  .product__product3 {
+    display: none;
+  }
+  .main-content__service-rate {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .service-rate--img1 img {
+    width: 24rem;
+    height: 12rem;
+  }
+
+  .product2 {
+    margin-left: 4rem;
+  }
+
+  .product__product2 img {
+    width: 100%;
+  }
+
+  .product__product2::before {
+    display: none;
+  }
+
+  .product__product2 button {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .main-content__project-and-month {
+    flex-direction: column;
+    margin-top: 10rem;
+    padding: 0;
+  }
+  .footer {
+    margin-top: 25rem;
+  }
+  .project-and-month__month {
+    width: 55%;
+    height: 50%;
+    margin-left: 5rem;
+    background-size: cover;
+
+    margin-top: 2rem;
+  }
+  .project-and-month__project {
+    width: 55%;
+    margin-left: 5rem;
+    background-size: cover;
+  }
+
+  .main-content__service-rate {
+    display: none;
+  }
+
+  .project--wrapper,
+  .month--wrapper {
+    width: 18rem;
+    margin-top: 0rem;
+    left: 0;
+  }
+
+  .project--title,
+  .month--title {
+    font-size: 1.6rem;
+  }
+
+  .footer {
+    margin-top: 10rem;
+  }
+}
