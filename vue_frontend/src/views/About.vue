@@ -136,6 +136,9 @@ export default {
         return{
 
         }
+    },
+    mounted() {
+        document.title = 'About'
     }
 }
 </script>
