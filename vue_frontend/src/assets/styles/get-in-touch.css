@@ -101,7 +101,7 @@
 
 
 .contact-learn-more{
-	background-image: url("../image/contact-bg-dog.jfif");
+	background-image: url("../image/contact-bg-dog.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 80% center;
@@ -142,5 +142,54 @@
 }
 
 .contact-learn-more >div >div:hover {
+	background-color: rgba(205, 195, 111, 1);
+}
+
+
+
+
+.contact-learn-more-01{
+	background-image: url("../image/contact-bg-dog-2.png");
+	background-position: 60% center; 
+	background-repeat: no-repeat; 
+	background-size: cover; 
+	max-width: 1200px;
+}
+
+.contact-learn-more-01 >div{
+	background-color: rgba(255,255,255, 0.8);
+}
+
+.contact-learn-more-01 h2{
+	font-size: 50px;
+	color: #333;
+}
+
+.contact-learn-more-01 h4{
+	font-size: 30px;
+	line-height: 3rem;
+	font-style: italic;
+	color: rgba(44, 115, 40, 1);
+	font-weight: normal;
+}
+
+.contact-learn-more-01 >div >div{
+	width: 200px;
+	background-color: rgba(218, 211, 149, 1);
+	border-color: rgba(130, 191, 72, 1);
+}
+
+.contact-learn-more-01 >div >div > a{
+	font-size: 20px;
+	font-style: italic;
+	color: #000;
+}
+
+.contact-learn-more-01 >div >div:hover > a{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.contact-learn-more-01 >div >div:hover {
 	background-color: rgba(205, 195, 111, 1);
 }

@@ -81,13 +81,13 @@
 	margin-top: 5px;
 }
 
-#advices .content-inner .group img{
+/*#advices .content-inner .group img{
 	display
-}
+}*/
 
 
 .about-learn-more{
-	background-image: url("../image/about-background-table-food.jfif");
+	background-image: url("../image/about-background-table-food.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: left center;

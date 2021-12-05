@@ -1,5 +1,5 @@
 <template>
-    <div class="container-base mx-auto pt-5 pb-5 about-history">
+    <div class="container-base mx-auto pb-5 about-history">
         <div class="row mt-5 pt-5 mb-5">
             <div class="col-lg-4 mx-auto">
                 <img class="mt-5 mb-3 w-100 img-fluid" src="../assets/image/about-history-01.png" alt="history-01">
@@ -126,7 +126,7 @@
         </div>
     </div>
 </template>
-}
+
 
 <script>
 
@@ -144,5 +144,6 @@ export default {
 </script>
 
 <style scoped src="../assets/styles/bootstrap.min.css">
-    @import "./assets/styles/about.css";
+</style>
+<style scoped src="../assets/styles/about.css">
 </style>

@@ -1,6 +1,7 @@
 .rated-container {
   height: 3.2rem;
   background-color: #ece9e0;
+  padding-bottom: 4px;
 }
 
 .rated {
