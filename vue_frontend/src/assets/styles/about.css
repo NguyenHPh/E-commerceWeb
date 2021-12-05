@@ -96,7 +96,7 @@
 	width: 380px;
 	margin: 20px auto;
 	padding: 14px 0;
-	background-image: url("../image/about-background-characters-above.jfif");
+	background-image: url("../image/about-background-characters-above.png");
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: 100% 100%;
@@ -124,7 +124,7 @@
 }
 
 .about-learn-more{
-	background-image: url("../image/about-background-table-food.jfif");
+	background-image: url("../image/about-background-table-food.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: left center;
