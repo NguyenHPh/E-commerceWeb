@@ -6,6 +6,12 @@ import SignUp from '../views/SignUp.vue'
 import LogIn from '../views/LogIn.vue'
 import Cart from '../views/Cart.vue'
 import About from '../views/About.vue'
+import Advices from '../views/Advices.vue'
+import Contact from '../views/Contact.vue'
+import Category from '../views/Category.vue'
+import Privacy from '../views/Privacy.vue'
+import Term from '../views/Term.vue'
+
 
 
 const routes = [
@@ -28,6 +34,31 @@ const routes = [
     path: '/log-in',
     name: 'LogIn',
     component: LogIn
+  },
+  {
+    path: '/advices',
+    name: 'Advices',
+    component: Advices
+  },
+  {
+    path: '/get-in-touch',
+    name: 'Contact',
+    component: Contact
+  },
+  {
+    path: '/collections',
+    name: 'Category',
+    component: Category
+  },
+  {
+    path: '/privacy',
+    name: 'Privacy',
+    component: Privacy
+  },
+  {
+    path: '/term',
+    name: 'Term',
+    component: Term
   },
   // {
   //   path: '/my-account',
