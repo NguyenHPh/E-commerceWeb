@@ -7,7 +7,7 @@
                     </div>
                     <div class="my-account__button">
                         <div class="button--subcription">
-                            <a href="">Manage subcription</a>
+                            <a href="">Manage Your Information</a>
                         </div>
                         <div class="button--log-out">
                             <a href="">log out</a>
