@@ -5,16 +5,15 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', admin.site.urls),
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('api/v1/', include('djoser.urls')),
     path('api/v1/', include('djoser.urls.authtoken')),
-    # path('api/v1/', include('products.urls')),
+    path('api/v1/', include('products.urls')),
     # path('api/v1/', include('order.urls')),
     # path('api/v1/', include('review.urls')),
     # path('api/v1/', include('user.urls')),
-    path('order/', include('order.urls')),
-    path('products/', include('products.urls')),
-    path('review/', include('review.urls')),
-    path('user/', include('user.urls'))
+    # path('order/', include('order.urls')),
+    # path('review/', include('review.urls')),
+    # path('user/', include('user.urls'))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
