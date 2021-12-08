@@ -1,26 +1,39 @@
 <template>
 <div id="our-ranges">
     <div class="container-base mx-auto">
-        <div class="row py-5">
+        <!-- <div class="row py-5">
             <div class="col-lg-4 text-center px-2 category mt-5">
-                <h2>wet food</h2>
+                <h2>{{ categories[0].name }}</h2>
                 <img src="../assets/image/our-range-category-01.png" alt="product" class="img-fluid w-100">
                 <div>
                     <a href="#" class="py-2 px-3 mt-3">Learn more</a>
                 </div>
             </div>
             <div class="col-lg-4 text-center px-2 category mt-5">
-                <h2>dry</h2>
+                <h2>{{ categories[1].name }}</h2>
                 <img src="../assets/image/our-range-category-02.png" alt="product" class="img-fluid w-100">
                 <div>
                     <a href="#" class="py-2 px-3 mt-3">Learn more</a>
                 </div>
             </div>
             <div class="col-lg-4 text-center px-2 category mt-5">
-                <h2>treats</h2>
+                <h2>{{ categories[2].name }}</h2>
                 <img src="../assets/image/our-range-category-03.png" alt="product" class="img-fluid w-100">
                 <div>
                     <a href="#" class="py-2 px-3 mt-3">Learn more</a>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="row py-5">
+            <div class="col-lg-4 text-center px-2 category mt-5" 
+                v-for="category in categories"
+                :key="category.id"
+            >
+                <h2>{{category.name}}</h2>
+                <img v-bind:src="category.get_image" alt="product" class="img-fluid w-100">
+                <div>
+                    <router-link v-bind:to="category.get_absolute_url" class="py-2 px-3 mt-3">Learn more</router-link>
                 </div>
             </div>
         </div>
@@ -125,16 +138,30 @@
 
 
 <script>
-
+import axios from 'axios'
 export default {
     name: 'Category',
     data() {
         return{
-
+            categories: {}
         }
     },
     mounted() {
         document.title = 'Collections'
+        this.getCategories()
+    },
+    methods:{
+        getCategories(){
+            axios
+                .get('/api/v1/collections')
+                .then(response =>{
+                    this.categories = response.data
+                    console.log(this.categories[0].get_absolute_url)
+                })
+                .catch(err =>{
+                    console.log(err)
+                })
+        } 
     }
 }
 </script>

@@ -10,6 +10,7 @@ class Category(models.Model):
 	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 	name = models.CharField(max_length=255)
 	description = models.TextField()
+	image = models.ImageField(upload_to='uploads/', blank = True, null = True)
 	slug = models.SlugField()
 
 	class Meta:
@@ -19,11 +20,15 @@ class Category(models.Model):
 		return self.name
     
 	def get_absolute_url(self):
-		return f'/{self.slug}/'
+		return f'/{self.slug}'
+
+	def get_image(self):
+		if self.image:
+			return 'http://127.0.0.1:8000' + self.image.url
+		return 'No image'
 
 
 # class ProductDetailImages(models.Model):
-# #id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 # 	image = models.ImageField(upload_to='uploads/', blank = True, null = True)
 # 	thumbnail = models.ImageField(upload_to='uploads/', blank = True, null = True)
 
@@ -72,18 +77,18 @@ class Product(models.Model):
 		return f'/{self.category.slug}/{self.slug}/'
 
 	def get_image(self):
-		if self.image:
-			return 'http://127.0.0.1:8000' + self.image.url
+		if self.front_image:
+			return 'http://127.0.0.1:8000' + self.front_image.url
 		return ''
 
 	def get_thumbnail(self):
 		if self.thumbnail:
 			return 'http://127.0.0.1:8000' + self.thumbnail.url
 		else:
-			if self.image:
-				self.thumbnail = self.make_thumbnail(self.image)
+			if self.front_image:
+				self.thumbnail = self.make_thumbnail(self.front_image)
 				self.save()
-				return 'http://127.0.0.1:8000' + self.image.url
+				return 'http://127.0.0.1:8000' + self.front_image.url
 			else:
 				return ''
 

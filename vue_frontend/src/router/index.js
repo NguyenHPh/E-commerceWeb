@@ -11,7 +11,7 @@ import Contact from '../views/Contact.vue'
 import Category from '../views/Category.vue'
 import Privacy from '../views/Privacy.vue'
 import Term from '../views/Term.vue'
-
+import Product from '../views/Product.vue'
 
 
 const routes = [
@@ -59,6 +59,11 @@ const routes = [
     path: '/term',
     name: 'Term',
     component: Term
+  },
+    {
+    path: '/product',
+    name: 'Product',
+    component: Product
   },
   // {
   //   path: '/my-account',

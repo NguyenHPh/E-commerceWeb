@@ -15,8 +15,10 @@ class ProductSerializer(serializers.ModelSerializer):
             "lifeStage",
             "front_image",
             "thumbnail_front_image",
-            "product_detail_images",
-            "meta_data",
+            "description",
+            "nutrition_info",
+            "deliver_info",
+            "rating",
             "get_absolute_url"
          )
 
@@ -28,7 +30,8 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = (
             "id",
             "name",
-            "description"
-            "slug"
+            "description",
+            'get_image',
+            "get_absolute_url"
             # "products",
         )  
