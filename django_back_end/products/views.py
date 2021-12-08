@@ -14,17 +14,19 @@ class ProductsList(APIView):
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
 
-# class ProductDetail(APIView):
-#     def get_object(self, category_slug, product_slug):
-#         try:
-#             return Product.objects.filter(category__slug=category_slug).get(slug=product_slug)
-#         except Product.DoesNotExist:
-#             raise Http404
+class ProductDetail(APIView):
+    def get_object(self, category_slug, product_slug):
+        try:
+            catename = Category.objects.get(slug = category_slug)
+            return Product.objects.filter(category = catename).get(slug = product_slug)
+            # return Product.objects.get(slug = productname.slug)
+        except Product.DoesNotExist:
+            raise Http404
     
-#     def get(self, request, category_slug, product_slug, format=None):
-#         product = self.get_object(category_slug, product_slug)
-#         serializer = ProductSerializer(product)
-#         return Response(serializer.data)
+    def get(self, request, category_slug, product_slug, format=None):
+        product = self.get_object(category_slug, product_slug)
+        serializer = ProductSerializer(product)
+        return Response(serializer.data)
 
 
 class CategoryList(APIView):
