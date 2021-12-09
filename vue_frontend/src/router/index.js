@@ -14,6 +14,8 @@ import Term from '../views/Term.vue'
 import UserInfo from '../views/User-Info.vue'
 import Profile from '../views/Profile.vue'
 import Product from '../views/Product.vue'
+import ProductDetail from '../views/ProductDetail.vue'
+
 
 
 
@@ -79,6 +81,11 @@ const routes = [
     path: '/collections/:category_slug',
     name: 'Product',
     component: Product
+  },
+  {
+    path: '/:category_slug/:product_slug',
+    name: 'ProductDetail',
+    component: ProductDetail
   },
   // {
   //   path: '/my-account',
