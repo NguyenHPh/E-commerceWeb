@@ -13,6 +13,8 @@ import Privacy from '../views/Privacy.vue'
 import Term from '../views/Term.vue'
 import UserInfo from '../views/User-Info.vue'
 import Profile from '../views/Profile.vue'
+import Product from '../views/Product.vue'
+
 
 
 
@@ -74,7 +76,7 @@ const routes = [
     component: Term
   },
     {
-    path: '/product',
+    path: '/collections/:category_slug',
     name: 'Product',
     component: Product
   },
