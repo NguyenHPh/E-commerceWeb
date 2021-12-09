@@ -69,7 +69,7 @@ class Product(models.Model):
 			return 'http://127.0.0.1:8000' + self.front_image.url
 		return 'no'
 
-	def get_images_detail(self):
+	def get_trays(self):
 		if self.tray1:
 			listTrays = []
 			listTrays.append([str(self.tray1), self.quantity1])
@@ -78,7 +78,7 @@ class Product(models.Model):
 			return listTrays
 		return ''
 
-	def get_trays(self):
+	def get_images_detail(self):
 		if self.front_image:
 			listImages = []
 			listImages.append('http://127.0.0.1:8000' + self.pic1.url)
@@ -86,7 +86,7 @@ class Product(models.Model):
 			listImages.append('http://127.0.0.1:8000' + self.pic3.url)
 			listImages.append('http://127.0.0.1:8000' + self.pic4.url)
 			listImages.append('http://127.0.0.1:8000' + self.pic5.url)
-			return str(listImages)
+			return listImages
 		return ''
 
 # class ProductDetail(models.Model):

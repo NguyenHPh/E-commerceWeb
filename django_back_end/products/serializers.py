@@ -8,8 +8,9 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = (
             "id",
             "category",
+            "special_range",
             "brief_component",
-            # "get_trays",
+            "get_trays",
             "lifeStage",
             'labelrange',
             "front_image",

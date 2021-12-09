@@ -75,7 +75,7 @@ const routes = [
     name: 'Term',
     component: Term
   },
-    {
+  {
     path: '/collections/:category_slug',
     name: 'Product',
     component: Product

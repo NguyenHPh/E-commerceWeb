@@ -38,14 +38,27 @@ class CategoryList(APIView):
 class CategoryDetail(APIView):
     def get_object(self, category_slug):
         try:
+            return Category.objects.get(slug = category_slug)
+        except Category.DoesNotExist:
+            raise Http404
+    
+    def get(self, request, category_slug, format=None):
+        Category = self.get_object(category_slug)
+        serializer = CategorySerializer(Category)
+        return Response(serializer.data)
+
+
+class Products_Category(APIView):
+    def get_object(self, category_slug):
+        try:
             catename = Category.objects.get(slug = category_slug)
-            return Product.objects.get(category = catename)
+            return Product.objects.filter(category = catename)
         except Product.DoesNotExist:
             raise Http404
     
     def get(self, request, category_slug, format=None):
         Product = self.get_object(category_slug)
-        serializer = ProductSerializer(Product)
+        serializer = ProductSerializer(Product, many=True)
         return Response(serializer.data)
 
 # @api_view(['POST'])
