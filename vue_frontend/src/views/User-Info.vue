@@ -3,7 +3,7 @@
             <div class="wrappers">
                 <div class = "user-info">
                     <div class = "user-info-detail">
-                        <div class = "user-image" style="background: url('../image/user-avatar.png');background-size: cover; background-repeat: no-repeat">
+                        <div class = "user-image">
                         </div>
                         <div class = "info">
                             <h1 id = "user-name">Nguyễn Hoàng Phương</h1>
@@ -146,4 +146,10 @@
 </script>
 <style>
  @import "../assets/styles/user-info.css";
+ .user-image{
+     background: url(../assets/image/user-avatar.png);
+     background-size: cover;
+     
+     background-repeat: no-repeat;
+ }
 </style>

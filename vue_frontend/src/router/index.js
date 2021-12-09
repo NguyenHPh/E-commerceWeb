@@ -11,6 +11,8 @@ import Contact from '../views/Contact.vue'
 import Category from '../views/Category.vue'
 import Privacy from '../views/Privacy.vue'
 import Term from '../views/Term.vue'
+import UserInfo from '../views/User-Info.vue'
+import Profile from '../views/Profile.vue'
 
 
 
@@ -19,6 +21,17 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/Profile',
+    name: 'Profile',
+    component: Profile
+  }
+  ,
+  {
+    path: '/Profile/UserInfo',
+    name: 'User-info',
+    component: UserInfo
   },
   {
     path: '/about',
