@@ -73,6 +73,11 @@ const routes = [
     name: 'Term',
     component: Term
   },
+    {
+    path: '/product',
+    name: 'Product',
+    component: Product
+  },
   // {
   //   path: '/my-account',
   //   name: 'MyAccount',
