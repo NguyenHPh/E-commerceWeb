@@ -26,7 +26,7 @@
                             <input type="password" v-model="password" required>
                         </div>
                         <div class="form--subcribe">
-                            <input type="checkbox" v-model="subcribe" required>
+                            <input type="checkbox" v-model="subcribe">
                             <p class = "subcribe-label">Subcribe for our newsletter</p>
                         </div>
                         
@@ -67,8 +67,20 @@ export default {
                 password: this.password,
                 subcribe: this.subcribe
             }
+            axios
+                .post('api/v1/users/', formData)
+                .then(response => {
+                    toast({
+                        message: 'Account created please login',
+                        type: 'is-success',
+                        dismissible: true,
+                        pauseOnHover: true,
+                        duration: 2000,
+                        position: 'bottom-right',
+                    })
+                    this.$router.push('/log-in')
+                })
         }
-
     },
     mounted(){
         document.title = "Sign Up";
