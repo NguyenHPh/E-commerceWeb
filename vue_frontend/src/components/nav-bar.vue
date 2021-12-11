@@ -1,8 +1,8 @@
 <template>
     <div class="nav-bar">
     <ul>
-        <li><a href="">wet food <i class="fas fa-sort-down"></i></a>
-            <div class="sub-menu1">
+        <li><a href="/collections/dry-dog-food">wet food <!--<i class="fas fa-sort-down"></i>--></a>
+            <!--<div class="sub-menu1">
                 <ul class = "first">
                     <p class = "sub-menu-title">Lifstage</p>
                     <li><a href="">limited edition recipes</a></li>
@@ -17,10 +17,10 @@
                     <li><a href="">limited edition recipes</a></li>
                     <li><a href="">limited edition recipes</a></li>
                 </ul>
-            </div>
+            </div> -->
         </li>
-        <li><a href="">dry food</a></li>
-        <li><a href="">treat</a></li>
+        <li><a href="/collections/wet-dog-food">dry food</a></li>
+        <li><a href="/range-natural-hand-baked-treats">treat</a></li>
         <li><a href="">our range <i class="fas fa-sort-down"></i></a>
             <div class="sub-menu2">
                 <ul class = "third">
@@ -63,3 +63,6 @@
     </ul>
 </div>
 </template>
+
+
+

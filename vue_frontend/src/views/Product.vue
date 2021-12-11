@@ -129,37 +129,7 @@ export default {
 
         this.getProduct();
 
-        (function($) {
-            "use strict";
-            var fullHeight = function() {
-
-                $('.js-fullheight').css('height', $(window).height());
-                $(window).resize(function(){
-                    $('.js-fullheight').css('height', $(window).height());
-                });
-
-            };
-            fullHeight();
-
-            $(".readmore-link").click( function(e) {
-              // record if our text is expanded
-              var isExpanded =  $(e.target).hasClass("expand");
-              
-              //close all open paragraphs
-              $(".readmore.expand").removeClass("expand");
-              $(".readmore-link.expand").removeClass("expand");
-              $(".icon-up-down").removeClass("fa-caret-up");
-
-
-              // if target wasn't expand, then expand it
-              if (!isExpanded){
-                $( e.target ).parent( ".readmore" ).addClass( "expand" );
-                $(e.target).addClass("expand");
-                $(".icon-up-down").addClass("fa-caret-up");
-              } 
-            });
-
-        })(jQuery);  
+        this.loadMore();
     },
     methods:{
 
@@ -195,6 +165,37 @@ export default {
                                 console.log(err)
                             })
                 }
+        },
+
+        loadMore(){
+            var fullHeight = function() {
+
+                $('.js-fullheight').css('height', $(window).height());
+                $(window).resize(function(){
+                    $('.js-fullheight').css('height', $(window).height());
+                });
+
+            };
+            fullHeight();
+
+            $(".readmore-link").click( function(e) {
+              // record if our text is expanded
+              var isExpanded =  $(e.target).hasClass("expand");
+              
+              //close all open paragraphs
+              $(".readmore.expand").removeClass("expand");
+              $(".readmore-link.expand").removeClass("expand");
+              $(".icon-up-down").removeClass("fa-caret-up");
+
+
+              // if target wasn't expand, then expand it
+              if (!isExpanded){
+                $( e.target ).parent( ".readmore" ).addClass( "expand" );
+                $(e.target).addClass("expand");
+                $(".icon-up-down").addClass("fa-caret-up");
+              } 
+            });
+
         }
     },
     counted:{

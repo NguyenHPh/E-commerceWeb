@@ -18,7 +18,7 @@
             <div class="shopping-cart__main">
                 <div class="cart__container">
                     <div class="main__cart">
-                        <div class="cart__table__title">
+                        <div class="cart__table__title" style="text-align: center;">
                             <div class="title--item">
                                 <p>Item</p>
                             </div>
@@ -35,68 +35,18 @@
                                 
                             </div>
                         </div>
-                        <div class="cart__table">
-                            <div class="table__item">
-                                <img src="https://cdn.shopify.com/s/files/1/0402/7685/2896/products/OI_6kg_CP_Chicken_FRONT_120x120.jpg?v=1634656280" alt="">
-                                <div class="item__info">
-                                    <a href="" class = "info--name">Chicken Grain Free Cold Pressed Natural Dry Dog Food</a>
-                                    <p class = "info--age">Age 2 month+ / 18kg</p>
-                                </div>
-                            </div>
-                            <div class="table__price">
-                                <div class="price__product">
-                                    <p class = "price__product--total">£86.99</p>
-                                    <p class = "price__product--per-kg">£4.83 per kg</p>
-                                </div>
-                            </div>
-                            <div class="table__qty">
-                                <form action="" method="post">
-                                    <input type="number" name = "product-quantity">
-                                </form>
-                            </div>
-                            <div class="table__subtotal">
-                                <p class = "subtotal--content">£86.99</p>
-                            </div>
-                            <div class="table__delete">
-                                <a href="" class = "delete--x"><i class="fas fa-times"></i></a>
-                                <a href="" class = "delete--remove">Remove</a>
-                            </div>
-                        </div>
-                        <div class="cart__table">
-                            <div class="table__item">
-                                <img src="https://cdn.shopify.com/s/files/1/0402/7685/2896/products/OI_6kg_CP_Chicken_FRONT_120x120.jpg?v=1634656280" alt="">
-                                <div class="item__info">
-                                    <a href="" class = "info--name">Chicken Grain Free Cold Pressed Natural Dry Dog Food</a>
-                                    <p class = "info--age">Age 2 month+ / 18kg</p>
-                                </div>
-                            </div>
-                            <div class="table__price">
-                                <div class="price__product">
-                                    <p class = "price__product--total">£86.99</p>
-                                    <p class = "price__product--per-kg">£4.83 per kg</p>
-                                </div>
-                            </div>
-                            <div class="table__qty">
-                                <form action="" method="post">
-                                    <input type="number" name = "product-quantity">
-                                </form>
-                            </div>
-                            <div class="table__subtotal">
-                                <p class = "subtotal--content">£86.99</p>
-                            </div>
-                            <div class="table__delete">
-                                <a href="" class = "delete--x"><i class="fas fa-times"></i></a>
-                                <a href="" class = "delete--remove">Remove</a>
-                            </div>
-                        </div>
-                        
+                        <CartItem
+                            v-for="item in this.$store.state.cart.items"
+                            v-bind:key="item.product.id"
+                            v-bind:initialItem="item"
+                            v-on:removeFromCart="removeFromCart" />
                     </div>
                 </div>
                 <div class="main__check-out">
                     <div class="check-out-wrapper">
                         <div class="check-out__content">
                             <div class="check-out__content--subtotal">
-                                <p>Subtotal: £86.99</p>
+                                <p>Subtotal: £ {{ cartTotalPrice.toFixed(2) }}</p>
                             </div>
                             <div class="check-out__content--got-discount">
                                 <p>Got a discount code? Checkout using ShopPay, PayPal or the standard checkout to apply your discount.</p>
@@ -127,17 +77,40 @@
 </template>
 
 <script>
+import axios from 'axios'
+import CartItem from '../components/CartItem.vue'
 
 export default {
     name: 'Cart',
-    data() {
-
+    components:{
+        CartItem
     },
-    methods: {
-
+    data() {
+        cart: {
+            items: []
+        }
     },
     mounted(){
-        document.title = "Cart";
+        document.title = "Cart"
+        this.cart = this.$store.state.cart.items
+        //console.log(this.$store.state.cart.items[0].quantity)
+    },
+    methods:{
+        removeFromCart(item) {
+            this.$store.state.cart.items = this.$store.state.cart.items.filter(i => i.product.id !== item.product.id)
+        }
+    },
+    computed:{
+        cartTotalLength() {
+            return this.$store.state.cart.items.reduce((acc, curVal) => {
+                return acc += curVal.quantity
+            }, 0)
+        },
+        cartTotalPrice() {
+            return this.$store.state.cart.items.reduce((acc, curVal) => {
+                return acc += (curVal.product.get_trays[0][0]*curVal.product.get_trays[0][1]) * curVal.quantity
+            }, 0)
+        },
     }
 }
 </script>

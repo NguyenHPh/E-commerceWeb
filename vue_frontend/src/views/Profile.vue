@@ -10,7 +10,7 @@
                             <a href="">Manage Your Information</a>
                         </div>
                         <div class="button--log-out">
-                            <a href="">log out</a>
+                            <a @click="logout()" class="log-out">log out</a>
                         </div>
                         <div class="button--change-password">
                             <a href="">change password</a>
@@ -72,6 +72,7 @@
 </template>
 
 <script>
+import axios from 'axios'
     export default{
         name: "Profile",
         data(){
@@ -81,9 +82,23 @@
         },
         mounted(){
             document.title = "Profile";
+        },
+        methods: {
+            logout() {
+                axios.defaults.headers.common["Authorization"] = ""
+
+                localStorage.removeItem("token")
+                localStorage.removeItem("username")
+                localStorage.removeItem("userid")
+                this.$store.commit('removeToken')
+                this.$router.push('/')
+            }
         }
     }
 </script>
 <style>
     @import "../assets/styles/Profile.css";
+    .log-out:hover{
+        cursor: pointer
+    }
 </style>

@@ -98,7 +98,12 @@
                 <p class = "phone-number">0394 712 245</p>
             </div>
             <div class="header__main-header--login">
-                <a href="" style="text-decoration: none; color: black"> login </a>
+                <template v-if="$store.state.isAuthenticated">
+                    <a href="" style="text-decoration: none; color: black"> logout </a>
+                </template>
+                <template v-else>
+                    <a href="" style="text-decoration: none; color: black"> login </a>
+              </template>
             </div>
             <div class="header__main-header--divider">
                 <span style="margin-left: 0.5rem;">|</span>
@@ -131,7 +136,9 @@
             </div>
             <div class="header__main-header__cart">
                 <a href="">
-                    <i class="fas fa-shopping-basket"></i><p class = "cart--content"> your basket is empty!</p>
+                    <i class="fas fa-shopping-basket"></i>
+                    <p class = "cart--content" v-if = "cartTotalLength < 1"> your basket is empty!</p>
+                    <p class = "cart--content" v-else> ({{ cartTotalLength }})   checkout <i class="fas fa-arrow-right"></i></p>
                     <p class="cart--title">Basket</p>
                 </a>
             </div>
@@ -155,8 +162,11 @@
     import $ from "jquery";
     export default{
         name: "AppHeader",
+        props: {
+            cartTotalLength: Number
+        },
         data(){
-            
+            cartTotalLength: this.cartTotalLength
         },
         mounted(){
             $(".header__main-header--bar").click(function(){

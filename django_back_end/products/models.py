@@ -4,7 +4,7 @@ from PIL import Image
 from django.core.files import File
 import uuid
 from djongo import models
-from django import forms
+# from django import forms
 
 class Category(models.Model):
 	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
