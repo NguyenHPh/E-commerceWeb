@@ -4,7 +4,7 @@ from PIL import Image
 from django.core.files import File
 import uuid
 from djongo import models
-from django import forms
+# from django import forms
 
 class Category(models.Model):
 	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -20,7 +20,7 @@ class Category(models.Model):
 		return self.name
     
 	def get_absolute_url(self):
-		return f'/{self.slug}'
+		return f'/collections/{self.slug}'
 
 	def get_image(self):
 		if self.image:

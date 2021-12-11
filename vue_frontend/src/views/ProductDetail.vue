@@ -91,7 +91,7 @@
                         </tr>
                     </table>
                     <div class="add-to-cart text-center mt-5">
-                        <button type="button" class="d-inline-block px-5 py-3">
+                        <button type="button" class="d-inline-block px-5 py-3" @click="addToCart()">
                             add to basket
                         </button>
                     </div>
@@ -156,6 +156,8 @@
 
 <script>
 import axios from 'axios'
+import { toast } from 'bulma-toast'
+
 
 export default {
     name: 'Product Detail',
@@ -190,6 +192,29 @@ export default {
                         console.log(err)
                     })
         },
+
+        addToCart() {
+            if (isNaN(this.quantity) || this.quantity < 1) {
+                this.quantity = 1
+            }
+
+            const item = {
+                product: this.product,
+                quantity: this.quantity
+            }
+
+            this.$store.commit('addToCart', item)
+
+            toast({
+                message: 'The product was added to the cart',
+                type: 'is-success',
+                dismissible: true,
+                pauseOnHover: true,
+                duration: 2000,
+                position: 'bottom-right',
+            })
+        },
+
 
         changeContent(id) {
             for (var i = 0; i < 5; i++){

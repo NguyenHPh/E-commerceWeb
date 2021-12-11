@@ -9,30 +9,7 @@
     </div>
     <div class="small-nav-bar__menu">
         <ul class = "main-ul-1">
-            <li><div class="ul-header-1"><span>wet food</span><i class="fas fa-chevron-right"></i></div>
-                <ul class = "main-ul-1-1">
-                    <li><div class="ul-header-1-1"><span>Lifstage</span><i class="fas fa-chevron-right"></i></div>
-                        <ul>
-                            <li><a href="">puppy</a></li>
-                            <li><a href="">adult</a></li>
-                            <li><a href="">senior</a></li>
-                        </ul>
-                     </li>
-                    <li><div class="ul-header-1-2"><span>dietary benefit</span><i class="fas fa-chevron-right"></i></div>
-                        <ul>
-                            <li><a href="">grain free</a></li>
-                            <li><a href="">wheat free</a></li>
-                        </ul>
-                    </li>
-                    <li><div class="ul-header-1-3"><span>ingredients</span><i class="fas fa-chevron-right"></i></div>
-                        <ul>
-                            <li><a href="">chickend</a></li>
-                            <li><a href="">sardines</a></li>
-                            <li><a href="">turkey</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
+            <li><a href="">wet food {{ getCategories }} </a></li>
             <li><a href="">dry food</a></li>
             <li><a href="">dog treats</a></li>
             <li><div class="ul-header-2"><span>our range</span><i class="fas fa-chevron-right"></i></div>
@@ -98,7 +75,12 @@
                 <p class = "phone-number">0394 712 245</p>
             </div>
             <div class="header__main-header--login">
-                <a href="" style="text-decoration: none; color: black"> login </a>
+                <template v-if="$store.state.isAuthenticated">
+                    <a style="text-decoration: none; color: black" @click = "logout()"> logout </a>
+                </template>
+                <template v-else>
+                    <router-link :to="{ path: '/log-in'}" style="text-decoration: none; color: black"> login </router-link>
+              </template>
             </div>
             <div class="header__main-header--divider">
                 <span style="margin-left: 0.5rem;">|</span>
@@ -131,7 +113,9 @@
             </div>
             <div class="header__main-header__cart">
                 <a href="">
-                    <i class="fas fa-shopping-basket"></i><p class = "cart--content"> your basket is empty!</p>
+                    <i class="fas fa-shopping-basket"></i>
+                    <p class = "cart--content" v-if = "cartTotalLength < 1"> your basket is empty!</p>
+                    <p class = "cart--content" v-else> ({{ cartTotalLength }})   checkout <i class="fas fa-arrow-right"></i></p>
                     <p class="cart--title">Basket</p>
                 </a>
             </div>
@@ -152,11 +136,19 @@
 </header>
 </template>
 <script>
+    import axios from 'axios'
     import $ from "jquery";
     export default{
         name: "AppHeader",
+        props: {
+            cartTotalLength: Number,
+            getCategories: Array,
+
+        },
         data(){
-            
+            return{
+                
+            }       
         },
         mounted(){
             $(".header__main-header--bar").click(function(){
@@ -213,7 +205,25 @@
                 $(".small-search").slideToggle(0);
             });
 
+        },
+        methods: {
+            logout() {
+                axios.defaults.headers.common["Authorization"] = ""
+
+                localStorage.removeItem("token")
+                localStorage.removeItem("username")
+                localStorage.removeItem("userid")
+                this.$store.commit('removeToken')
+                this.$router.push('/')
+            }
         }
         
     }
 </script>
+
+
+<style>
+    .header__main-header--login a{
+        cursor: pointer;
+    }
+</style>   

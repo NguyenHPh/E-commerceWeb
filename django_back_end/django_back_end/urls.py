@@ -15,10 +15,14 @@ urlpatterns = [
     path('auth/', obtain_auth_token)
     # path('api/v1/', include('order.urls')),
     # path('api/v1/', include('review.urls')),
+<<<<<<< HEAD
     #path('api/v1/', include('user.urls')),
     # path('order/', include('order.urls')),
     # path('review/', include('review.urls')),
     #path('user/', include('user.urls'))
 
 
+=======
+    path('api/v1/', include('user.urls'))
+>>>>>>> 51342fed9b79816469c4d018bd77328344325ca7
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

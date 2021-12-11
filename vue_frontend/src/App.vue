@@ -1,6 +1,6 @@
 <template>
 <div>
-     <AppHeader />
+     <AppHeader v-bind:cartTotalLength="cartTotalLength" v-bind:getCategories="categories"/>
      <NavBar />
      <Rated />
      <router-view/>
@@ -22,6 +22,8 @@
 
 
 <script>
+  import axios from 'axios'
+  //import '../node_modules/bulma';
   import Rated from "./components/Rated.vue";
   import NavBar from "./components/nav-bar.vue";
   import AppFooter from "./components/AppFooter.vue";
@@ -29,13 +31,58 @@
   export default {
     data() {
       return {
+        cart: {
+          items: [],
+          length: 0,
+          categories: []
+        }
       }
     },
     components:{
-        AppHeader,
-        AppFooter,
-        NavBar, 
-        Rated
+          AppHeader,
+          AppFooter,
+          NavBar, 
+          Rated
+    },
+    beforeCreate() {
+      this.$store.commit('initializeStore')
+      const token = this.$store.state.token
+
+      if (token) {
+          axios.defaults.headers.common['Authorization'] = "Token " + token
+      } else {
+          axios.defaults.headers.common['Authorization'] = ""
+      }
+
+    },
+    mounted() {
+      this.cart = this.$store.state.cart
+      this.getCategories()
+    },
+    methods:{
+      async getCategories(){
+        await axios
+            .get('/api/v1/collections')
+            .then(response =>{
+                this.categories = response.data
+                console.log(this.categories)
+            })
+            .catch(err =>{
+                console.log(err)
+            })
+        } 
+    },
+    computed: {
+      cartTotalLength() {
+          let totalLength = 0
+
+          for (let i = 0; i < this.cart.items.length; i++) {
+              totalLength += this.cart.items[i].quantity
+          }
+
+          return totalLength
+      }
     }
   }
+   
 </script>

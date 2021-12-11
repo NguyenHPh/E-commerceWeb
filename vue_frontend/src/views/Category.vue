@@ -156,7 +156,6 @@ export default {
                 .get('/api/v1/collections')
                 .then(response =>{
                     this.categories = response.data
-                    console.log(this.categories[0].get_absolute_url)
                 })
                 .catch(err =>{
                     console.log(err)
