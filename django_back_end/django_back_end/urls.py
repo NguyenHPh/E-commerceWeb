@@ -12,5 +12,4 @@ urlpatterns = [
     # path('api/v1/', include('order.urls')),
     # path('api/v1/', include('review.urls')),
     path('api/v1/', include('user.urls'))
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

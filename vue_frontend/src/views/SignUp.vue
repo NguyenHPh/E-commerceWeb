@@ -18,9 +18,14 @@
                             <p class = "password-label">Your password*</p>
                             <input type="password" v-model="password" required>
                         </div>
+
                         <div class="form--password">
                             <p class = "password-label">Your password*</p>
                             <input type="password" v-model="repassword" required>
+                         </div>
+                        <div class="form--subcribe">
+                            <input type="checkbox" v-model="subcribe">
+                            <p class = "subcribe-label">Subcribe for our newsletter</p>
                         </div>
                         
 
@@ -59,7 +64,6 @@ export default {
             if (this.username.length < 8) {
                 this.errors.push('The username must be over 7 keywords')
             }
-
             if (this.password.length < 8) {
                 this.errors.push('The password is too short')
             }
@@ -115,9 +119,7 @@ export default {
                 })
 
             }
-            
         }
-
     },
     mounted(){
         document.title = "Sign Up";

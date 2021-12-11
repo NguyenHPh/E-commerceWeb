@@ -9,30 +9,7 @@
     </div>
     <div class="small-nav-bar__menu">
         <ul class = "main-ul-1">
-            <li><div class="ul-header-1"><span>wet food</span><i class="fas fa-chevron-right"></i></div>
-                <ul class = "main-ul-1-1">
-                    <li><div class="ul-header-1-1"><span>Lifstage</span><i class="fas fa-chevron-right"></i></div>
-                        <ul>
-                            <li><a href="">puppy</a></li>
-                            <li><a href="">adult</a></li>
-                            <li><a href="">senior</a></li>
-                        </ul>
-                     </li>
-                    <li><div class="ul-header-1-2"><span>dietary benefit</span><i class="fas fa-chevron-right"></i></div>
-                        <ul>
-                            <li><a href="">grain free</a></li>
-                            <li><a href="">wheat free</a></li>
-                        </ul>
-                    </li>
-                    <li><div class="ul-header-1-3"><span>ingredients</span><i class="fas fa-chevron-right"></i></div>
-                        <ul>
-                            <li><a href="">chickend</a></li>
-                            <li><a href="">sardines</a></li>
-                            <li><a href="">turkey</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
+            <li><a href="">wet food {{ getCategories }} </a></li>
             <li><a href="">dry food</a></li>
             <li><a href="">dog treats</a></li>
             <li><div class="ul-header-2"><span>our range</span><i class="fas fa-chevron-right"></i></div>
@@ -99,10 +76,10 @@
             </div>
             <div class="header__main-header--login">
                 <template v-if="$store.state.isAuthenticated">
-                    <a href="" style="text-decoration: none; color: black"> logout </a>
+                    <a style="text-decoration: none; color: black" @click = "logout()"> logout </a>
                 </template>
                 <template v-else>
-                    <a href="" style="text-decoration: none; color: black"> login </a>
+                    <router-link :to="{ path: '/log-in'}" style="text-decoration: none; color: black"> login </router-link>
               </template>
             </div>
             <div class="header__main-header--divider">
@@ -159,14 +136,19 @@
 </header>
 </template>
 <script>
+    import axios from 'axios'
     import $ from "jquery";
     export default{
         name: "AppHeader",
         props: {
-            cartTotalLength: Number
+            cartTotalLength: Number,
+            getCategories: Array,
+
         },
         data(){
-            cartTotalLength: this.cartTotalLength
+            return{
+                
+            }       
         },
         mounted(){
             $(".header__main-header--bar").click(function(){
@@ -223,7 +205,25 @@
                 $(".small-search").slideToggle(0);
             });
 
+        },
+        methods: {
+            logout() {
+                axios.defaults.headers.common["Authorization"] = ""
+
+                localStorage.removeItem("token")
+                localStorage.removeItem("username")
+                localStorage.removeItem("userid")
+                this.$store.commit('removeToken')
+                this.$router.push('/')
+            }
         }
         
     }
 </script>
+
+
+<style>
+    .header__main-header--login a{
+        cursor: pointer;
+    }
+</style>   
