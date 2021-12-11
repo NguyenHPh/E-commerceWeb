@@ -61,14 +61,12 @@ export default {
     methods: {
         submitForm(){
             const formData = {
-                firstName: this.firstName,
-                lastName: this.lastName,
+                username: this.firstName + this.lastName,
                 email: this.email,
                 password: this.password,
-                subcribe: this.subcribe
             }
             axios
-                .post('api/v1/users/', formData)
+                .post('api/users/', formData)
                 .then(response => {
                     toast({
                         message: 'Account created please login',
