@@ -42,7 +42,6 @@
 <script>
 import axios from 'axios'
 import {toast} from 'bulma-toast'
-
 export default {
     name: 'SignUp',
     data() {
@@ -53,30 +52,9 @@ export default {
             repassword: '',
             errors: [],
             passed: false
-
-
-
         }
     },
     methods: {
-<<<<<<< HEAD
-        submitForm(){
-            const formData = {
-                username: this.firstName + this.lastName,
-                email: this.email,
-                password: this.password,
-            }
-            axios
-                .post('api/users/', formData)
-                .then(response => {
-                    toast({
-                        message: 'Account created please login',
-                        type: 'is-success',
-                        dismissible: true,
-                        pauseOnHover: true,
-                        duration: 2000,
-                        position: 'bottom-right',
-=======
         validate(){
             this.errors = []
             if (this.username.length < 8) {
@@ -85,7 +63,6 @@ export default {
             if (this.password.length < 8) {
                 this.errors.push('The password is too short')
             }
-
             if (this.password !== this.password2) {
                 this.errors.push('The passwords doesn\'t match')
             }
@@ -111,14 +88,12 @@ export default {
                             position: 'bottom-right',
                         })
                         this.$router.push('/log-in')
->>>>>>> 51342fed9b79816469c4d018bd77328344325ca7
                     })
                     .catch(error => {
                         if (error.response) {
                             for (const property in error.response.data) {
                                 this.errors.push(`${property}: ${error.response.data[property]}`)
                             }
-
                              console.log(JSON.stringify(error.response.data))
                         } else if (error.message) {
                             this.errors.push('Something went wrong. Please try again')
@@ -136,7 +111,6 @@ export default {
                     duration: 2000,
                     position: 'bottom-right',
                 })
-
             }
         }
     },

@@ -1,7 +1,5 @@
 from pathlib import Path
 
-from rest_framework.permissions import IsAuthenticated
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -50,17 +48,6 @@ INSTALLED_APPS = [
 
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
-    ),
-
-
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    ),
-}
-
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -70,7 +57,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware'
 ]
 
 ROOT_URLCONF = 'django_back_end.urls'
@@ -89,12 +75,6 @@ TEMPLATES = [
             ],
         },
     },
-]
-
-CORS_ORIGIN_ALLOW_ALL = True
-
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8080'
 ]
 
 WSGI_APPLICATION = 'django_back_end.wsgi.application'

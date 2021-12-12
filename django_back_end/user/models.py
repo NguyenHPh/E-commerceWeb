@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-from django.db import models
-from django.contrib.auth.models import User
-
-# Create your models here.
-=======
 from io import BytesIO
 from PIL import Image
 from django.conf import settings
@@ -23,7 +17,7 @@ class User_Info(models.Model):
     email = models.EmailField(max_length=50)
     phone = models.CharField(max_length=15)
     address = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='uploads/', blank = True, null = True)
+    image = models.ImageField(upload_to='uploads/', blank=True, null=True)
 
     class Meta:
         db_table = "User_Info"
@@ -34,5 +28,4 @@ class User_Info(models.Model):
         return 'No image'
 
     def __str__(self):
-            return self.firstName + " " + self.lastName
->>>>>>> 51342fed9b79816469c4d018bd77328344325ca7
+        return self.firstName + " " + self.lastName
