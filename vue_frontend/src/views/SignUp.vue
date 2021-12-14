@@ -20,9 +20,13 @@
                         </div>
 
                         <div class="form--password">
-                            <p class = "password-label">Confirm password*</p>
+                            <p class = "password-label">Your password*</p>
                             <input type="password" v-model="repassword" required>
                          </div>
+                        <div class="form--subcribe">
+                            <input type="checkbox" v-model="subcribe">
+                            <p class = "subcribe-label">Subcribe for our newsletter</p>
+                        </div>
                         
 
                         <div class="form-btn">
@@ -38,7 +42,6 @@
 <script>
 import axios from 'axios'
 import {toast} from 'bulma-toast'
-
 export default {
     name: 'SignUp',
     data() {
@@ -60,7 +63,6 @@ export default {
             if (this.password.length < 8) {
                 this.errors.push('The password is too short')
             }
-
             if (this.password !== this.repassword) {
                 this.errors.push('The passwords doesn\'t match')
             }
@@ -69,8 +71,8 @@ export default {
             this.validate()
             if (!this.errors.length){
                 const formData = {
-                    email: this.email,
                     username: this.username,
+                    email: this.email,
                     password: this.password
                 }
                 
@@ -92,7 +94,6 @@ export default {
                             for (const property in error.response.data) {
                                 this.errors.push(`${property}: ${error.response.data[property]}`)
                             }
-
                              console.log(JSON.stringify(error.response.data))
                         } else if (error.message) {
                             this.errors.push('Something went wrong. Please try again')
@@ -102,6 +103,7 @@ export default {
                         })
             }
             else{
+                console.log(this.errors);
                 toast({
                     message: 'failed',
                     type: 'is-success',
@@ -110,8 +112,6 @@ export default {
                     duration: 2000,
                     position: 'bottom-right',
                 })
-                console.log(this.errors)
-
             }
         }
     },

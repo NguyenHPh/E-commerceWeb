@@ -1,4 +1,3 @@
-
 import stripe
 
 from django.conf import settings
@@ -14,6 +13,7 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 from .serializers import UserSerializer
 from .models import User_Info
+
 
 class ViewUserList(APIView):
     def get(self, request, format=None):
@@ -35,5 +35,5 @@ def updateInfo(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         except Exception:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
