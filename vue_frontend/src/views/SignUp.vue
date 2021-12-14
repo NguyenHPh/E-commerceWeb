@@ -20,13 +20,9 @@
                         </div>
 
                         <div class="form--password">
-                            <p class = "password-label">Your password*</p>
+                            <p class = "password-label">Confirm password*</p>
                             <input type="password" v-model="repassword" required>
                          </div>
-                        <div class="form--subcribe">
-                            <input type="checkbox" v-model="subcribe">
-                            <p class = "subcribe-label">Subcribe for our newsletter</p>
-                        </div>
                         
 
                         <div class="form-btn">
@@ -53,9 +49,6 @@ export default {
             repassword: '',
             errors: [],
             passed: false
-
-
-
         }
     },
     methods: {
@@ -68,7 +61,7 @@ export default {
                 this.errors.push('The password is too short')
             }
 
-            if (this.password !== this.password2) {
+            if (this.password !== this.repassword) {
                 this.errors.push('The passwords doesn\'t match')
             }
         },
@@ -76,8 +69,8 @@ export default {
             this.validate()
             if (!this.errors.length){
                 const formData = {
-                    username: this.username,
                     email: this.email,
+                    username: this.username,
                     password: this.password
                 }
                 
@@ -117,6 +110,7 @@ export default {
                     duration: 2000,
                     position: 'bottom-right',
                 })
+                console.log(this.errors)
 
             }
         }
