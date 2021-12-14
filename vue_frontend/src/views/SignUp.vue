@@ -63,7 +63,7 @@ export default {
             if (this.password.length < 8) {
                 this.errors.push('The password is too short')
             }
-            if (this.password !== this.password2) {
+            if (this.password !== this.repassword) {
                 this.errors.push('The passwords doesn\'t match')
             }
         },
@@ -103,6 +103,7 @@ export default {
                         })
             }
             else{
+                console.log(this.errors);
                 toast({
                     message: 'failed',
                     type: 'is-success',
