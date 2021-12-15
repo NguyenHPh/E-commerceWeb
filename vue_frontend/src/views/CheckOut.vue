@@ -137,13 +137,28 @@
 export default {
     name: 'check out',
     data() {
-
+        return {
+            cart: {
+                item: []
+            },
+            stripe: {},
+            card: {},
+            firstname: '',
+            lastname: '',
+            email:'',
+            phone: '',
+            address: '',
+            zipcode: '',
+            place: '',
+            error: []
+        }
     },
     methods: {
 
     },
     mounted(){
             document.title = "Check Out";
+            this.cart = this.$store.state.cart;
             $(".form-information--email input").focusin(function(){
         $(".form-information--email label").css({"top":"15%"});
         $(".form-information--email input").css({"padding-top":"1.1rem", "height":"1.9rem"});
