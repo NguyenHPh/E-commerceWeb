@@ -12,5 +12,5 @@ class UserSerializer(serializers.ModelSerializer):
             "lastName",
             "email",
             "password",
-            "subcribe"
+            "image"
         )

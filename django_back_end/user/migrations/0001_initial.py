@@ -18,14 +18,17 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='User_Info',
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.UUIDField(default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('firstName', models.CharField(max_length=50)),
                 ('lastName', models.CharField(max_length=50)),
                 ('email', models.EmailField(max_length=50)),
                 ('phone', models.CharField(max_length=15)),
                 ('address', models.CharField(max_length=255)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='uploads/')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('image', models.ImageField(
+                    blank=True, null=True, upload_to='uploads/')),
+                ('user', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'db_table': 'User_Info',
