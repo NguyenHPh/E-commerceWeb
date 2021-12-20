@@ -40,8 +40,8 @@
                                             </div>
                                         </div>
                                     <div class="form-information--email">
-                                        <label for="input">Email</label>
-                                        <input type="text" name="email" v-model = "email">
+                                        <label for="input">Phone</label>
+                                        <input type="text" name="phone" v-model = "phone">
                                     </div>
                                         <div class="address--delivery-address">
                                             <label for="">Address</label>
@@ -68,6 +68,8 @@
 </template>
 
 <script>
+    import FormData from 'form-data'
+    import axios from 'axios'
     export default{
         name: "Info",
         data(){
@@ -77,7 +79,8 @@
                 email: '',
                 phone: '',
                 address: '',
-                image: ''
+                image: null,
+                errors: []
             }
         },
         mounted(){
@@ -154,9 +157,14 @@
                 }
 
                 await axios
-                    .post('/api/v1/checkout/', data)
+                    .post('/api/v1/updateinfo', data, {
+                        headers: {
+                          'Content-Type': 'multipart/form-data'
+                        }
+                      })
                     .then(response => {
                         console.log("ok")
+                        this.$router.go(this.$router.currentRoute)
                     })
                     .catch(error => {
                         this.errors.push('Something went wrong. Please try again')
