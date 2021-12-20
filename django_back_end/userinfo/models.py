@@ -16,7 +16,6 @@ class User_Info(models.Model):
         on_delete=models.CASCADE,)
     firstName = models.CharField(max_length=50)
     lastName = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50)
     phone = models.CharField(max_length=15)
     address = models.CharField(max_length=255)
     image = models.ImageField(upload_to='uploads/', blank=True, null=True)

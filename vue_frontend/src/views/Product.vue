@@ -1,3 +1,4 @@
+
 <template>
 <div>
     <div class="container-fluid mx-auto category-intro text-center pt-5 pb-2">
