@@ -6,13 +6,13 @@
         <img v-bind:src="item.product.get_image">
         <div class="item__info">
             <router-link :to="item.product.get_absolute_url" class = "info--name">{{ item.product.brief_component }}</router-link>
-            <p class = "info--age">{{ item.product.lifeStage }}+ / {{ item.product.get_trays[0][1] }} trays</p>
+            <p class = "info--age">{{ item.product.lifeStage }}+ / {{ item.trayqtt }} trays</p>
         </div>
     </div>
     <div class="table__price">
         <div class="price__product">
-            <p class = "price__product--total">£{{ item.product.get_trays[0][0]*item.product.get_trays[0][1] }}</p>
-            <p class = "price__product--per-kg">£{{ item.product.get_trays[0][0] }} per tray</p>
+            <p class = "price__product--total">£{{ item.trayqtt*item.priceper }}</p>
+            <p class = "price__product--per-kg">£{{ item.priceper }} per tray</p>
         </div>
     </div>
     <div class="table__qty">
@@ -48,7 +48,7 @@ export default {
     },
     methods: {
         getItemTotal(item) {
-            return item.product.get_trays[0][0]*item.product.get_trays[0][1]*item.quantity
+            return item.trayqtt*item.priceper*item.quantity
         },
         decrementQuantity(item) {
             item.quantity -= 1

@@ -6,7 +6,9 @@
             </div>
             <div class="shopping-cart--subtitle">
                 <img  src="../assets/image/delivery-van.png" alt="deliver">
-                <p>You have qualified for free shipping!</p>
+                <p v-if="$store.state.cart.items.length > 0">You have qualified for free shipping!</p>
+                <p v-else>Buy at least one product for free shipping</p>
+
             </div>
             <div class="shopping-car__progess-bar">
                 <div class="progess-bar__wrapper">
@@ -62,11 +64,11 @@
                             <div class="button__gpay">
                                 <a href=""><button><i class="fab fa-google"></i><span>Pay</span></button></a>
                             </div>
-                            <div class="button__divider">
+                            <div class="button__divider" v-if="$store.state.cart.items.length > 0">
                                 <p>- or -</p>
                             </div>
                             <div class="button__check-out">
-                                <button class = "btn-check-out"><span>Checkout</span></button>
+                                <button v-if="$store.state.cart.items.length > 0" class = "btn-check-out"><span>Checkout</span></button>
                             </div>
                         </div>
                     </div>
@@ -78,14 +80,6 @@
                 <div class="check-out__page__information">
                     <div class="check-out__page--logo">
                         <img src="https://cdn.shopify.com/s/files/1/0402/7685/2896/files/logo_forthglade.png?28877" alt="logo">
-                    </div>
-                    <div class="page__contact-info">
-                        <div class="contact-info--title">
-                            <p>Contact information</p>
-                        </div>
-                        <div class="contact-info--login">
-                            <p>Already have an account? <a href="">Login</a></p>
-                        </div>
                     </div>
                     <div class="page__form-information">
                         <div class="form-information__after-login">
@@ -99,10 +93,10 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="" method="post">
+                        <form @submit.prevent="proceedOrder">
                             <div class="form-information--email">
                                 <label for="input">Email</label>
-                                <input type="text" name="email">
+                                <input type="text" name="email" v-model="email">
                             </div>
                             <div class="form-information__address">
                                 <div class="address--title">
@@ -111,21 +105,21 @@
                                 <div class="address__name">
                                     <div class="name--firstname">
                                         <label for="input">First name</label>
-                                        <input type="text" name = "firstname">
+                                        <input type="text" v-model = "firstname" required>
                                     </div>
                                     <div class="name--lastname">
                                         <label for="">Last name</label>
-                                        <input type="text" name = "lastname">
+                                        <input type="text" v-model = "lastname" required>
                                     </div>
                                 </div>
-                                <div class="address--delivery-address">
+                                <div class="address--delivery-address" required>
                                     <label for="">Address</label>
-                                    <input type="text" name = "address">
+                                    <input type="text" v-model = "address">
                                 </div>
                             </div>
                             <div class="form--information--phone">
                                 <label for="">Phone number</label>
-                                <input type="text" name = "phone-number">
+                                <input type="text" v-model = "phone" required>
                             </div>
                         
                         <div class="page__button">
@@ -150,23 +144,10 @@
                         </div>
                         <div class="order__product-and-price--wrapper">
                             <div class="order__product-and-price">
-                                <div class="order__product">
-                                    <div class="product__main">
-                                        <div class="product__main--img">
-                                            <img src="../assets/image/product-img-01.jpg" alt="">
-                                            <div class="product__main--quantity">
-                                                <p>1</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product__name">
-                                        <p class = "name--main-name">Chicken Grain Free Cold Pressed Natural Dry Dog Food</p>
-                                        <p class = "name--advice">Age 2 months + / 18kg</p>
-                                    </div>
-                                </div>
-                                <div class="order__price">
-                                        <p class = "price--product-price">£86.99</p>
-                                </div>
+                                <CartItem02
+                                    v-for="item in this.$store.state.cart.items"
+                                    v-bind:key="item.product.id"
+                                    v-bind:initialItem="item" />
                             </div>
                             <div class="order__discount">
                                 <div class="discount--code">
@@ -182,7 +163,7 @@
                                     <p>Subtotal</p>
                                 </div>
                                 <div class="subtotal--price">
-                                    <p>£86.99</p>
+                                    <p>£{{ cartTotalPrice }}</p>
                                 </div>
                             </div>
                             <div class="order__discount-money">
@@ -198,7 +179,7 @@
                                     <p>Total</p>
                                 </div>
                                 <div class="total--price">
-                                    <p>£86.99</p>
+                                    <p>£{{ cartTotalPrice }}</p>
                                 </div>
                             </div>
                         </div>
@@ -212,134 +193,184 @@
 <script>
 import axios from 'axios'
 import CartItem from '../components/CartItem.vue'
+import CartItem02 from '../components/CartItem02.vue'
+
 
 export default {
     name: 'Cart',
     components:{
-        CartItem
+        CartItem,
+        CartItem02
     },
     data() {
         return {
             cart: {
                 item: []
             },
-            stripe: {},
-            card: {},
+            email: 'Test',
             firstname: '',
             lastname: '',
-            email:'',
-            phone: '',
             address: '',
-            zipcode: '',
-            place: '',
+            phone: '',
+            paid_amount: '',
             error: []
         }
     },
     mounted(){
         document.title = "Cart"
         this.cart = this.$store.state.cart.items
-        //console.log(this.$store.state.cart.items[0].quantity)
-            this.cart = this.$store.state.cart;
-            $(".form-information--email input").focusin(function(){
-        $(".form-information--email label").css({"top":"15%"});
-        $(".form-information--email input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-    })
+        this.getUser()
 
-    $(".form-information--email input").focusout(function(){
-        if($(".form-information--email input").val() == ""){
-            $(".form-information--email label").css({"top":"35%"});
-            $(".form-information--email input").css({"padding-top":"0rem", "height":"3rem"});
-        }
-    })
+        $(".form-information--email input").focusin(function(){
+            $(".form-information--email label").css({"top":"15%"});
+            $(".form-information--email input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+        })
 
-    $(".name--firstname input").focusin(function(){
-        $(".name--firstname label").css({"top":"15%"});
-        $(".name--firstname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-    })
+        $(".form-information--email input").focusout(function(){
+            if($(".form-information--email input").val() == ""){
+                $(".form-information--email label").css({"top":"35%"});
+                $(".form-information--email input").css({"padding-top":"0rem", "height":"3rem"});
+            }
+        })
 
-    $(".name--firstname input").focusout(function(){
-        if($(".name--firstname input").val() == ""){
-            $(".name--firstname label").css({"top":"35%"});
-            $(".name--firstname input").css({"padding-top":"0rem", "height":"3rem"});
-        }
-    })
+        $(".name--firstname input").focusin(function(){
+            $(".name--firstname label").css({"top":"15%"});
+            $(".name--firstname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+        })
 
-    $(".name--lastname input").focusin(function(){
-        $(".name--lastname label").css({"top":"15%"});
-        $(".name--lastname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-    })
+        $(".name--firstname input").focusout(function(){
+            if($(".name--firstname input").val() == ""){
+                $(".name--firstname label").css({"top":"35%"});
+                $(".name--firstname input").css({"padding-top":"0rem", "height":"3rem"});
+            }
+        })
 
-    $(".name--lastname input").focusout(function(){
-        if($(".name--lastname input").val() == ""){
-            $(".name--lastname label").css({"top":"35%"});
-            $(".name--lastname input").css({"padding-top":"0rem", "height":"3rem"});
-        }
-    })
+        $(".name--lastname input").focusin(function(){
+            $(".name--lastname label").css({"top":"15%"});
+            $(".name--lastname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+        })
 
-    $(".address--delivery-address input").focusin(function(){
-        $(".address--delivery-address label").css({"top":"15%"});
-        $(".address--delivery-address input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-    })
+        $(".name--lastname input").focusout(function(){
+            if($(".name--lastname input").val() == ""){
+                $(".name--lastname label").css({"top":"35%"});
+                $(".name--lastname input").css({"padding-top":"0rem", "height":"3rem"});
+            }
+        })
 
-    $(".address--delivery-address input").focusout(function(){
-        if($(".address--delivery-address input").val() == ""){
-            $(".address--delivery-address label").css({"top":"35%"});
-            $(".address--delivery-address input").css({"padding-top":"0rem", "height":"3rem"});
-        }
-    })
+        $(".address--delivery-address input").focusin(function(){
+            $(".address--delivery-address label").css({"top":"15%"});
+            $(".address--delivery-address input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+        })
 
-    $(".form--information--phone input").focusin(function(){
-        $(".form--information--phone label").css({"top":"15%"});
-        $(".form--information--phone input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-    })
+        $(".address--delivery-address input").focusout(function(){
+            if($(".address--delivery-address input").val() == ""){
+                $(".address--delivery-address label").css({"top":"35%"});
+                $(".address--delivery-address input").css({"padding-top":"0rem", "height":"3rem"});
+            }
+        })
 
-    $(".form--information--phone input").focusout(function(){
-        if($(".form--information--phone input").val() == ""){
-            $(".form--information--phone label").css({"top":"35%"});
-            $(".form--information--phone input").css({"padding-top":"0rem", "height":"3rem"});
-        }
-    })
+        $(".form--information--phone input").focusin(function(){
+            $(".form--information--phone label").css({"top":"15%"});
+            $(".form--information--phone input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+        })
 
-    $(".discount--code input").focusin(function(){
-        $(".discount--code label").css({"top":"15%"});
-        $(".discount--code input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-    })
+        $(".form--information--phone input").focusout(function(){
+            if($(".form--information--phone input").val() == ""){
+                $(".form--information--phone label").css({"top":"35%"});
+                $(".form--information--phone input").css({"padding-top":"0rem", "height":"3rem"});
+            }
+        })
 
-    $(".discount--code input").focusout(function(){
-        if($(".discount--code input").val() == ""){
-            $(".discount--code label").css({"top":"35%"});
-            $(".discount--code input").css({"padding-top":"0rem", "height":"3rem"});
-        }
-    })
+        $(".discount--code input").focusin(function(){
+            $(".discount--code label").css({"top":"15%"});
+            $(".discount--code input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+        })
 
-    $(".discount--code input").keyup(function(){
-        if($(".discount--code input").val() == ""){
-            $(".discount--button button").css({"background-color":"#cccccc", "pointer-events":"none"});
-        }else{
-            $(".discount--button button").css({"background-color":"#2c732f", "pointer-events":"all"});
-        }
-    })
+        $(".discount--code input").focusout(function(){
+            if($(".discount--code input").val() == ""){
+                $(".discount--code label").css({"top":"35%"});
+                $(".discount--code input").css({"padding-top":"0rem", "height":"3rem"});
+            }
+        })
 
-    $(".hide-show__bar--title p").click(function(){
-        $(".order__product-and-price--wrapper").slideToggle();
-    })
-    $(window).resize(function(){
-        if($(window).width() > 740){
-            $(".order__product-and-price--wrapper").css("display","block");
-        }
-    })
+        $(".discount--code input").keyup(function(){
+            if($(".discount--code input").val() == ""){
+                $(".discount--button button").css({"background-color":"#cccccc", "pointer-events":"none"});
+            }else{
+                $(".discount--button button").css({"background-color":"#2c732f", "pointer-events":"all"});
+            }
+        })
 
-    $('.btn-check-out').click(function(){
-        $('.check-out__wrapper').show();
-        $('.shopping-cart').hide();
-    })
+        $(".hide-show__bar--title p").click(function(){
+            $(".order__product-and-price--wrapper").slideToggle();
+        })
+        $(window).resize(function(){
+            if($(window).width() > 740){
+                $(".order__product-and-price--wrapper").css("display","block");
+            }
+        })
 
-    $('.button--back').click(function(){
-        $('.check-out__wrapper').hide();
-        $('.shopping-cart').show();
-    })
+        $('.btn-check-out').click(function(){
+            $('.check-out__wrapper').show();
+            $('.shopping-cart').hide();
+        })
+
+        $('.button--back').click(function(){
+            $('.check-out__wrapper').hide();
+            $('.shopping-cart').show();
+        })
     },
     methods:{
+
+        getUser(){
+            console.log("getEmail")    
+        },
+
+        async proceedOrder(){
+            let items = []
+
+            for (let i = 0; i < this.$store.state.cart.items.length; i++) {
+                let item = this.$store.state.cart.items[i]
+                let obj = {
+                    product: item.product.id,
+                    quantity: item.quantity,
+                    trayQuantity: item.trayqtt,
+                    trayPricePer: item.priceper,
+                    price: item.trayqtt * item.priceper * item.quantity
+                }
+
+                items.push(obj)
+            }
+
+
+            let data = {
+                'first_name': this.firstname,
+                'last_name': this.lastname,
+                'address': this.address,
+                'phone': this.phone,
+                'paid_amount': 100.5,
+                'items': items
+            }
+
+            console.log(data)
+
+
+            await axios
+                .post('/api/v1/checkout/', data)
+                .then(response => {
+                    console.log("ok")
+                    this.$store.commit('clearCart')
+                    this.$router.push('/')
+                })
+                .catch(error => {
+                    console.log("failed")
+
+                    console.log(error)
+                })
+
+                //this.$store.commit('setIsLoading', false)
+        },
+
         removeFromCart(item) {
             this.$store.state.cart.items = this.$store.state.cart.items.filter(i => i.product.id !== item.product.id)
         }
@@ -352,7 +383,7 @@ export default {
         },
         cartTotalPrice() {
             return this.$store.state.cart.items.reduce((acc, curVal) => {
-                return acc += (curVal.product.get_trays[0][0]*curVal.product.get_trays[0][1]) * curVal.quantity
+                return acc += (curVal.priceper*curVal.trayqtt) * curVal.quantity
             }, 0)
         },
     }

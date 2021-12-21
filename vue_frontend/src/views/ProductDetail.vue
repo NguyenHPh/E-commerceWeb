@@ -55,7 +55,7 @@
                             <td class="right-col px-5 py-4">
                                 <p>select your pack size</p>
                                 <div class="row text-center">
-                                    <div class="col-4" v-for="tray in product.get_trays">
+                                    <div class="col-4" v-for="(tray, index) in product.get_trays" :key="index">
                                         <div class="mx-auto product-frame">
                                             <span class="product-size d-block font-weight-bold pt-3">x{{tray[1]}}</span>
                                             <span class="product-pack-type d-block py-1">Trays</span>
@@ -63,7 +63,8 @@
                                         </div>
                                         <p class="price-product text-center font-weight-bold mt-2">£{{ tray[1]*tray[0] }}</p>
                                         <p class="price-per-tray text-center font-italic"><span>£{{tray[0]}}</span> per tray</p>
-                                         <span class="selection-box d-inline-block fas fa-check text-center"></span>
+                                        <span v-if="traySelected[index]"  class="selection-box d-inline-block fas fa-check text-center tray" @click = "selectTray(index)"></span>
+                                        <span v-else class="selection-box d-inline-block text-center tray" @click = "selectTray(index)"></span>
                                     </div>
                                 </div>
                             </td>
@@ -165,7 +166,10 @@ export default {
         return{
             product: {},
             isSelected: [true, false, false, false, false],
+            traySelected: [true, false, false],
             quantity: 1,
+            trayqtt: 0,
+            priceper: 0,
             minprice: 0,
             images: []
         }
@@ -193,14 +197,36 @@ export default {
                     })
         },
 
+        selectTray(index){
+            for (var i = 0; i < 3; i++){
+                if (i == index){
+                    this.traySelected[i] = true
+                }
+                else{
+                    this.traySelected[i] = false
+
+                }
+            } 
+        },
+
         addToCart() {
             if (isNaN(this.quantity) || this.quantity < 1) {
                 this.quantity = 1
             }
 
+            for (var i = 0; i < 3; i++){
+                if (this.traySelected[i] == true){
+                    this.trayqtt = this.product.get_trays[i][1]
+                    this.priceper = this.product.get_trays[i][0]
+                    break;
+                }
+            } 
+            
             const item = {
                 product: this.product,
-                quantity: this.quantity
+                quantity: this.quantity,
+                trayqtt: this.trayqtt,
+                priceper: this.priceper
             }
 
             this.$store.commit('addToCart', item)

@@ -11,10 +11,10 @@ import Contact from '../views/Contact.vue'
 import Category from '../views/Category.vue'
 import Privacy from '../views/Privacy.vue'
 import Term from '../views/Term.vue'
-import UserInfo from '../views/User-Info.vue'
 import Profile from '../views/Profile.vue'
 import Product from '../views/Product.vue'
 import ProductDetail from '../views/ProductDetail.vue'
+import CheckOut from '../views/CheckOut.vue'
 
 
 
@@ -35,14 +35,6 @@ const routes = [
     }
   }
   ,
-  {
-    path: '/Profile/UserInfo',
-    name: 'User-info',
-    component: UserInfo,
-    meta: {
-      requireLogin: true
-    } 
-  },
   {
     path: '/about',
     name: 'About',
@@ -111,14 +103,14 @@ const routes = [
   //   name: 'Success',
   //   component: Success
   // },
-  // {
-  //   path: '/cart/checkout',
-  //   name: 'Checkout',
-  //   component: Checkout,
-  //   meta: {
-  //       requireLogin: true
-  //   }
-  // }
+  {
+    path: '/cart/checkout',
+    name: 'CheckOut',
+    component: CheckOut,
+    meta: {
+        requireLogin: true
+    }
+  }
 ]
 
 

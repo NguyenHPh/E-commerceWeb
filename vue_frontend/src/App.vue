@@ -1,6 +1,6 @@
 <template>
 <div>
-     <AppHeader v-bind:cartTotalLength="cartTotalLength" v-bind:getCategories="categories"/>
+     <AppHeader v-bind:cartTotalLength="cartTotalLength"/>
      <NavBar />
      <Rated />
      <router-view/>
@@ -57,20 +57,9 @@
     },
     mounted() {
       this.cart = this.$store.state.cart
-      this.getCategories()
     },
     methods:{
-      async getCategories(){
-        await axios
-            .get('/api/v1/collections')
-            .then(response =>{
-                this.categories = response.data
-                console.log(this.categories)
-            })
-            .catch(err =>{
-                console.log(err)
-            })
-        } 
+
     },
     computed: {
       cartTotalLength() {

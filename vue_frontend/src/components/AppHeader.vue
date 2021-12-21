@@ -9,9 +9,9 @@
     </div>
     <div class="small-nav-bar__menu">
         <ul class = "main-ul-1">
-            <li><a href="">wet food {{ getCategories }} </a></li>
-            <li><a href="">dry food</a></li>
-            <li><a href="">dog treats</a></li>
+            <li><router-link to="">wet food </router-link></li>
+            <li><router-link to="">dry food</router-link></li>
+            <li><router-link to="">dog treats</router-link></li>
             <li><div class="ul-header-2"><span>our range</span><i class="fas fa-chevron-right"></i></div>
                 <ul class = "main-ul-1-2">
                     <li><a href="">limited edition recipes</a></li>
@@ -112,7 +112,7 @@
             <p class="search--title">Search</p>
             </div>
             <div class="header__main-header__cart">
-                <a href="">
+                <a href="/cart">
                     <i class="fas fa-shopping-basket"></i>
                     <p class = "cart--content" v-if = "cartTotalLength < 1"> your basket is empty!</p>
                     <p class = "cart--content" v-else> ({{ cartTotalLength }})   checkout <i class="fas fa-arrow-right"></i></p>
@@ -142,8 +142,6 @@
         name: "AppHeader",
         props: {
             cartTotalLength: Number,
-            getCategories: Array,
-
         },
         data(){
             return{

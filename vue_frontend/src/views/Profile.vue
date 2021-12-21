@@ -77,11 +77,12 @@ import axios from 'axios'
         name: "Profile",
         data(){
             return {
-
+                orders: []
             }
         },
         mounted(){
-            document.title = "Profile";
+            document.title = "Profile"
+            this.getMyOrders()
         },
         methods: {
             logout() {
@@ -92,6 +93,21 @@ import axios from 'axios'
                 localStorage.removeItem("userid")
                 this.$store.commit('removeToken')
                 this.$router.push('/')
+            },
+            async getMyOrders() {
+                //this.$store.commit('setIsLoading', true)
+
+                await axios
+                    .get('/api/v1/orders/')
+                    .then(response => {
+                        this.orders = response.data
+                        console.log(this.orders)
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+
+                this.$store.commit('setIsLoading', false)
             }
         }
     }

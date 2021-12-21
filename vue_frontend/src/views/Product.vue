@@ -64,7 +64,7 @@
             </nav>
 
             <div id="content" class="pl-5">
-                <span class="result-quantity">displaying 50 results</span>
+                <span class="result-quantity">displaying {{ displayqtt }} results</span>
                 <div class="product py-3" v-for="product in products" :key="product.id">
                     <div class="row">
                         <div class="col-10 col-lg-4 mx-auto pt-4">
@@ -121,7 +121,8 @@ export default {
         return{
             products: {},
             category: '',
-            categoryall: true
+            categoryall: true,
+            displayqtt: 0
         }
     },
     mounted() {
@@ -140,6 +141,7 @@ export default {
                     axios.get(`/api/v1/collections/all`)
                             .then(response => {
                                 this.products = response.data
+                                this.displayQuantity()
                             })
                             .catch(err =>{
                                 console.log(err)
@@ -159,6 +161,7 @@ export default {
                             .then(response => {
                                 this.products = response.data
                                 this.categoryall = false
+                                this.displayQuantity()
                                 console.log(this.products)
                             })
                             .catch(err =>{
@@ -198,8 +201,10 @@ export default {
 
         }
     },
-    counted:{
-
+    computed:{
+        displayQuantity(){
+            this.displayqtt = this.products.length
+        }
     }
 }
 </script>

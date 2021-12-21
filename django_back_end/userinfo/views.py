@@ -27,6 +27,9 @@ class ViewUserInfo(APIView):
         return Response(serializers.data)
 
 
+# user = User.objects.get(id=2)
+# user_email = user.email
+
 @api_view(['POST'])
 @authentication_classes([authentication.TokenAuthentication])
 @permission_classes([permissions.IsAuthenticated])
