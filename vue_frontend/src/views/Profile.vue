@@ -73,7 +73,7 @@
 
 <script>
 import axios from 'axios'
-    export default{
+    export default {
         name: "Profile",
         data(){
             return {
@@ -82,7 +82,8 @@ import axios from 'axios'
         },
         mounted(){
             document.title = "Profile"
-            this.getMyOrders()
+            //this.getMyOrders()
+
         },
         methods: {
             logout() {
@@ -95,20 +96,13 @@ import axios from 'axios'
                 this.$router.push('/')
             },
             async getMyOrders() {
-                //this.$store.commit('setIsLoading', true)
-
                 await axios
                     .get('/api/v1/orders/')
                     .then(response => {
                         this.orders = response.data
                         console.log(this.orders)
                     })
-                    .catch(error => {
-                        console.log(error)
-                    })
-
-                this.$store.commit('setIsLoading', false)
-            }
+            },
         }
     }
 </script>

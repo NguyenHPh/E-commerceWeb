@@ -35,7 +35,7 @@
         <p class = "footer__info__account--title">account</p>
         <ul>
             <li>
-                <a href="">login</a>
+                <a href="/log-in">login</a>
             </li>
         </ul>
     </div>
@@ -68,12 +68,12 @@
     <ul>
         <li><div><span>account</span><i class="fas fa-sort-down"></i></div>
             <ul>
-                <li><a href="">log in</a></li>
+                <li><a href="/log-in">log in</a></li>
             </ul>
         </li>
         <li><div><span>help</span><i class="fas fa-sort-down"></i></div>
             <ul>
-                <li><a href="">discover forthglade</a></li>
+                <li><a href="/about">discover forthglade</a></li>
                 <li><a href="">get in touch</a></li>
                 <li><a href="">find a stockist</a></li>
                 <li><a href="">subcribe and save</a></li>

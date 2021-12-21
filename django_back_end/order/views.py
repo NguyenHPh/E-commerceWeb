@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from django.http import Http404, response
 
-from rest_framework import status, authentication, permissions
+from rest_framework import serializers, status, authentication, permissions
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -39,5 +39,4 @@ class OrdersList(APIView):
     def get(self, request, format=None):
         orders = Order.objects.filter(user=request.user)
         serializer = MyOrderSerializer(orders, many=True)
-        print(serializer.data)
         return Response(serializer.data)

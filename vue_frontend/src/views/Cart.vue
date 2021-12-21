@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form @submit.prevent="proceedOrder">
+                          <form @submit.prevent="proceedOrder">
                             <div class="form-information--email">
                                 <label for="input">Email</label>
                                 <input type="text" name="email" v-model="email">
@@ -219,7 +219,7 @@ export default {
     mounted(){
         document.title = "Cart"
         this.cart = this.$store.state.cart.items
-        this.getUser()
+        this.cart = this.$store.state.cart;
 
         $(".form-information--email input").focusin(function(){
             $(".form-information--email label").css({"top":"15%"});
@@ -373,6 +373,82 @@ export default {
 
         removeFromCart(item) {
             this.$store.state.cart.items = this.$store.state.cart.items.filter(i => i.product.id !== item.product.id)
+        },
+
+          submitForm() {
+            this.errors = []
+
+            if (this.first_name === '') {
+                this.errors.push('The first name field is missing!')
+            }
+
+            if (this.last_name === '') {
+                this.errors.push('The last name field is missing!')
+            }
+
+            if (this.email === '') {
+                this.errors.push('The email field is missing!')
+            }
+
+            if (this.phone === '') {
+                this.errors.push('The phone field is missing!')
+            }
+
+            if (this.address === '') {
+                this.errors.push('The address field is missing!')
+            }
+
+
+            if (!this.errors.length) {
+
+                this.stripe.createToken(this.card).then(result => {                    
+                    if (result.error) {
+                        this.$store.commit('setIsLoading', false)
+
+                        this.errors.push('Something went wrong with Stripe. Please try again')
+
+                        console.log(result.error.message)
+                    } else {
+                        this.stripeTokenHandler(result.token)
+                    }
+                })
+            }
+        },
+        async stripeTokenHandler(token) {
+            const items = []
+
+            for (let i = 0; i < this.cart.items.length; i++) {
+                const item = this.cart.items[i]
+                const obj = {
+                    product: item.product.id,
+                    quantity: item.quantity,
+                    price: item.product.price * item.quantity
+                }
+
+                items.push(obj)
+            }
+
+            const data = {
+                'first_name': this.first_name,
+                'last_name': this.last_name,
+                'email': this.email,
+                'address': this.address,
+                'phone': this.phone,
+                'items': items,
+                'stripe_token': token.id
+            }
+
+            await axios
+                .post('/api/v1/orders/checkout/', data)
+                .then(response => {
+                    this.$store.commit('clearCart')
+                    this.$router.push('/cart/success')
+                })
+                .catch(error => {
+                    this.errors.push('Something went wrong. Please try again')
+
+                    console.log(error)
+                })
         }
     },
     computed:{
