@@ -137,7 +137,7 @@
             </form>
     </div>
     <div class="header--logo">
-        <img src="//cdn.shopify.com/s/files/1/0402/7685/2896/t/2/assets/logo_forthglade.svg?v=8815871955478593558"  alt="logo">
+        <a href="/"><img src="//cdn.shopify.com/s/files/1/0402/7685/2896/t/2/assets/logo_forthglade.svg?v=8815871955478593558"  alt="logo"></a>
     </div>
     <div class="header--divider">
     </div>

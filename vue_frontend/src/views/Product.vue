@@ -25,17 +25,17 @@
                         <ul class="collapse list-unstyled" id="pageSubmenu1">
                             <li>
                                 <a href="/collections/wet-dog-food" class="mb-3 d-flex">
-                                    <i class="fas fa-check mr-2"></i>wet food
+                                    <i class="fas mr-2" v-bind:class="{ 'fa-check':filterCategory[0] }"></i>wet food
                                 </a>
                             </li>
                             <li>
                                 <a href="/collections/dry-dog-food" class="mb-3 d-flex">
-                                    <i class="fas mr-2"></i> dry food
+                                    <i class="fas mr-2" v-bind:class="{ 'fa-check':filterCategory[1] }"></i> dry food
                                 </a>
                             </li>
                             <li>
                                 <a href="/collections/range-natural-hand-baked-treats" class="mb-3 d-flex">
-                                    <i class="fas mr-2"></i>dog treats
+                                    <i class="fas mr-2" v-bind:class="{ 'fa-check':filterCategory[2] }"></i>dog treats
                                 </a>
                             </li>
                         </ul>
@@ -45,17 +45,17 @@
                         <ul class="collapse list-unstyled" id="pageSubmenu2">
                             <li>
                                 <a href="#" class="mb-3 d-flex">
-                                    <i class="fas fa-check mr-2"></i>puppy
+                                    <i class="fas mr-2" v-bind:class="{ 'fa-check':filterLifeStage[0] }"></i>puppy
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="mb-3 d-flex">
-                                    <i class="fas mr-2"></i> adult
+                                    <i class="fas mr-2" v-bind:class="{ 'fa-check':filterLifeStage[0] }"></i> adult
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="mb-3 d-flex">
-                                    <i class="fas mr-2"></i>senior 
+                                    <i class="fas mr-2" v-bind:class="{ 'fa-check':filterLifeStage[0] }"></i>senior 
                                 </a>
                             </li>
                         </ul>
@@ -92,7 +92,9 @@ export default {
             products: {},
             category: '',
             categoryall: true,
-            displayqtt: 0
+            displayqtt: 0,
+            filterCategory: [false, false, false],
+            filterLifeStage: [false, false, false]
         }
     },
     mounted() {
@@ -124,7 +126,15 @@ export default {
                     await axios.get(`/api/v1/collections/${category_slug}/`)
                             .then(response => {
                                 this.category = response.data
-                                this.categoryall = true
+                                if (this.category.name == "treats"){
+                                    this.filterCategory[2] = true
+                                }
+                                if (this.category.name == "dry food"){
+                                    this.filterCategory[1] = true
+                                }
+                                if (this.category.name == "wet food"){
+                                    this.filterCategory[0] = true
+                                }
                             })
                             .catch(err =>{
                                 console.log(err)
@@ -135,7 +145,6 @@ export default {
                                 this.products = response.data
                                 this.categoryall = false
                                 this.displayqtt = this.products.length
-                                console.log(this.products)
                             })
                             .catch(err =>{
                                 console.log(err)
