@@ -111,8 +111,8 @@
         </div>
         <div class="header__main-header__search-and-cart">
             <div class="header__main-header--search">
-                <form action="" method="post">
-                    <input type="text" name = "product_name" placeholder="product search">
+                <form action="/search" method="get">
+                    <input type="text" name = "query" placeholder="product search">
                     <button class = "search--button" type="submit"><i class="fas fa-search"></i></button>
                     <div class="search--button-disable">
 

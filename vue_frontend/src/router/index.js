@@ -15,6 +15,8 @@ import Profile from '../views/Profile.vue'
 import Product from '../views/Product.vue'
 import ProductDetail from '../views/ProductDetail.vue'
 import CheckOut from '../views/CheckOut.vue'
+import Search from '../views/Search.vue'
+
 
 
 
@@ -84,6 +86,11 @@ const routes = [
     path: '/:category_slug/:product_slug',
     name: 'ProductDetail',
     component: ProductDetail
+  },
+    {
+    path: '/search',
+    name: 'Search',
+    component: Search
   },
   // {
   //   path: '/my-account',

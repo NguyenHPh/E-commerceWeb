@@ -61,13 +61,14 @@ class Products_Category(APIView):
         serializer = ProductSerializer(Product, many=True)
         return Response(serializer.data)
 
-# @api_view(['POST'])
-# def search(request):
-#     query = request.data.get('query', '')
 
-#     if query:
-#         products = Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
-#         serializer = ProductSerializer(products, many=True)
-#         return Response(serializer.data)
-#     else:
-#         return Response({"products": []})
+class search(APIView):
+    def get(self, request, search_query, format=None):
+        print(search_query)
+        if search_query:
+            print("yes")
+            products = Product.objects.filter(Q(brief_component__icontains=search_query) | Q(special_range__icontains=search_query))
+            serializer = ProductSerializer(products, many=True)
+            return Response(serializer.data)
+        else:
+            return Response({"products": []})

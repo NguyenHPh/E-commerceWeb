@@ -88,35 +88,3 @@ class Product(models.Model):
 			listImages.append('http://127.0.0.1:8000' + self.pic5.url)
 			return listImages
 		return ''
-
-# class ProductDetail(models.Model):
-# 	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-# 	name = models.OneToOneField(Product, on_delete=models.CASCADE)
-# 	pic1 = models.ImageField(upload_to='uploads/', blank = True, null = True)
-# 	pic2 = models.ImageField(upload_to='uploads/', blank = True, null = True)
-# 	pic3 = models.ImageField(upload_to='uploads/', blank = True, null = True)
-# 	pic4 = models.ImageField(upload_to='uploads/', blank = True, null = True)
-# 	pic5 = models.ImageField(upload_to='uploads/', blank = True, null = True)
-# 	description = models.TextField()
-# 	nutrition_info = models.TextField()
-# 	feeding_guide = models.TextField()
-# 	deliver_info = models.TextField()
-# 	class Meta:
-# 		db_table = "productdetail"
-	
-# 	def __str__(self):
-# 		return str(self.name.brief_component)
-
-# 	def get_image(self):
-# 		if self.front_image:
-# 			listImages = []
-# 			listImages.append('http://127.0.0.1:8000' + self.pic1.url)
-# 			listImages.append('http://127.0.0.1:8000' + self.pic2.url)
-# 			listImages.append('http://127.0.0.1:8000' + self.pic3.url)
-# 			listImages.append('http://127.0.0.1:8000' + self.pic4.url)
-# 			listImages.append('http://127.0.0.1:8000' + self.pic5.url)
-# 			return listImages
-# 		return ''
-
-# 	def get_absolute_url(self):
-# 		return f'/{self.name.category.slug}/{self.name.slug}/'
