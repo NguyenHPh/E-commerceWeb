@@ -378,25 +378,25 @@ export default {
           submitForm() {
             this.errors = []
 
-            if (this.first_name === '') {
-                this.errors.push('The first name field is missing!')
-            }
+            // if (this.first_name === '') {
+            //     this.errors.push('The first name field is missing!')
+            // }
 
-            if (this.last_name === '') {
-                this.errors.push('The last name field is missing!')
-            }
+            // if (this.last_name === '') {
+            //     this.errors.push('The last name field is missing!')
+            // }
 
-            if (this.email === '') {
-                this.errors.push('The email field is missing!')
-            }
+            // if (this.email === '') {
+            //     this.errors.push('The email field is missing!')
+            // }
 
-            if (this.phone === '') {
-                this.errors.push('The phone field is missing!')
-            }
+            // if (this.phone === '') {
+            //     this.errors.push('The phone field is missing!')
+            // }
 
-            if (this.address === '') {
-                this.errors.push('The address field is missing!')
-            }
+            // if (this.address === '') {
+            //     this.errors.push('The address field is missing!')
+            // }
 
 
             if (!this.errors.length) {
