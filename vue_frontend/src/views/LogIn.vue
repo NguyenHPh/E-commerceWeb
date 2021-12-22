@@ -46,6 +46,7 @@ export default {
     },
     methods: {
         async submitForm() {
+            this.$store.commit('setIsLoading', true)
             axios.defaults.headers.common["Authorization"] = ""
 
             localStorage.removeItem("token")
@@ -67,7 +68,7 @@ export default {
                     axios.defaults.headers.common["Authorization"] = "Token " + token
 
                     localStorage.setItem("token", token)
-
+                    this.$store.commit('setIsLoading', false)
                     this.$router.push('/cart')
                 })
                 .catch(error => {
@@ -79,6 +80,8 @@ export default {
                         console.log("wrong")
                     }
                 })
+            
+
         }
     }
 }

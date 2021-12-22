@@ -68,6 +68,7 @@ export default {
             }
         },
         async submitForm(){
+            this.$store.commit('setIsLoading', true)
             this.validate()
             if (!this.errors.length){
                 const formData = {
@@ -87,6 +88,7 @@ export default {
                             duration: 2000,
                             position: 'bottom-right',
                         })
+                        this.$store.commit('setIsLoading', false)
                         this.$router.push('/log-in')
                     })
                     .catch(error => {

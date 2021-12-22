@@ -136,6 +136,9 @@ export default {
     methods:{
 
         async getProduct(){
+                this.$store.commit('setIsLoading', true)
+
+
                 const category_slug = this.$route.params.category_slug
 
                 if (category_slug == "all"){
@@ -162,13 +165,14 @@ export default {
                             .then(response => {
                                 this.products = response.data
                                 this.categoryall = false
-                                this.displayQuantity()
+                                this.displayqtt = this.products.length
                                 console.log(this.products)
                             })
                             .catch(err =>{
                                 console.log(err)
                             })
                 }
+                this.$store.commit('setIsLoading', false)
         },
 
         loadMore(){
@@ -203,9 +207,6 @@ export default {
         }
     },
     computed:{
-        displayQuantity(){
-            this.displayqtt = this.products.length
-        }
     }
 }
 </script>

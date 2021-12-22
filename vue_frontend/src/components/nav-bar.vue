@@ -21,7 +21,7 @@
         </li>
         <li><a href="/collections/dry-dog-food">dry food</a></li>
         <li><a href="/collections/range-natural-hand-baked-treats">treat</a></li>
-        <li><a href="">our range <i class="fas fa-sort-down"></i></a>
+        <li><a href="/collections">our range <i class="fas fa-sort-down"></i></a>
             <div class="sub-menu2">
                 <ul class = "third">
                     <li><a href="">limited edition recipes</a></li>

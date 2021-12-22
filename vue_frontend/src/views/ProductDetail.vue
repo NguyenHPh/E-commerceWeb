@@ -182,6 +182,7 @@ export default {
     methods:{
 
         async getProduct(){
+            this.$store.commit('setIsLoading', true)
             const category_slug = this.$route.params.category_slug
             const product_slug = this.$route.params.product_slug
             await axios.get(`/api/v1/collections/${category_slug}/${product_slug}/`)
@@ -195,6 +196,7 @@ export default {
                     .catch(err =>{
                         console.log(err)
                     })
+            this.$store.commit('setIsLoading', false)
         },
 
         selectTray(index){

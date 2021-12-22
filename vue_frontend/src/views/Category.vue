@@ -151,8 +151,9 @@ export default {
         this.getCategories()
     },
     methods:{
-        getCategories(){
-            axios
+        async getCategories(){
+            this.$store.commit('setIsLoading', true)
+            await axios
                 .get('/api/v1/collections')
                 .then(response =>{
                     this.categories = response.data
@@ -160,8 +161,10 @@ export default {
                 .catch(err =>{
                     console.log(err)
                 })
+            this.$store.commit('setIsLoading', false)
         } 
     }
+
 }
 </script>
 

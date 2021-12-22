@@ -74,14 +74,23 @@
                 <i class="fas fa-phone-alt"></i>
                 <p class = "phone-number">0394 712 245</p>
             </div>
-            <div class="header__main-header--login">
-                <template v-if="$store.state.isAuthenticated">
+            <template v-if="$store.state.isAuthenticated">
+                <div class="header__main-header--login">
+                    <a style="text-decoration: none; color: black; text-align:center;" href="/profile"> my account </a>
+                </div>
+                <div class="header__main-header--divider">
+                    <span style="margin-left: 0.5rem;">|</span>
+                </div>
+                <div class="header__main-header--login">
                     <a style="text-decoration: none; color: black" @click = "logout()"> logout </a>
-                </template>
-                <template v-else>
+                </div>
+            </template>
+            <template v-else>
+                <div class="header__main-header--login">
                     <router-link :to="{ path: '/log-in'}" style="text-decoration: none; color: black"> login </router-link>
-              </template>
-            </div>
+                </div>
+            </template>
+            
             <div class="header__main-header--divider">
                 <span style="margin-left: 0.5rem;">|</span>
             </div>

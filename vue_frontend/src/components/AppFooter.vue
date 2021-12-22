@@ -42,10 +42,10 @@
     <div class="footer__info__help">
         <p class = "footer__info__help--title">help</p>
         <ul>
-            <li><a href="">discover forthglade</a></li>
-            <li><a href="">get in touch</a></li>
+            <li><a href="/about">discover forthglade</a></li>
+            <li><a href="/get-in-touch">get in touch</a></li>
             <li><a href="">find a stockist</a></li>
-            <li><a href="">subcribe and save</a></li>
+            <li><a href="/advices">dvices</a></li>
             <li><a href="">deliver and return</a></li>
             <li><a href="">join a team</a></li>
         </ul>
@@ -54,14 +54,14 @@
     <div class="footer__info__legal">
         <p class = "footer__info__legal--title">legal</p>
         <ul>
-            <li><a href="">privacy and security</a></li>
-            <li><a href="">terms and condition</a></li>
+            <li><a href="/privacy">privacy and security</a></li>
+            <li><a href="/term">terms and condition</a></li>
         </ul>
     </div>
     <div class="footer__info__stockist">
         <p class = "footer__info__stockist--title">become a stockist</p>
         <p class = "footer__info__stockist--content">get in touch with our team to find out more</p>
-        <button><a href="">get in touch</a></button>
+        <button><a href="/get-in-touch">get in touch</a></button>
     </div>
 </div>
 <div class="small-footer">
@@ -74,16 +74,16 @@
         <li><div><span>help</span><i class="fas fa-sort-down"></i></div>
             <ul>
                 <li><a href="/about">discover forthglade</a></li>
-                <li><a href="">get in touch</a></li>
+                <li><a href="/get-in-touch">get in touch</a></li>
                 <li><a href="">find a stockist</a></li>
-                <li><a href="">subcribe and save</a></li>
+                <li><a href="/advices">dvices</a></li>
                 <li><a href="">join a team</a></li>
             </ul>
         </li>
         <li><div><span>legal</span><i class="fas fa-sort-down"></i></div>
             <ul>
-                <li><a href="">privacy and security</a></li>
-                <li><a href="">terms and condition</a></li>
+                <li><a href="/about">privacy and security</a></li>
+                <li><a href="/term">terms and condition</a></li>
             </ul>
         </li>
         <li><a href="">become a stockist</a></li>
