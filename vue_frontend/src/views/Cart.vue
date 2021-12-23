@@ -343,13 +343,15 @@ export default {
                 items.push(obj)
             }
 
-
+            const paid_amount = this.$store.state.cart.items.reduce((acc, curVal) => {
+                                    return acc += (curVal.priceper*curVal.trayqtt) * curVal.quantity
+                                }, 0)
             let data = {
                 'first_name': this.firstname,
                 'last_name': this.lastname,
                 'address': this.address,
                 'phone': this.phone,
-                'paid_amount': 100.5,
+                'paid_amount': paid_amount,
                 'items': items
             }
 
@@ -368,7 +370,7 @@ export default {
 
                     console.log(error)
                 })
-
+                localStorage.setItem('cart', JSON.stringify(this.$store.state.cart))
                 this.$store.commit('setIsLoading', false)
         },
 
@@ -387,7 +389,7 @@ export default {
             return this.$store.state.cart.items.reduce((acc, curVal) => {
                 return acc += (curVal.priceper*curVal.trayqtt) * curVal.quantity
             }, 0)
-        },
+        }
     }
     
 }

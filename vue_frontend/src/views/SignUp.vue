@@ -23,12 +23,7 @@
                             <p class = "password-label">Your password*</p>
                             <input type="password" v-model="repassword" required>
                          </div>
-                        <div class="form--subcribe">
-                            <input type="checkbox" v-model="subcribe">
-                            <p class = "subcribe-label">Subcribe for our newsletter</p>
-                        </div>
-                        
-
+                    
                         <div class="form-btn">
                             <button type="submit" name = "login-btn" class = "login-btn">Sign up account</button>
                             <button type="submit" name = "sign-up-btn" class = "sign-up-btn">Cancel</button>
@@ -88,7 +83,6 @@ export default {
                             duration: 2000,
                             position: 'bottom-right',
                         })
-                        this.$store.commit('setIsLoading', false)
                         this.$router.push('/log-in')
                     })
                     .catch(error => {
@@ -103,6 +97,27 @@ export default {
                             console.log(JSON.stringify(error))
                         }                    
                         })
+
+                /*
+                const formData02 = {
+                    user: this.username,
+                    firstName: "",
+                    lastName: "",
+                    phone: "",
+                    address: ""
+                }
+                await axios
+                    .post("/api/v1/addinfo", formData02)
+                    .then(response => {
+                        console.log("upload info")
+
+                    })
+                    .catch(error => {
+                        console.log(error)                
+                    })*/
+
+                this.$store.commit('setIsLoading', false)
+                
             }
             else{
                 console.log(this.errors);

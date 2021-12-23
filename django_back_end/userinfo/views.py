@@ -1,5 +1,5 @@
 import stripe
-
+from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 
 from django.http import Http404
@@ -20,26 +20,46 @@ from .serializers import UserInfoSerializer
 #         serializers = UserSerializer(users, many=True)
 #         return Response(serializers.data)
 
+
 class ViewUserInfo(APIView):
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
     def get(self, request, format=None):
-        users = User_Info.objects.all()
-        serializers = UserInfoSerializer(users, many=True)
+        print(request.user)
+        user = User_Info.objects.filter(user = request.user)
+        print(user)
+        serializers = UserInfoSerializer(user)
         return Response(serializers.data)
 
 
 # user = User.objects.get(id=2)
 # user_email = user.email
+@csrf_exempt
+@api_view(['POST'])
+def addInfo(request):
+    serializer = UserInfoSerializer(data=request.data)
+    print(serializer)
+    if serializer.is_valid():
+        print("ok")
+        try:
+            serializer.save()
+            console.log(serializer)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        except Exception:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 @authentication_classes([authentication.TokenAuthentication])
 @permission_classes([permissions.IsAuthenticated])
-def updateInfo(request, pk):
+def updateInfo(request):
     serializer = UserInfoSerializer(data=request.data)
 
     if serializer.is_valid():
         # stripe.api_key = settings.STRIPE_SECRET_KEY
         try:
-            serializer.save()
+            serializer.save(user = request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         except Exception:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

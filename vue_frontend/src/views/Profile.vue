@@ -34,12 +34,24 @@
                     <div class="order-history--title">
                         <p>Order History</p>
                     </div>
-                    <div class="order-history__main">
+                    <div class="order-history__main" v-if="orders.length == 0">
                         <div class="order-history__main--content">
                             <p>There are currently no orders in your order history.</p>
                         </div>
                         <div class="order-history__main--button">
                             <a href="">Shop now</a>
+                        </div>
+                    </div>
+                    <div class="order-history__main" v-else>
+                        <div class="order-history__main--content">
+                            <div v-for="(order, index) in orders" :key="index" style="border: 1px solid blue;">
+                                <p>First Name: {{ order.first_name }}</p>
+                                <p>Last Name: {{ order.last_name }}</p>
+                                <p>Address: {{ order.address }}</p>
+                                <p>Order date: {{ order.created_at }}</p>
+                                <p>Phone: {{ order.phone }}</p>
+                                <p>Paid amount: {{ order.paid_amount }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,7 +94,7 @@ import axios from 'axios'
         },
         mounted(){
             document.title = "Profile"
-            //this.getMyOrders()
+            this.getMyOrders()
 
         },
         methods: {
@@ -96,12 +108,14 @@ import axios from 'axios'
                 this.$router.push('/')
             },
             async getMyOrders() {
+                this.$store.commit('setIsLoading', true)
                 await axios
                     .get('/api/v1/orders/')
                     .then(response => {
                         this.orders = response.data
                         console.log(this.orders)
                     })
+                this.$store.commit('setIsLoading', false)
             },
         }
     }

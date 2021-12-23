@@ -18,15 +18,10 @@ class User_Info(models.Model):
     lastName = models.CharField(max_length=50)
     phone = models.CharField(max_length=15)
     address = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='uploads/', blank=True, null=True)
 
     class Meta:
         db_table = "User_Info"
 
-    def get_image(self):
-        if self.image:
-            return 'http://127.0.0.1:8000' + self.image.url
-        return 'No image'
 
     def __str__(self):
         return self.firstName + " " + self.lastName

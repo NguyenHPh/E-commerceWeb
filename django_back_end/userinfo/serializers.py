@@ -6,12 +6,11 @@ class UserInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = User_Info
         fields = (
-            "id",
+            "user",
             "firstName",
             "lastName",
             "phone",
-            "address",
-            "get_image"
+            "address"
         )
 
 class UserInfoUpdatable(serializers.ModelSerializer):
@@ -21,6 +20,5 @@ class UserInfoUpdatable(serializers.ModelSerializer):
             "firstName",
             "lastName",
             "phone",
-            "address",
-            "image"
+            "address"
         )

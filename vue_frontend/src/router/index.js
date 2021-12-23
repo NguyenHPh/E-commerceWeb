@@ -16,6 +16,8 @@ import Product from '../views/Product.vue'
 import ProductDetail from '../views/ProductDetail.vue'
 import CheckOut from '../views/CheckOut.vue'
 import Search from '../views/Search.vue'
+import UserInfo from '../views/UserInfo.vue'
+
 
 
 
@@ -29,9 +31,17 @@ const routes = [
     component: Home
   },
   {
-    path: '/Profile',
+    path: '/profile',
     name: 'Profile',
     component: Profile,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/profile/userinfo',
+    name: 'UserInfo',
+    component: UserInfo,
     meta: {
       requireLogin: true
     }
@@ -92,32 +102,19 @@ const routes = [
     name: 'Search',
     component: Search
   },
-  // {
-  //   path: '/my-account',
-  //   name: 'MyAccount',
-  //   component: MyAccount,
-  //   meta: {
-  //       requireLogin: true
-  //   }
-  // },
   {
     path: '/cart',
     name: 'Cart',
-    component: Cart
+    component: Cart,
+    meta: {
+      requireLogin: true
+    }
   },
   // {
   //   path: '/cart/success',
   //   name: 'Success',
   //   component: Success
   // },
-  {
-    path: '/cart/checkout',
-    name: 'CheckOut',
-    component: CheckOut,
-    meta: {
-        requireLogin: true
-    }
-  }
 ]
 
 

@@ -21,8 +21,7 @@
 
                         <div class="form-btn">
                             <button type="submit" name = "login-btn" class = "login-btn">Log in</button>
-                            <button type="submit" name = "sign-up-btn" class = "sign-up-btn">Create account</button>
-                            
+                            <button class = "sign-up-btn" @click="signUp">Create account</button>
                         </div>
                     </form>
                 </div>
@@ -82,6 +81,9 @@ export default {
                 })
             
 
+        },
+        signUp(){
+            this.$router.push('/sign-up')
         }
     }
 }
