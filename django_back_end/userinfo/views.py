@@ -34,21 +34,21 @@ class ViewUserInfo(APIView):
 
 # user = User.objects.get(id=2)
 # user_email = user.email
-@csrf_exempt
-@api_view(['POST'])
-def addInfo(request):
-    serializer = UserInfoSerializer(data=request.data)
-    print(serializer)
-    if serializer.is_valid():
-        print("ok")
-        try:
-            serializer.save()
-            console.log(serializer)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        except Exception:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# @csrf_exempt
+# @api_view(['POST'])
+# def addInfo(request):
+#     serializer = UserInfoSerializer(data=request.data)
+#     print(serializer)
+#     if serializer.is_valid():
+#         print("ok")
+#         try:
+#             serializer.save()
+#             console.log(serializer)
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         except Exception:
+#             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 @authentication_classes([authentication.TokenAuthentication])
