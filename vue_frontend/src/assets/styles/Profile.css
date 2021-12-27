@@ -90,6 +90,18 @@
   flex-direction: row;
 }
 
+.table-order-history table td {
+  padding: 1.4rem 2rem;
+}
+
+.table-order-history table td:nth-child(2) {
+  padding: 1.4rem 4rem;
+}
+
+.table-order-history table tr:first-child td {
+  font-weight: bold;
+}
+
 .refer-a-friend__banner-left {
   width: 22rem;
   height: 38rem;
