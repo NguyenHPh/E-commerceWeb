@@ -17,6 +17,7 @@ import ProductDetail from '../views/ProductDetail.vue'
 import CheckOut from '../views/CheckOut.vue'
 import Search from '../views/Search.vue'
 import UserInfo from '../views/UserInfo.vue'
+import ChangePassword from "../views/ChangePassword.vue"
 
 
 
@@ -61,6 +62,11 @@ const routes = [
     path: '/log-in',
     name: 'LogIn',
     component: LogIn
+  },
+  {
+    path:'/change-password',
+    name: 'ChangePassword',
+    component: ChangePassword
   },
   {
     path: '/advices',
