@@ -66,7 +66,10 @@ const routes = [
   {
     path:'/change-password',
     name: 'ChangePassword',
-    component: ChangePassword
+    component: ChangePassword,
+    meta:{
+      requireLogin: true
+    }
   },
   {
     path: '/advices',
