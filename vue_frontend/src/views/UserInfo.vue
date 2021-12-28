@@ -70,6 +70,7 @@
 <script>
 import { toast } from 'bulma-toast'
 import axios from 'axios'
+import $ from 'jquery'
 export default {
     name: 'UserInfo',
     data() {
@@ -80,7 +81,86 @@ export default {
     },
     mounted() {
         document.title = 'User Info'
-        this.getUserInfo()
+        this.getUserInfo();
+        if($(".form-information--email input").val() != ""){
+             $(".form-information--email label").css({"top":"15%"});
+            $(".form-information--email input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+        }
+        if($(".name--firstname input").val() != ""){
+                $(".name--firstname label").css({"top":"15%"});
+                $(".name--firstname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            }
+            if($(".name--lastname input").val() != ""){
+                $(".name--lastname label").css({"top":"15%"});
+                $(".name--lastname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            }
+          if($(".address--delivery-address input").val() != ""){
+                $(".address--delivery-address label").css({"top":"15%"});
+                $(".address--delivery-address input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            }
+         if($(".form--information--phone input").val() != ""){
+                $(".form--information--phone label").css({"top":"15%"});
+                $(".form--information--phone input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            }
+               $(".form-information--email input").focusin(function(){
+            $(".form-information--email label").css({"top":"15%"});
+            $(".form-information--email input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+        })
+
+        $(".form-information--email input").focusout(function(){
+            if($(".form-information--email input").val() == ""){
+                $(".form-information--email label").css({"top":"35%"});
+                $(".form-information--email input").css({"padding-top":"0rem", "height":"3rem"});
+            }
+        })
+
+        $(".name--firstname input").focusin(function(){
+            $(".name--firstname label").css({"top":"15%"});
+            $(".name--firstname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+        })
+
+        $(".name--firstname input").focusout(function(){
+            if($(".name--firstname input").val() == ""){
+                $(".name--firstname label").css({"top":"35%"});
+                $(".name--firstname input").css({"padding-top":"0rem", "height":"3rem"});
+            }
+        })
+
+        $(".name--lastname input").focusin(function(){
+            $(".name--lastname label").css({"top":"15%"});
+            $(".name--lastname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+        })
+
+        $(".name--lastname input").focusout(function(){
+            if($(".name--lastname input").val() == ""){
+                $(".name--lastname label").css({"top":"35%"});
+                $(".name--lastname input").css({"padding-top":"0rem", "height":"3rem"});
+            }
+        })
+
+        $(".address--delivery-address input").focusin(function(){
+            $(".address--delivery-address label").css({"top":"15%"});
+            $(".address--delivery-address input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+        })
+
+        $(".address--delivery-address input").focusout(function(){
+            if($(".address--delivery-address input").val() == ""){
+                $(".address--delivery-address label").css({"top":"35%"});
+                $(".address--delivery-address input").css({"padding-top":"0rem", "height":"3rem"});
+            }
+        })
+
+        $(".form--information--phone input").focusin(function(){
+            $(".form--information--phone label").css({"top":"15%"});
+            $(".form--information--phone input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+        })
+
+        $(".form--information--phone input").focusout(function(){
+            if($(".form--information--phone input").val() == ""){
+                $(".form--information--phone label").css({"top":"35%"});
+                $(".form--information--phone input").css({"padding-top":"0rem", "height":"3rem"});
+            }
+        })
     },
     methods: {
         async getUserInfo(){
