@@ -90,11 +90,11 @@ export default {
                 $(".name--firstname label").css({"top":"15%"});
                 $(".name--firstname input").css({"padding-top":"1.1rem", "height":"3rem"});
             }
-        if($(this.userinfo.lastName != "").val() != ""){
+        if(this.userinfo.lastName != ""){
                 $(".name--lastname label").css({"top":"15%"});
                 $(".name--lastname input").css({"padding-top":"1.1rem", "height":"3rem"});
             }
-        if($(this.userinfor.address).val() != ""){
+        if(this.userinfo.address!= ""){
                 $(".address--delivery-address label").css({"top":"15%"});
                 $(".address--delivery-address input").css({"padding-top":"1.1rem", "height":"3rem"});
             }
@@ -108,7 +108,7 @@ export default {
         })
 
         $(".form-information--email input").focusout(function(){
-            if($(".form-information--email input").val() == ""){
+            if($(".form-information--email input").val().trim() == ""){
                 $(".form-information--email label").css({"top":"35%"});
                 $(".form-information--email input").css({"padding-top":"0rem", "height":"3rem"});
             }
@@ -120,7 +120,7 @@ export default {
         })
 
         $(".name--firstname input").focusout(function(){
-            if($(".name--firstname input").val() == ""){
+            if($(".name--firstname input").val().trim() == ""){
                 $(".name--firstname label").css({"top":"35%"});
                 $(".name--firstname input").css({"padding-top":"0rem", "height":"3rem"});
             }
@@ -132,7 +132,7 @@ export default {
         })
 
         $(".name--lastname input").focusout(function(){
-            if($(".name--lastname input").val() == ""){
+            if($(".name--lastname input").val().trim() == ""){
                 $(".name--lastname label").css({"top":"35%"});
                 $(".name--lastname input").css({"padding-top":"0rem", "height":"3rem"});
             }
@@ -144,7 +144,7 @@ export default {
         })
 
         $(".address--delivery-address input").focusout(function(){
-            if($(".address--delivery-address input").val() == ""){
+            if($(".address--delivery-address input").val().trim() == ""){
                 $(".address--delivery-address label").css({"top":"35%"});
                 $(".address--delivery-address input").css({"padding-top":"0rem", "height":"3rem"});
             }
@@ -156,7 +156,7 @@ export default {
         })
 
         $(".form--information--phone input").focusout(function(){
-            if($(".form--information--phone input").val() == ""){
+            if($(".form--information--phone input").val().trim() == ""){
                 $(".form--information--phone label").css({"top":"35%"});
                 $(".form--information--phone input").css({"padding-top":"0rem", "height":"3rem"});
             }
