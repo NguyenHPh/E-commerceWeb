@@ -45,7 +45,7 @@
             <li><a href="/about">discover forthglade</a></li>
             <li><a href="/get-in-touch">get in touch</a></li>
             <li><a href="">find a stockist</a></li>
-            <li><a href="/advices">dvices</a></li>
+            <li><a href="/advices">advices</a></li>
             <li><a href="">deliver and return</a></li>
             <li><a href="">join a team</a></li>
         </ul>

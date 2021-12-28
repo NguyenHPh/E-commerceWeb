@@ -3,8 +3,8 @@
     <div class="wrappers">
         <div class = "user-info">
             <div class = "user-info-detail">
-                <div class = "info">
-                    <h1 id = "user-name">Nguyễn Hoàng Phương</h1>
+                <div class = "info" v-if="userinfo">
+                    <h1 id = "user-name">{{ userinfo.firstName + " " + userinfo.lastName }}</h1>
                 </div>
             </div>
         </div>
@@ -27,10 +27,10 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="" method="post">
+                        <form @submit.prevent = "submitForm">
                             <div class="form-information--email">
                                 <label for="input">Email</label>
-                                <input type="text" name="email">
+                                <input type="text" v-model="user.email" disabled>
                             </div>
                             <div class="form-information__address">
                                 <div class="address--title">
@@ -39,21 +39,21 @@
                                 <div class="address__name">
                                     <div class="name--firstname">
                                         <label for="input">First name</label>
-                                        <input type="text" v-model="user.firstName">
+                                        <input type="text" v-model="userinfo.firstName" required>
                                     </div>
                                     <div class="name--lastname">
                                         <label for="">Last name</label>
-                                        <input type="text" v-model="user.lastName">
+                                        <input type="text" v-model="userinfo.lastName" required>
                                     </div>
                                 </div>
                                 <div class="address--delivery-address">
                                     <label for="">Address</label>
-                                    <input type="text" v-model="user.address">
+                                    <input type="text" v-model="userinfo.address" required>
                                 </div>
                             </div>
                             <div class="form--information--phone">
                                 <label for="">Phone number</label>
-                                <input type="text" v-model="user.phone">
+                                <input type="text" v-model="userinfo.phone" required>
                             </div>
                             <div class="form-submit--button">
                                 <input type="submit" name = "submit" value="Update">
@@ -68,12 +68,14 @@
 
 
 <script>
+import { toast } from 'bulma-toast'
 import axios from 'axios'
 export default {
     name: 'UserInfo',
     data() {
         return{
-            user: ''
+            user: '',
+            userinfo: ''
         }
     },
     mounted() {
@@ -82,13 +84,59 @@ export default {
     },
     methods: {
         async getUserInfo(){
+            this.$store.commit('setIsLoading', true)
             await axios.get('/api/v1/userinfo')
                 .then(response =>{
                     this.user = response.data
+                    console.log(this.user)
                 })
                 .catch(err =>{
                     console.log(err)
                 })
+
+            await axios.get('/api/v1/userorderinfo')
+                .then(response =>{
+                    this.userinfo = response.data
+                })
+                .catch(err =>{
+                    this.userinfo = {
+                        firstName: "",
+                        lastName: "",
+                        phone: "",
+                        address: ""
+                    }
+                })
+            this.$store.commit('setIsLoading', false)
+
+        },
+        async submitForm(){
+            this.$store.commit('setIsLoading', true)
+
+            let data = {
+                firstName: this.userinfo.firstName,
+                lastName: this.userinfo.lastName,
+                phone: this.userinfo.phone,
+                address: this.userinfo.address
+            }
+            console.log(data)
+            await axios.post('/api/v1/updateinfo', data)
+                .then(response =>{
+                    console.log("ok")
+                    this.$store.commit('setIsLoading', false)
+                    toast({
+                        message: 'Update successfully',
+                        type: 'is-success',
+                        dismissible: true,
+                        pauseOnHover: true,
+                        duration: 2000,
+                        position: 'bottom-right',
+                    })
+                })
+                .catch(err =>{
+                    console.log(err)
+                })
+            this.$store.commit('setIsLoading', false)
+
         }
     }
 }

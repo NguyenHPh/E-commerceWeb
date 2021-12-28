@@ -23,7 +23,7 @@
         </form>
     </div>
     <div class="table__subtotal">
-        <p class = "subtotal--content" style="text-align:center;">£{{ getItemTotal(item) }}</p>
+        <p class = "subtotal--content" style="text-align:center;">£{{ getItemTotal(item).toFixed(2) }}</p>
     </div>
     <div class="table__delete">
         <a class = "delete--x" @click="removeFromCart(item)" ><i class="fas fa-times"></i></a>

@@ -7,7 +7,7 @@
                     </div>
                     <div class="my-account__button">
                         <div class="button--subcription">
-                            <a href="">Manage Your Information</a>
+                            <a href="/profile/userinfo">Manage Your Information</a>
                         </div>
                         <div class="button--log-out">
                             <a @click="logout()" class="log-out">log out</a>
@@ -21,7 +21,7 @@
                     <div class="billing-detail--title">
                         <p>Billing Details</p>
                     </div>
-                    <div class="billing-detail__main">
+                    <div class="billing-detail__main" v-if="orders.length == 0">
                         <div class="billing-detail__main--content">
                             <p>You currently have no address saved</p>
                         </div>
@@ -45,19 +45,12 @@
                                         <td>Paid amount</td>
                                         <td>Order date</td>
                                     </tr>
-                                    <tr>
-                                        <td>Nguyễn Hoàng Phương</td>
-                                        <td>188 Nguyễn Xí</td>
-                                        <td>0394712245</td>
-                                        <td>128$</td>
-                                        <td>21-12-2021</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nguyễn Hoàng Phương</td>
-                                        <td>188 Nguyễn Xí</td>
-                                        <td>0394712245</td>
-                                        <td>128$</td>
-                                        <td>21-12-2021</td>
+                                    <tr v-for="order in orders">
+                                        <td>{{ order.first_name + " " + order.last_name }}</td>
+                                        <td>{{ order.address }}</td>
+                                        <td>{{ order.phone }}</td>
+                                        <td>{{ order.paid_amount }}$</td>
+                                        <td>{{ order.created_at }}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -106,7 +99,7 @@ import axios from 'axios'
         },
         mounted(){
             document.title = "Profile"
-            //this.getMyOrders()
+            this.getMyOrders()
 
         },
         methods: {
@@ -120,12 +113,14 @@ import axios from 'axios'
                 this.$router.push('/')
             },
             async getMyOrders() {
+                this.$store.commit('setIsLoading', true)
                 await axios
                     .get('/api/v1/orders/')
                     .then(response => {
                         this.orders = response.data
                         console.log(this.orders)
                     })
+                this.$store.commit('setIsLoading', false)
             },
         }
     }
