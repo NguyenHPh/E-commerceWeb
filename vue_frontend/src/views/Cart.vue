@@ -220,10 +220,30 @@ export default {
         document.title = "Cart"
         this.cart = this.$store.state.cart.items
         this.cart = this.$store.state.cart;
-        if($("input").val() != ""){
-                    $(".form-information--email label").css({"top":"15%"});
-                    $(".form-information--email input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-                }
+        if($(".form-information--email input").val() != ""){
+            $(".form-information--email label").css({"top":"15%"});
+            $(".form-information--email input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+        }
+         if($(".name--firstname input").val() != ""){
+                $(".name--firstname label").css({"top":"15%"});
+                $(".name--firstname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            }
+            if($(".name--lastname input").val() != ""){
+                $(".name--lastname label").css({"top":"15%"});
+                $(".name--lastname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            }
+          if($(".address--delivery-address input").val() != ""){
+                $(".address--delivery-address label").css({"top":"15%"});
+                $(".address--delivery-address input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            }
+         if($(".form--information--phone input").val() != ""){
+                $(".form--information--phone label").css({"top":"15%"});
+                $(".form--information--phone input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            }
+          if($(".discount--code input").val() != ""){
+                $(".discount--code label").css({"top":"15%"});
+                $(".discount--code input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            }
         $(".form-information--email input").focusin(function(){
             $(".form-information--email label").css({"top":"15%"});
             $(".form-information--email input").css({"padding-top":"1.1rem", "height":"1.9rem"});
