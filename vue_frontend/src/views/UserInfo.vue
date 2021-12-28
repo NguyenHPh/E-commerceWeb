@@ -82,23 +82,23 @@ export default {
     mounted() {
         document.title = 'User Info'
         this.getUserInfo();
-        if($(".form-information--email input").val() != ""){
+        if(this.user.email != ""){
              $(".form-information--email label").css({"top":"15%"});
             $(".form-information--email input").css({"padding-top":"1.1rem", "height":"3rem"});
         }
-        if($(".name--firstname input").val() != ""){
+        if(this.userinfo.firstName != ""){
                 $(".name--firstname label").css({"top":"15%"});
                 $(".name--firstname input").css({"padding-top":"1.1rem", "height":"3rem"});
             }
-        if($(".name--lastname input").val() != ""){
+        if($(this.userinfo.lastName != "").val() != ""){
                 $(".name--lastname label").css({"top":"15%"});
                 $(".name--lastname input").css({"padding-top":"1.1rem", "height":"3rem"});
             }
-        if($(".address--delivery-address input").val() != ""){
+        if($(this.userinfor.address).val() != ""){
                 $(".address--delivery-address label").css({"top":"15%"});
                 $(".address--delivery-address input").css({"padding-top":"1.1rem", "height":"3rem"});
             }
-        if($(".form--information--phone input").val() != ""){
+        if(this.userinfo.phone != ""){
                 $(".form--information--phone label").css({"top":"15%"});
                 $(".form--information--phone input").css({"padding-top":"1.1rem", "height":"3rem"});
             }
