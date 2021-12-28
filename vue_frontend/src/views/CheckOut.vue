@@ -156,6 +156,10 @@ export default {
 
     },
     mounted(){
+         if($("input").val() == ""){
+                    $(".form-information--email label").css({"top":"35%"});
+                    $(".form-information--email input").css({"padding-top":"0rem", "height":"3rem"});
+                }
             document.title = "Check Out";
             this.cart = this.$store.state.cart;
             $(".form-information--email input").focusin(function(){

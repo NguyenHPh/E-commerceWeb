@@ -220,7 +220,10 @@ export default {
         document.title = "Cart"
         this.cart = this.$store.state.cart.items
         this.cart = this.$store.state.cart;
-
+        if($("input").val() != ""){
+                    $(".form-information--email label").css({"top":"15%"});
+                    $(".form-information--email input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+                }
         $(".form-information--email input").focusin(function(){
             $(".form-information--email label").css({"top":"15%"});
             $(".form-information--email input").css({"padding-top":"1.1rem", "height":"1.9rem"});
@@ -359,7 +362,7 @@ export default {
 
 
             await axios
-                .post('/api/v1/checkout/', data)
+                .post('/api/v1/', data)
                 .then(response => {
                     console.log("ok")
                     this.$store.commit('clearCart')
