@@ -96,7 +96,7 @@
                           <form @submit.prevent="proceedOrder">
                             <div class="form-information--email">
                                 <label for="input">Email</label>
-                                <input type="text" name="email" v-model="email">
+                                <input type="text" name="email" v-model="user.email" disabled>
                             </div>
                             <div class="form-information__address">
                                 <div class="address--title">
@@ -105,21 +105,21 @@
                                 <div class="address__name">
                                     <div class="name--firstname">
                                         <label for="input">First name</label>
-                                        <input type="text" v-model = "firstname" required>
+                                        <input type="text" v-model = "userinfo.firstName" required>
                                     </div>
                                     <div class="name--lastname">
                                         <label for="">Last name</label>
-                                        <input type="text" v-model = "lastname" required>
+                                        <input type="text" v-model = "userinfo.lastName" required>
                                     </div>
                                 </div>
                                 <div class="address--delivery-address" required>
                                     <label for="">Address</label>
-                                    <input type="text" v-model = "address">
+                                    <input type="text" v-model = "userinfo.address">
                                 </div>
                             </div>
                             <div class="form--information--phone">
                                 <label for="">Phone number</label>
-                                <input type="text" v-model = "phone" required>
+                                <input type="text" v-model = "userinfo.phone" required>
                             </div>
                         
                         <div class="page__button">
@@ -194,7 +194,8 @@
 import axios from 'axios'
 import CartItem from '../components/CartItem.vue'
 import CartItem02 from '../components/CartItem02.vue'
-
+import { toast } from 'bulma-toast'
+import $ from 'jquery'
 
 export default {
     name: 'Cart',
@@ -204,149 +205,47 @@ export default {
     },
     data() {
         return {
+            user: '',
+            userinfo: '',
             cart: {
                 item: []
             },
-            email: 'Test',
-            firstname: '',
-            lastname: '',
-            address: '',
-            phone: '',
             paid_amount: '',
             error: []
         }
     },
     mounted(){
         document.title = "Cart"
-        this.cart = this.$store.state.cart.items
-        this.cart = this.$store.state.cart;
-        if($(".form-information--email input").val() != ""){
-            $(".form-information--email label").css({"top":"15%"});
-            $(".form-information--email input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-        }
-         if($(".name--firstname input").val() != ""){
-                $(".name--firstname label").css({"top":"15%"});
-                $(".name--firstname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-            }
-            if($(".name--lastname input").val() != ""){
-                $(".name--lastname label").css({"top":"15%"});
-                $(".name--lastname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-            }
-          if($(".address--delivery-address input").val() != ""){
-                $(".address--delivery-address label").css({"top":"15%"});
-                $(".address--delivery-address input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-            }
-         if($(".form--information--phone input").val() != ""){
-                $(".form--information--phone label").css({"top":"15%"});
-                $(".form--information--phone input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-            }
-          if($(".discount--code input").val() != ""){
-                $(".discount--code label").css({"top":"15%"});
-                $(".discount--code input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-            }
-        $(".form-information--email input").focusin(function(){
-            $(".form-information--email label").css({"top":"15%"});
-            $(".form-information--email input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-        })
-
-        $(".form-information--email input").focusout(function(){
-            if($(".form-information--email input").val() == ""){
-                $(".form-information--email label").css({"top":"35%"});
-                $(".form-information--email input").css({"padding-top":"0rem", "height":"3rem"});
-            }
-        })
-
-        $(".name--firstname input").focusin(function(){
-            $(".name--firstname label").css({"top":"15%"});
-            $(".name--firstname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-        })
-
-        $(".name--firstname input").focusout(function(){
-            if($(".name--firstname input").val() == ""){
-                $(".name--firstname label").css({"top":"35%"});
-                $(".name--firstname input").css({"padding-top":"0rem", "height":"3rem"});
-            }
-        })
-
-        $(".name--lastname input").focusin(function(){
-            $(".name--lastname label").css({"top":"15%"});
-            $(".name--lastname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-        })
-
-        $(".name--lastname input").focusout(function(){
-            if($(".name--lastname input").val() == ""){
-                $(".name--lastname label").css({"top":"35%"});
-                $(".name--lastname input").css({"padding-top":"0rem", "height":"3rem"});
-            }
-        })
-
-        $(".address--delivery-address input").focusin(function(){
-            $(".address--delivery-address label").css({"top":"15%"});
-            $(".address--delivery-address input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-        })
-
-        $(".address--delivery-address input").focusout(function(){
-            if($(".address--delivery-address input").val() == ""){
-                $(".address--delivery-address label").css({"top":"35%"});
-                $(".address--delivery-address input").css({"padding-top":"0rem", "height":"3rem"});
-            }
-        })
-
-        $(".form--information--phone input").focusin(function(){
-            $(".form--information--phone label").css({"top":"15%"});
-            $(".form--information--phone input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-        })
-
-        $(".form--information--phone input").focusout(function(){
-            if($(".form--information--phone input").val() == ""){
-                $(".form--information--phone label").css({"top":"35%"});
-                $(".form--information--phone input").css({"padding-top":"0rem", "height":"3rem"});
-            }
-        })
-
-        $(".discount--code input").focusin(function(){
-            $(".discount--code label").css({"top":"15%"});
-            $(".discount--code input").css({"padding-top":"1.1rem", "height":"1.9rem"});
-        })
-
-        $(".discount--code input").focusout(function(){
-            if($(".discount--code input").val() == ""){
-                $(".discount--code label").css({"top":"35%"});
-                $(".discount--code input").css({"padding-top":"0rem", "height":"3rem"});
-            }
-        })
-
-        $(".discount--code input").keyup(function(){
-            if($(".discount--code input").val() == ""){
-                $(".discount--button button").css({"background-color":"#cccccc", "pointer-events":"none"});
-            }else{
-                $(".discount--button button").css({"background-color":"#2c732f", "pointer-events":"all"});
-            }
-        })
-
-        $(".hide-show__bar--title p").click(function(){
-            $(".order__product-and-price--wrapper").slideToggle();
-        })
-        $(window).resize(function(){
-            if($(window).width() > 740){
-                $(".order__product-and-price--wrapper").css("display","block");
-            }
-        })
-
-        $('.btn-check-out').click(function(){
-            $('.check-out__wrapper').show();
-            $('.shopping-cart').hide();
-        })
-
-        $('.button--back').click(function(){
-            $('.check-out__wrapper').hide();
-            $('.shopping-cart').show();
-        })
+        this.cart = this.$store.state.cart
+        this.getUserInfo()
+        this.loadCss()
     },
     methods:{
+        async getUserInfo(){
+            this.$store.commit('setIsLoading', true)
+            await axios.get('/api/v1/userinfo')
+                .then(response =>{
+                    this.user = response.data
+                    console.log(this.user)
+                })
+                .catch(err =>{
+                    console.log(err)
+                })
 
-        getUser(){
-            console.log("getEmail")    
+            await axios.get('/api/v1/userorderinfo')
+                .then(response =>{
+                    this.userinfo = response.data
+                })
+                .catch(err =>{
+                    this.userinfo = {
+                        firstName: "",
+                        lastName: "",
+                        phone: "",
+                        address: ""
+                    }
+                })
+            this.$store.commit('setIsLoading', false)
+
         },
 
         async proceedOrder(){
@@ -399,6 +298,131 @@ export default {
 
         removeFromCart(item) {
             this.$store.state.cart.items = this.$store.state.cart.items.filter(i => i.product.id !== item.product.id)
+        },
+
+        loadCss(){
+             if(this.user.email != ""){
+                $(".form-information--email label").css({"top":"15%"});
+                $(".form-information--email input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            }
+             if(this.userinfo.firstName != ""){
+                    $(".name--firstname label").css({"top":"15%"});
+                    $(".name--firstname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+                }
+                if(this.userinfo.lastName != ""){
+                    $(".name--lastname label").css({"top":"15%"});
+                    $(".name--lastname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+                }
+              if(this.userinfo.address!= ""){
+                    $(".address--delivery-address label").css({"top":"15%"});
+                    $(".address--delivery-address input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+                }
+             if(this.userinfo.phone != ""){
+                    $(".form--information--phone label").css({"top":"15%"});
+                    $(".form--information--phone input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+                }
+              if($(".discount--code input").val() != ""){
+                    $(".discount--code label").css({"top":"15%"});
+                    $(".discount--code input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+                }
+            $(".form-information--email input").focusin(function(){
+                $(".form-information--email label").css({"top":"15%"});
+                $(".form-information--email input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            })
+
+            $(".form-information--email input").focusout(function(){
+                if($(".form-information--email input").val() == ""){
+                    $(".form-information--email label").css({"top":"35%"});
+                    $(".form-information--email input").css({"padding-top":"0rem", "height":"3rem"});
+                }
+            })
+
+            $(".name--firstname input").focusin(function(){
+                $(".name--firstname label").css({"top":"15%"});
+                $(".name--firstname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            })
+
+            $(".name--firstname input").focusout(function(){
+                if($(".name--firstname input").val() == ""){
+                    $(".name--firstname label").css({"top":"35%"});
+                    $(".name--firstname input").css({"padding-top":"0rem", "height":"3rem"});
+                }
+            })
+
+            $(".name--lastname input").focusin(function(){
+                $(".name--lastname label").css({"top":"15%"});
+                $(".name--lastname input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            })
+
+            $(".name--lastname input").focusout(function(){
+                if($(".name--lastname input").val() == ""){
+                    $(".name--lastname label").css({"top":"35%"});
+                    $(".name--lastname input").css({"padding-top":"0rem", "height":"3rem"});
+                }
+            })
+
+            $(".address--delivery-address input").focusin(function(){
+                $(".address--delivery-address label").css({"top":"15%"});
+                $(".address--delivery-address input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            })
+
+            $(".address--delivery-address input").focusout(function(){
+                if($(".address--delivery-address input").val() == ""){
+                    $(".address--delivery-address label").css({"top":"35%"});
+                    $(".address--delivery-address input").css({"padding-top":"0rem", "height":"3rem"});
+                }
+            })
+
+            $(".form--information--phone input").focusin(function(){
+                $(".form--information--phone label").css({"top":"15%"});
+                $(".form--information--phone input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            })
+
+            $(".form--information--phone input").focusout(function(){
+                if($(".form--information--phone input").val() == ""){
+                    $(".form--information--phone label").css({"top":"35%"});
+                    $(".form--information--phone input").css({"padding-top":"0rem", "height":"3rem"});
+                }
+            })
+
+            $(".discount--code input").focusin(function(){
+                $(".discount--code label").css({"top":"15%"});
+                $(".discount--code input").css({"padding-top":"1.1rem", "height":"1.9rem"});
+            })
+
+            $(".discount--code input").focusout(function(){
+                if($(".discount--code input").val() == ""){
+                    $(".discount--code label").css({"top":"35%"});
+                    $(".discount--code input").css({"padding-top":"0rem", "height":"3rem"});
+                }
+            })
+
+            $(".discount--code input").keyup(function(){
+                if($(".discount--code input").val() == ""){
+                    $(".discount--button button").css({"background-color":"#cccccc", "pointer-events":"none"});
+                }else{
+                    $(".discount--button button").css({"background-color":"#2c732f", "pointer-events":"all"});
+                }
+            })
+
+            $(".hide-show__bar--title p").click(function(){
+                $(".order__product-and-price--wrapper").slideToggle();
+            })
+            $(window).resize(function(){
+                if($(window).width() > 740){
+                    $(".order__product-and-price--wrapper").css("display","block");
+                }
+            })
+
+            $('.btn-check-out').click(function(){
+                $('.check-out__wrapper').show();
+                $('.shopping-cart').hide();
+            })
+
+            $('.button--back').click(function(){
+                $('.check-out__wrapper').hide();
+                $('.shopping-cart').show();
+            })
         }
     },
 

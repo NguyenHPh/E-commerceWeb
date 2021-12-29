@@ -40,11 +40,79 @@ export default {
     name: "ChangePassword",
     data(){
         return {
-
+            username: "",
+            email: "",
+            password: "",
+            repassword: ""
         }
     },
     mounted(){
         document.title = "Change Password"
+    },
+    methods:{
+        validate(){
+            this.errors = []
+            if (this.username.length < 8) {
+                this.errors.push('The username must be over 7 keywords')
+            }
+            if (this.password.length < 8) {
+                this.errors.push('The password is too short')
+            }
+            if (this.password !== this.repassword) {
+                this.errors.push('The passwords doesn\'t match')
+            }
+        },
+        async submitForm(){
+            this.$store.commit('setIsLoading', true)
+            this.validate()
+            if (!this.errors.length){
+                const formData = {
+                    username: this.username,
+                    email: this.email,
+                    password: this.password
+                }
+                
+                await axios
+                    .post("/api/v1/users/", formData)
+                    .then(response => {
+                        toast({
+                            message: 'Account created, please log in!',
+                            type: 'is-success',
+                            dismissible: true,
+                            pauseOnHover: true,
+                            duration: 2000,
+                            position: 'bottom-right',
+                        })
+                        this.$router.push('/log-in')
+                    })
+                    .catch(error => {
+                        if (error.response) {
+                            for (const property in error.response.data) {
+                                this.errors.push(`${property}: ${error.response.data[property]}`)
+                            }
+                             console.log(JSON.stringify(error.response.data))
+                        } else if (error.message) {
+                            this.errors.push('Something went wrong. Please try again')
+                            
+                            console.log(JSON.stringify(error))
+                        }                    
+                        })
+
+                this.$store.commit('setIsLoading', false)
+                
+            }
+            else{
+                console.log(this.errors);
+                toast({
+                    message: 'failed',
+                    type: 'is-success',
+                    dismissible: true,
+                    pauseOnHover: true,
+                    duration: 2000,
+                    position: 'bottom-right',
+                })
+            }
+        }
     }
 }
 </script>

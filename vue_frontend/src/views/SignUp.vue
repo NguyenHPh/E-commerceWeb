@@ -98,24 +98,6 @@ export default {
                         }                    
                         })
 
-                /*
-                const formData02 = {
-                    user: this.username,
-                    firstName: "",
-                    lastName: "",
-                    phone: "",
-                    address: ""
-                }
-                await axios
-                    .post("/api/v1/addinfo", formData02)
-                    .then(response => {
-                        console.log("upload info")
-
-                    })
-                    .catch(error => {
-                        console.log(error)                
-                    })*/
-
                 this.$store.commit('setIsLoading', false)
                 
             }

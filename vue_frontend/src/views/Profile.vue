@@ -13,7 +13,7 @@
                             <a @click="logout()" class="log-out">log out</a>
                         </div>
                         <div class="button--change-password">
-                            <a href="">change password</a>
+                            <a href="/change-password">change password</a>
                         </div>
                     </div>
                 </div>

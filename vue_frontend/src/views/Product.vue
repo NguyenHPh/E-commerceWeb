@@ -44,19 +44,19 @@
                         <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle py-2 d-block">by lifestage</a>
                         <ul class="collapse list-unstyled" id="pageSubmenu2">
                             <li>
-                                <a href="#" class="mb-3 d-flex">
-                                    <i class="fas mr-2" v-bind:class="{ 'fa-check':filterLifeStage[0] }"></i>puppy
-                                </a>
+                                <span class="mb-3 d-flex">
+                                    <i class="fas mr-2" v-bind:class="{ 'fa-check':filterLifeStage[0] }" @click="loadLifeStage(0)"></i>puppy
+                                </span>
                             </li>
                             <li>
-                                <a href="#" class="mb-3 d-flex">
-                                    <i class="fas mr-2" v-bind:class="{ 'fa-check':filterLifeStage[0] }"></i> adult
-                                </a>
+                                <span class="mb-3 d-flex">
+                                    <i class="fas mr-2" v-bind:class="{ 'fa-check':filterLifeStage[1] }" @click="loadLifeStage(1)"></i> adult
+                                </span>
                             </li>
                             <li>
-                                <a href="#" class="mb-3 d-flex">
-                                    <i class="fas mr-2" v-bind:class="{ 'fa-check':filterLifeStage[0] }"></i>senior 
-                                </a>
+                                <span class="mb-3 d-flex">
+                                    <i class="fas mr-2" v-bind:class="{ 'fa-check':filterLifeStage[2] }" @click="loadLifeStage(2)"></i>senior 
+                                </span>
                             </li>
                         </ul>
                       </li>
@@ -67,7 +67,7 @@
             <div id="content" class="pl-5">
                 <span class="result-quantity">displaying {{ displayqtt }} results</span>
                 <ProductBox 
-                    v-for="product in products"
+                    v-for="product in dproducts"
                     v-bind:key="product.id"
                     v-bind:product="product"
                 />
@@ -90,6 +90,7 @@ export default {
     data() {
         return{
             products: {},
+            dproducts: {},
             category: '',
             categoryall: true,
             displayqtt: 0,
@@ -99,9 +100,7 @@ export default {
     },
     mounted() {
         document.title = 'Product';
-
         this.getProduct();
-
         this.loadMore();
     },
     methods:{
@@ -116,6 +115,7 @@ export default {
                     axios.get(`/api/v1/collections/all`)
                             .then(response => {
                                 this.products = response.data
+                                this.dproducts = this.products
                                 this.displayqtt = this.products.length
                             })
                             .catch(err =>{
@@ -150,6 +150,8 @@ export default {
                                 console.log(err)
                             })
                 }
+                this.dproducts = this.products
+                console.log(this.products)
                 this.$store.commit('setIsLoading', false)
         },
 
@@ -182,9 +184,26 @@ export default {
               } 
             });
 
+        },
+        loadLifeStage(type){
+            this.filterLifeStage[type] = !this.filterLifeStage[type]
+            let dLifeStage = []
+            if (this.filterLifeStage[0]){
+                dLifeStage.push("puppy")
+            }
+            if (this.filterLifeStage[1]){
+                dLifeStage.push("adult")
+            }
+            if (this.filterLifeStage[2]){
+                dLifeStage.push("senior")
+            }
+            console.log(dLifeStage)
+            this.dproducts = this.products.filter(product => dLifeStage.includes(product.lifeStage))
+            this.displayqtt = this.dproducts.length
         }
     },
     computed:{
+
     }
 }
 </script>
